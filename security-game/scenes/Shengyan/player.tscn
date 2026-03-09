@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cyxeuukm1fkcx"]
+
+[ext_resource type="Script" uid="uid://sh2x3xm7vicu" path="res://scenes/Shengyan/PlayerController.cs" id="1_dinqr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxdda"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1963969163 node_paths=PackedStringArray("_camera")]
+script = ExtResource("1_dinqr")
+_camera = NodePath("Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489573448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_uxdda")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1835365883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4502822, -0.5550982)
