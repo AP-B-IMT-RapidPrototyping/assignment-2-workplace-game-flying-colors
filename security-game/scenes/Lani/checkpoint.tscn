@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cvqrnkb7l0eru"]
+
+[ext_resource type="PackedScene" uid="uid://bjm31cw16olv1" path="res://assets/kenney/prototype/GLB format/door-sliding-double.glb" id="1_fhpy4"]
+[ext_resource type="Script" uid="uid://wslmmmb05mqc" path="res://scenes/Lani/Checkpoint.cs" id="1_w15jd"]
+[ext_resource type="PackedScene" uid="uid://yx58rbnby46g" path="res://assets/kenney/prototype/GLB format/wall-doorway-wide.glb" id="2_ln8jl"]
+[ext_resource type="PackedScene" uid="uid://d1ivdm8kw8vke" path="res://assets/kenney/prototype/GLB format/indicator-square-a.glb" id="3_ln8jl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w15jd"]
+size = Vector3(0.5, 1, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ln8jl"]
+size = Vector3(3, 1, 3)
+
+[node name="Checkpoint" type="StaticBody3D" unique_id=2147000126]
+script = ExtResource("1_w15jd")
+
+[node name="door-sliding-double2" parent="." unique_id=1461712054 instance=ExtResource("1_fhpy4")]
+
+[node name="door-right" parent="door-sliding-double2/door-sliding-double" parent_id_path=PackedInt32Array(1461712054, 2003374972) index="0" unique_id=1777688561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="wall-doorway-wide2" parent="." unique_id=597305008 instance=ExtResource("2_ln8jl")]
+
+[node name="indicator-square-a2" parent="." unique_id=684300194 instance=ExtResource("3_ln8jl")]
+transform = Transform3D(3, 0, 0, 0, 1.017, 0, 0, 0, 3, 0, 0.01, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1985551880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 0.5, 0)
+shape = SubResource("BoxShape3D_w15jd")
+
+[node name="AreaDetector" type="Area3D" parent="." unique_id=341886914]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDetector" unique_id=1436530627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ln8jl")
+
+[connection signal="body_entered" from="AreaDetector" to="." method="OnPLayerEnteredCheckpoint"]
+
+[editable path="door-sliding-double2"]

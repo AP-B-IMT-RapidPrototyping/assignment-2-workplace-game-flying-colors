@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://dcj2jjyoyfrkl"]
 
+[ext_resource type="PackedScene" uid="uid://h76b663innnc" path="res://assets/kenney/prototype/GLB format/floor-thick.glb" id="1_1ov5g"]
+[ext_resource type="PackedScene" uid="uid://cvqrnkb7l0eru" path="res://scenes/Lani/checkpoint.tscn" id="1_o7ijt"]
+[ext_resource type="PackedScene" uid="uid://d1ivdm8kw8vke" path="res://assets/kenney/prototype/GLB format/indicator-square-a.glb" id="3_1iv4c"]
+[ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="4_ef25m"]
+[ext_resource type="PackedScene" uid="uid://73n7dr2dy7uo" path="res://scenes/Lani/test_ui.tscn" id="5_1iv4c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7ijt"]
+size = Vector3(5, 0.4, 5)
+
 [node name="Test" type="Node3D" unique_id=1534135281]
+
+[node name="Checkpoint" parent="." unique_id=450571128 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
+_player = NodePath("../Player")
+
+[node name="Indicators" type="Node3D" parent="." unique_id=1264891657]
+
+[node name="indicator-square-a2" parent="Indicators" unique_id=684300194 instance=ExtResource("3_1iv4c")]
+transform = Transform3D(3, 0, 0, 0, 1.017, 0, 0, 0, 3, 0, 0.01, 0)
+
+[node name="Player" parent="." unique_id=1963969163 instance=ExtResource("4_ef25m")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.0233905, 0.52096486, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1711489819]
+
+[node name="floor-thick2" parent="Floor" unique_id=2096657067 instance=ExtResource("1_1ov5g")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=400623093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shape = SubResource("BoxShape3D_o7ijt")
+
+[node name="TestUI" parent="." unique_id=1310375095 instance=ExtResource("5_1iv4c")]
+
+[connection signal="LoseEnergy" from="Checkpoint" to="TestUI/EnergyLabel" method="LoseEnergy"]
+
+[editable path="TestUI"]
