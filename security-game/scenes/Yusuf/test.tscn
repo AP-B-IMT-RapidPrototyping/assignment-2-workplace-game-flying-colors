@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://bccf2k157brlt"]
 
+[ext_resource type="ArrayMesh" uid="uid://dffoayo5w0irk" path="res://assets/kenney_food-kit/Models/OBJ format/cup-coffee.obj" id="1_xyomb"]
+[ext_resource type="PackedScene" uid="uid://bemefpi5dgurd" path="res://assets/kenney/prototype/GLB format/wall-low.glb" id="2_6eq5j"]
+
 [node name="Test" type="Node3D" unique_id=1894338482]
 
-[node name="Window" type="Window" parent="." unique_id=680274103]
-oversampling_override = 1.0
+[node name="CupCoffee" type="MeshInstance3D" parent="." unique_id=1576027715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0812912, 0.6970761, 0.95913947)
+mesh = ExtResource("1_xyomb")
+
+[node name="wall-low2" parent="." unique_id=233111364 instance=ExtResource("2_6eq5j")]
+transform = Transform3D(6.4362392, 0, 0, 0, 1.3934069, 0, 0, 0, 1.0957283, -0.004091263, 0, 0.9842918)
