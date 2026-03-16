@@ -14,18 +14,18 @@ public partial class Checkpoint : StaticBody3D
 	[Signal]
 	public delegate void LoseEnergyEventHandler();
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		SetRandomWaitTime();
-        anomalyTimer.Start();
+		anomalyTimer.Start();
 		animations.Play("close");
 		anomalyTimer.Timeout += MakeAnomaly;
 		//tempTimer.Timeout += fixAnomaly;
-    }
+	}
 
-    public override void _Process(double delta)
-    {
-    }
+	public override void _Process(double delta)
+	{
+	}
 
 
 	//Roep signaal aan om energie te verliezen wanneer de speler binnen de range komt
@@ -42,7 +42,7 @@ public partial class Checkpoint : StaticBody3D
 	private void MakeAnomaly()
 	{
 		if (hasAnomaly)
-            return;
+			return;
 		
 		animations.Play("open");
 		hasAnomaly = true;
@@ -64,8 +64,8 @@ public partial class Checkpoint : StaticBody3D
 		hasAnomaly = false;
 		GD.Print($"Checkpoint {ID} anomaly fixed");
 
-        SetRandomWaitTime();
-        anomalyTimer.Start();
+		SetRandomWaitTime();
+		anomalyTimer.Start();
 	}
 
 }
