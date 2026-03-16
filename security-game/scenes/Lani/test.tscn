@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="4_ef25m"]
 [ext_resource type="PackedScene" uid="uid://73n7dr2dy7uo" path="res://scenes/Lani/test_ui.tscn" id="5_1iv4c"]
 [ext_resource type="PackedScene" uid="uid://b4bv0t6810nb5" path="res://scenes/Lani/report_button.tscn" id="6_ef25m"]
-[ext_resource type="PackedScene" uid="uid://ejmi602d18u3" path="res://scenes/Rhune/Level1.tscn" id="6_pyt0h"]
+[ext_resource type="PackedScene" uid="uid://cblkd6yknl78o" path="res://scenes/Rhune/Level1.tscn" id="6_pyt0h"]
 [ext_resource type="PackedScene" uid="uid://btsypc4o7xyew" path="res://scenes/Lani/report_menu.tscn" id="7_pyt0h"]
 [ext_resource type="PackedScene" uid="uid://ca328gi3odxkl" path="res://assets/kenney/prototype/GLB format/number-1.glb" id="7_w6jt5"]
 [ext_resource type="PackedScene" uid="uid://ycbrhahujglu" path="res://assets/kenney/prototype/GLB format/number-2.glb" id="8_y1j6j"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dbvjf2yq8sa8p" path="res://assets/kenney/prototype/GLB format/floor-square.glb" id="11_pttsk"]
 [ext_resource type="PackedScene" uid="uid://0trqs6ixq3ir" path="res://assets/kenney/prototype/GLB format/wall.glb" id="12_durmc"]
 [ext_resource type="PackedScene" uid="uid://cipje3ywk6tmy" path="res://scenes/Lani/ExitSign.tscn" id="13_durmc"]
+[ext_resource type="PackedScene" uid="uid://be802a3bb7d4e" path="res://scenes/Lani/coffee.tscn" id="13_vg5ee"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ef25m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,40 +38,22 @@ environment = SubResource("Environment_ruvr5")
 
 [node name="Checkpoint" parent="." unique_id=450571128 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.040929, 0, 3)
-_player = NodePath("../Player")
+_player = NodePath("")
 
 [node name="Checkpoint2" parent="." unique_id=2147000126 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1285667, 0, -8.665561)
-_player = NodePath("../Player")
+_player = NodePath("")
 ID = 2
 
 [node name="Checkpoint3" parent="." unique_id=618723758 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.796425, 0, -1.0098753)
-_player = NodePath("../Player")
+_player = NodePath("")
 ID = 3
 
 [node name="Checkpoint4" parent="." unique_id=2052862915 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8714333, 0, 9.698651)
-_player = NodePath("../Player")
+_player = NodePath("")
 ID = 4
-
-[node name="Player" parent="." unique_id=1963969163 instance=ExtResource("4_ef25m")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.0233905, -0.008713007, 1.143637)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(1963969163, 1835365883) index="0" unique_id=178971686]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12931603, 0.22203928)
-light_color = Color(0.98039216, 1, 0.69411767, 1)
-light_energy = 0.2
-light_indirect_energy = 0.5
-light_volumetric_fog_energy = 0.4
-shadow_enabled = true
-distance_fade_enabled = true
-distance_fade_begin = 0.0
-distance_fade_shadow = 1.0
-distance_fade_length = 1.0
-spot_range = 20.0
-spot_attenuation = -1.62
-spot_angle = 11.736078
 
 [node name="TestUI" parent="." unique_id=1310375095 instance=ExtResource("5_1iv4c")]
 
@@ -284,12 +267,19 @@ transform = Transform3D(6.556708e-08, 0.5, -2.1855694e-08, 0, -2.1855694e-08, -0
 [node name="shape-cube-half5" parent="ExitSigns" unique_id=932852752 instance=ExtResource("13_durmc")]
 transform = Transform3D(0.5, -8.742278e-08, 3.821371e-15, 0, -2.1855694e-08, -0.5, 8.742278e-08, 0.5, -2.1855694e-08, 0.16596314, 0.8305812, -9.448263)
 
+[node name="Coffee" parent="." unique_id=1239199630 instance=ExtResource("13_vg5ee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3021413, 1)
+
+[node name="Player" parent="." unique_id=1963969163 instance=ExtResource("4_ef25m")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 2.7020597)
+
 [connection signal="LoseEnergy" from="Checkpoint" to="TestUI/EnergyLabel" method="LoseEnergy"]
 [connection signal="LoseEnergy" from="Checkpoint2" to="TestUI/EnergyLabel" method="LoseEnergy"]
 [connection signal="LoseEnergy" from="Checkpoint3" to="TestUI/EnergyLabel" method="LoseEnergy"]
 [connection signal="LoseEnergy" from="Checkpoint4" to="TestUI/EnergyLabel" method="LoseEnergy"]
 [connection signal="Report" from="ReportButton" to="Checkpoint" method="fixAnomaly"]
+[connection signal="Drink" from="Coffee" to="Player" method="ChangeEnergy"]
 
-[editable path="Player"]
 [editable path="TestUI"]
 [editable path="Level1"]
+[editable path="Level1/wall-corner-rounded2/wall-corner-rounded2"]
