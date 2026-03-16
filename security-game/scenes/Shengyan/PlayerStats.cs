@@ -18,11 +18,13 @@ public partial class PlayerStats : Node
 
 	public void SetEnergy(int energy)
 	{
+		GD.Print("Set Energy triggered.");
 		int clampedEnergy = Mathf.Clamp(energy, MinEnergy, MaxEnergy);
 		if (_energy == clampedEnergy)
 		{
 			return;
 		}
+
 
 		_energy = clampedEnergy;
 		EmitSignal(SignalName.EnergyChanged, _energy);
