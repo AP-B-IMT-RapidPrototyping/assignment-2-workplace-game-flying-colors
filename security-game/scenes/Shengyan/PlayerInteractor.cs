@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+//Handles interaction
+
 public partial class PlayerInteractor : Node3D
 {
 	[Signal]

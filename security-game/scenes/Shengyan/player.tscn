@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://sh2x3xm7vicu" path="res://scenes/Shengyan/PlayerController.cs" id="1_dinqr"]
 [ext_resource type="Script" path="res://scenes/Shengyan/PlayerInteractor.cs" id="2_706yr"]
+[ext_resource type="Script" path="res://scenes/Shengyan/PlayerStats.cs" id="3_2u7ev"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxdda"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1963969163 node_paths=PackedStringArray("_camera")]
+[node name="Player" type="CharacterBody3D" unique_id=1963969163 node_paths=PackedStringArray("_camera", "_stats")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = ExtResource("1_dinqr")
 _camera = NodePath("Camera3D")
+_stats = NodePath("Stats")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489573448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -21,3 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4502822, -0.5550982)
 script = ExtResource("2_706yr")
 _camera = NodePath("../Camera3D")
 _player = NodePath("..")
+
+[node name="Stats" type="Node" parent="." unique_id=1229230640]
+script = ExtResource("3_2u7ev")

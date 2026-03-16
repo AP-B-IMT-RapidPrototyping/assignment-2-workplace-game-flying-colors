@@ -1,13 +1,19 @@
 using Godot;
 using System;
 
+//Handles player movement and input
+
 public partial class PlayerController : CharacterBody3D
 {
 	[Export] private float _mouseSensitivity = 0.003f;
     [Export] private Camera3D _camera;
+	[Export] private PlayerStats _stats;
 
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
+
+	public PlayerStats Stats => _stats;
+	public bool HasEnergy => _stats != null && _stats.HasEnergy;
 
 
     public override void _Ready()
@@ -16,9 +22,29 @@ public partial class PlayerController : CharacterBody3D
 
 		if (_camera == null)
 		{
-			GD.PushWarning("PlayerController: Camera is not assigned. Look input is disabled.");
+			GD.PushWarning("PlayerController: Camera is not assigned.");
+		}
+
+		if (_stats == null)
+		{
+			_stats = GetNodeOrNull<PlayerStats>("Stats");
+			if (_stats == null)
+			{
+				GD.PushWarning("PlayerController: Stats is not assigned.");
+			}
 		}
     }
+
+	public void SetEnergy(bool hasEnergy)
+	{
+		if (_stats == null)
+		{
+			GD.PushWarning("PlayerController: Cannot set energy because Stats is missing.");
+			return;
+		}
+
+		_stats.SetEnergy(hasEnergy);
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
