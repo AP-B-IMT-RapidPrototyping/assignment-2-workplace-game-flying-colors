@@ -15,7 +15,7 @@ public partial class PlayerController : CharacterBody3D
 	//public const float JumpVelocity = 4.5f;
 
 	public PlayerStats Stats => _stats;
-	public bool HasEnergy => _stats != null && _stats.HasEnergy;
+	public int Energy => _stats?.Energy ?? PlayerStats.MinEnergy;
 
 
 	public override void _Ready()
@@ -37,7 +37,7 @@ public partial class PlayerController : CharacterBody3D
 		}
 	}
 
-	public void SetEnergy(bool hasEnergy)
+	public void SetEnergy(int energy)
 	{
 		if (_stats == null)
 		{
@@ -45,7 +45,19 @@ public partial class PlayerController : CharacterBody3D
 			return;
 		}
 
-		_stats.SetEnergy(hasEnergy);
+		_stats.SetEnergy(energy);
+	}
+
+
+	public void ChangeEnergy(int amount)
+	{
+		if (_stats == null)
+		{
+			GD.PushWarning("PlayerController: Cannot add energy because Stats is missing.");
+			return;
+		}
+
+		_stats.ChangeEnergy(amount);
 	}
 
 	public override void _PhysicsProcess(double delta)

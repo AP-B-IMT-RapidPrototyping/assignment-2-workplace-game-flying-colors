@@ -6,25 +6,31 @@ using System;
 public partial class PlayerStats : Node
 {
 	[Signal]
-	public delegate void EnergyChangedEventHandler(bool hasEnergy);
+	public delegate void EnergyChangedEventHandler(int energy);
 
-	[Export] private bool _hasEnergy = true;
+	public const int MinEnergy = 0;
+	public const int MaxEnergy = 100;
 
-	public bool HasEnergy => _hasEnergy;
+	[Export(PropertyHint.Range, "0,100,1")]
+	private int _energy = MaxEnergy;
 
-	public void SetEnergy(bool hasEnergy)
+	public int Energy => _energy;
+
+	public void SetEnergy(int energy)
 	{
-		if (_hasEnergy == hasEnergy)
+		int clampedEnergy = Mathf.Clamp(energy, MinEnergy, MaxEnergy);
+		if (_energy == clampedEnergy)
 		{
 			return;
 		}
 
-		_hasEnergy = hasEnergy;
-		EmitSignal(SignalName.EnergyChanged, _hasEnergy);
+		_energy = clampedEnergy;
+		EmitSignal(SignalName.EnergyChanged, _energy);
 	}
 
-	public void ToggleEnergy()
+	public void ChangeEnergy(int amount)
 	{
-		SetEnergy(!_hasEnergy);
+
+		SetEnergy(_energy + amount);
 	}
 }
