@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bq8mcf3xnb5oq"]
+
+[ext_resource type="PackedScene" uid="uid://cdiq1h66vwqh1" path="res://assets/kenney/prototype/GLB format/wall-doorway-round.glb" id="1_uexja"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jm3si"]
+size = Vector3(0.20306396, 1.001236, 0.5913086)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m0nbb"]
+size = Vector3(0.2043457, 0.21435547, 1)
+
+[node name="wall-doorway-round2" unique_id=324918454 instance=ExtResource("1_uexja")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=227328252]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=770997169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025299072, 0.5008774, 0.7143866)
+shape = SubResource("BoxShape3D_jm3si")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=192663510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025299072, 0.5008774, -0.70822644)
+shape = SubResource("BoxShape3D_jm3si")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=660570607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025512695, 0.8916811, 0)
+shape = SubResource("BoxShape3D_m0nbb")

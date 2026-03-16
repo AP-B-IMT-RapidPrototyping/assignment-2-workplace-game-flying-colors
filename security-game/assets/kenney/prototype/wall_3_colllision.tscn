@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dj5350kwpaaxe"]
+
+[ext_resource type="PackedScene" uid="uid://0trqs6ixq3ir" path="res://assets/kenney/prototype/GLB format/wall.glb" id="1_dfdti"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k46q4"]
+size = Vector3(0.20288086, 1.0022278, 1)
+
+[node name="wall2" unique_id=1148781219 instance=ExtResource("1_dfdti")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=215150023]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=2012975464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012207031, 0.49943542, 0)
+shape = SubResource("BoxShape3D_k46q4")
