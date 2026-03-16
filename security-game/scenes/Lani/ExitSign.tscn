@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cipje3ywk6tmy"]
+
+[ext_resource type="PackedScene" uid="uid://c0ug6gdiib7h5" path="res://assets/kenney/prototype/GLB format/shape-cube-half.glb" id="1_2tric"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq5sf"]
+albedo_color = Color(1.0107458e-06, 0.79048294, 3.85046e-07, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+
+[node name="shape-cube-half2" unique_id=1702360813 instance=ExtResource("1_2tric")]
+
+[node name="shape-cube-half" parent="." index="0" unique_id=495900048]
+transform = Transform3D(0.54920435, 0, 0, 0, 0.29669964, 0, 0, 0, 0.31241113, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_fq5sf")
+
+[node name="Label3D" type="Label3D" parent="." index="1" unique_id=123898557]
+transform = Transform3D(1.5184196, 0, 0, 0, -6.5618416e-08, 1.5, 0, -1.5011744, -6.556708e-08, 0, 0.15580428, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "EXIT"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1357510720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38743567, 0)
+light_color = Color(0, 1, 0, 1)
+light_energy = 0.5
+shadow_enabled = true
+omni_range = 1.2226872

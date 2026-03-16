@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b4bv0t6810nb5"]
+
+[ext_resource type="PackedScene" uid="uid://bymm01d4hoca3" path="res://assets/kenney/prototype/GLB format/button-floor-round-small.glb" id="1_pgb3t"]
+[ext_resource type="Script" uid="uid://cwlnygwajixub" path="res://scenes/Lani/ReportButton.cs" id="1_qtjyi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtjyi"]
+size = Vector3(0.3, 0.1, 0.3)
+
+[node name="ReportButton" type="Node3D" unique_id=552731684 groups=["interactable"]]
+script = ExtResource("1_qtjyi")
+
+[node name="button-floor-round-small2" parent="." unique_id=674540464 instance=ExtResource("1_pgb3t")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=570146335]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1290203756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("BoxShape3D_qtjyi")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1069200216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13681462, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.5
+shadow_enabled = true
+omni_range = 0.17568064
