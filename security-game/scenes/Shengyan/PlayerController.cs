@@ -6,7 +6,7 @@ using System;
 public partial class PlayerController : CharacterBody3D
 {
 	[Export] private float _mouseSensitivity = 0.003f;
-    [Export] private Camera3D _camera;
+	[Export] private Camera3D _camera;
 	[Export] private PlayerStats _stats;
 
 	[Export] private float _speed = 1.0f;
@@ -18,9 +18,9 @@ public partial class PlayerController : CharacterBody3D
 	public int Energy => _stats?.Energy ?? PlayerStats.MinEnergy;
 
 
-    public override void _Ready()
-    {
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+	public override void _Ready()
+	{
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 
 		if (_camera == null)
 		{
@@ -35,7 +35,7 @@ public partial class PlayerController : CharacterBody3D
 				GD.PushWarning("PlayerController: Stats is not assigned.");
 			}
 		}
-    }
+	}
 
 	public void SetEnergy(int energy)
 	{
@@ -96,25 +96,25 @@ public partial class PlayerController : CharacterBody3D
 	}
 
 	public override void _Input(InputEvent @event)
-    {
+	{
 		if (_camera == null)
 		{
 			return;
 		}
 
 		if (@event is InputEventMouseMotion mouseMotion)
-        {
+		{
 			// Horizontal rotation: rotate the whole player (Y-axis).
-            RotateY(-mouseMotion.Relative.X * _mouseSensitivity);
+			RotateY(-mouseMotion.Relative.X * _mouseSensitivity);
 
 			// Vertical rotation: rotate only the camera (X-axis).
-            _camera.RotateX(-mouseMotion.Relative.Y * _mouseSensitivity);
+			_camera.RotateX(-mouseMotion.Relative.Y * _mouseSensitivity);
 
 			// Keep camera pitch in a safe range so it does not flip.
-            Vector3 cameraRotation = _camera.Rotation;
-            cameraRotation.X = Mathf.Clamp(cameraRotation.X, -1.5f, 1.5f);
-            _camera.Rotation = cameraRotation;
-        }
-    }
-    
+			Vector3 cameraRotation = _camera.Rotation;
+			cameraRotation.X = Mathf.Clamp(cameraRotation.X, -1.5f, 1.5f);
+			_camera.Rotation = cameraRotation;
+		}
+	}
+	
 }

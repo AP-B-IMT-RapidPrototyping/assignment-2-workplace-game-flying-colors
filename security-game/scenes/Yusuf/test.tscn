@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://bccf2k157brlt"]
 
-[ext_resource type="ArrayMesh" uid="uid://dffoayo5w0irk" path="res://assets/kenney_food-kit/Models/OBJ format/cup-coffee.obj" id="1_xyomb"]
 [ext_resource type="PackedScene" uid="uid://bemefpi5dgurd" path="res://assets/kenney/prototype/GLB format/wall-low.glb" id="2_6eq5j"]
+[ext_resource type="PackedScene" uid="uid://bq8l8brs6qt8h" path="res://assets/kenney_food-kit/Models/GLB format/cup-coffee.glb" id="2_xyomb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6eq5j"]
+size = Vector3(0.35327148, 0.3508377, 0.45040894)
 
 [node name="Test" type="Node3D" unique_id=1894338482]
 
-[node name="CupCoffee" type="MeshInstance3D" parent="." unique_id=1576027715]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0812912, 0.6970761, 0.95913947)
-mesh = ExtResource("1_xyomb")
-
 [node name="wall-low2" parent="." unique_id=233111364 instance=ExtResource("2_6eq5j")]
-transform = Transform3D(6.4362392, 0, 0, 0, 1.3934069, 0, 0, 0, 1.0957283, -0.004091263, 0, 0.9842918)
+transform = Transform3D(6.4362392, 0, 0, 0, 1.3934069, 0, 0, 0, 1.0957283, -0.004091263, -0.08548534, -0.25170827)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=791056187]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2115957997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11047363, 0.71646154, -0.37433434)
+shape = SubResource("BoxShape3D_6eq5j")
+
+[node name="cup-coffee" parent="StaticBody3D" unique_id=793553639 instance=ExtResource("2_xyomb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12664747, 0.6327672, -0.37844563)

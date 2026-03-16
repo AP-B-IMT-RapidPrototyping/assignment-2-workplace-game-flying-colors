@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://bifa4teocaw32"]
 
 [node name="Test" type="Node3D" unique_id=1805605175]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1563925831]
+
+[node name="EnergieBar" type="ProgressBar" parent="CanvasLayer" unique_id=2077432532]
+offset_right = 175.0
+offset_bottom = 27.0
