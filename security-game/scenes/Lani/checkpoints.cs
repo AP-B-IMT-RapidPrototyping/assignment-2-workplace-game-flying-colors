@@ -10,6 +10,7 @@ public partial class Checkpoints : Node
 	[Export] private Timer stealTimer;
 	private bool stealTimerOn = false;
 	private int stolenItemCounter = 0;
+	private bool doorsPretending = false;
 
 	public override void _Ready()
 	{
@@ -21,22 +22,21 @@ public partial class Checkpoints : Node
 		updateTimer.Start();
 	}
 
-
 	public void Update()
 	{
 		if (!stealTimerOn)
 		{
-			if (GetOpenDoors() >= 2)
+			if (GetOpenDoors() >= 3)
 			{
-				GD.Print("More than 1 door open, timer started");
+				GD.Print("More than 2 door open, timer started");
 				stealTimer.Start();
 				stealTimerOn = true;
 			}	
 		} else
 		{
-			if (GetOpenDoors() < 2)
+			if (GetOpenDoors() < 3)
 			{
-				GD.Print("Less then 2 doors open, timer stopped");
+				GD.Print("Less then 3 doors open, timer stopped");
 				stealTimer.Stop();
 				stealTimerOn = false;
 			}
@@ -90,6 +90,33 @@ public partial class Checkpoints : Node
 		foreach (ValuableLight valuableLight in _valuableLights)
 		{
 			valuableLight.TurnGreen();
+		}
+	}
+
+	private void OnEnergyChanged(int energy)
+	{
+		if (energy == 0)
+		{
+			if (!doorsPretending)
+			{
+				GD.Print("No more energy");
+				foreach (Checkpoint checkpoint in _checkpoints)
+				{
+					checkpoint.PretendClosed();
+				}
+				doorsPretending = true;
+			}
+		} else if (energy > 0)
+		{
+			if (doorsPretending)
+			{
+				GD.Print("Got energy again");
+				foreach (Checkpoint checkpoint in _checkpoints)
+				{
+					checkpoint.StopPretending();
+				}
+				doorsPretending = false;
+			}
 		}
 	}
 }

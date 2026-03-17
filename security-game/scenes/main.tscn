@@ -5,10 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://0trqs6ixq3ir" path="res://assets/kenney/prototype/GLB format/wall.glb" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cipje3ywk6tmy" path="res://scenes/Lani/ExitSign.tscn" id="4_85g3d"]
 [ext_resource type="PackedScene" uid="uid://cvqrnkb7l0eru" path="res://scenes/Lani/checkpoint.tscn" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://d1b3ayyj8g81p" path="res://assets/kenney/prototype/GLB format/number-double-1.glb" id="5_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://b4bv0t6810nb5" path="res://scenes/Lani/report_button.tscn" id="5_85g3d"]
 [ext_resource type="PackedScene" uid="uid://be802a3bb7d4e" path="res://scenes/Lani/coffee.tscn" id="6_choun"]
+[ext_resource type="PackedScene" uid="uid://3paa6pceaug4" path="res://assets/kenney/prototype/GLB format/number-double-2.glb" id="6_vxglm"]
+[ext_resource type="PackedScene" uid="uid://sum2o65fbo5x" path="res://assets/kenney/prototype/GLB format/number-double-3.glb" id="7_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://btsypc4o7xyew" path="res://scenes/Lani/report_menu.tscn" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="8_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://dj1mkkb0d7gs3" path="res://assets/kenney/prototype/GLB format/number-double-4.glb" id="8_yq6so"]
 [ext_resource type="PackedScene" uid="uid://bnqcpe71aesu3" path="res://assets/kenney/prototype/GLB format/animal-horse.glb" id="10_0ld40"]
 [ext_resource type="Script" uid="uid://vrsd0t72fye2" path="res://scenes/Lani/ValuableLight.cs" id="10_jscy8"]
 [ext_resource type="PackedScene" uid="uid://24fqff0bvkm3" path="res://assets/kenney/prototype/GLB format/animal-bison.glb" id="11_gqmmt"]
@@ -312,6 +316,20 @@ transform = Transform3D(6.556708e-08, 0.5, -2.1855694e-08, 0, -2.1855694e-08, -0
 [node name="shape-cube-half5" parent="LevelDesign/ExitSigns" unique_id=988310544 instance=ExtResource("4_85g3d")]
 transform = Transform3D(0.5, -8.742278e-08, 3.821371e-15, 0, -2.1855694e-08, -0.5, 8.742278e-08, 0.5, -2.1855694e-08, 0.16596314, 0.8305812, -9.448263)
 
+[node name="Numbers" type="Node3D" parent="LevelDesign" unique_id=2021491355]
+
+[node name="number-double-12" parent="LevelDesign/Numbers" unique_id=285805511 instance=ExtResource("5_2wyq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.403821, 0.30708933, 0.20670885)
+
+[node name="number-double-22" parent="LevelDesign/Numbers" unique_id=1745777767 instance=ExtResource("6_vxglm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.77036905, 0.27251, -2.9845817)
+
+[node name="number-double-32" parent="LevelDesign/Numbers" unique_id=1424094107 instance=ExtResource("7_2f3dj")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4.162488, 0.32870656, 1.8249753)
+
+[node name="number-double-42" parent="LevelDesign/Numbers" unique_id=320716829 instance=ExtResource("8_yq6so")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.0011786, 0.285864, 5.0119843)
+
 [node name="Checkpoints" type="Node3D" parent="." unique_id=1781961245]
 
 [node name="Checkpoint" parent="Checkpoints" unique_id=2147000126 node_paths=PackedStringArray("_player") instance=ExtResource("4_tipki")]
@@ -517,10 +535,13 @@ stealTimer = NodePath("StealTimer")
 [node name="UpdateSpeed" type="Timer" parent="checkpoints" unique_id=1822938470]
 
 [node name="StealTimer" type="Timer" parent="checkpoints" unique_id=1027274169]
-wait_time = 10.0
+wait_time = 30.0
 
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint2" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint3" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint4" to="Player" method="ChangeEnergy"]
 [connection signal="Drink" from="Interactibles/Coffee" to="Player" method="ChangeEnergy"]
+[connection signal="EnergyChanged" from="Player/Stats" to="checkpoints" method="OnEnergyChanged"]
+
+[editable path="Player"]

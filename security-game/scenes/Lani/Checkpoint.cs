@@ -14,6 +14,8 @@ public partial class Checkpoint : StaticBody3D
 	[Signal]
 	public delegate void LoseEnergyEventHandler();
 
+	private bool pretending = false;
+
 	public override void _Ready()
 	{
 		SetRandomWaitTime();
@@ -43,8 +45,8 @@ public partial class Checkpoint : StaticBody3D
 	{
 		if (hasAnomaly)
 			return;
-		
-		animations.Play("open");
+		if (!pretending)
+			animations.Play("open");
 		hasAnomaly = true;
 		//tempTimer.Start();
 	}
@@ -68,4 +70,23 @@ public partial class Checkpoint : StaticBody3D
 		anomalyTimer.Start();
 	}
 
+	public void PretendClosed()
+	{
+		pretending = true;
+		if (hasAnomaly)
+		{
+			animations.Play("close");
+			GD.Print($"Pretends to be closed ID:{ID}");
+		}
+	}
+
+	public void StopPretending()
+	{
+		pretending = false;
+		if (hasAnomaly)
+		{
+			animations.Play("open");
+			GD.Print($"Checkpoint: {ID} no longer pretends to be closed.");
+		} 
+	}
 }
