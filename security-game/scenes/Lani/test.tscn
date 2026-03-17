@@ -36,22 +36,23 @@ size = Vector3(30, 1, 30)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1030627256]
 environment = SubResource("Environment_ruvr5")
 
-[node name="Checkpoint" parent="." unique_id=450571128 instance=ExtResource("1_o7ijt")]
+[node name="Checkpoint" parent="." unique_id=450571128 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.040929, 0, 3)
+_player = NodePath("../Player")
 
 [node name="Checkpoint2" parent="." unique_id=2147000126 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1285667, 0, -8.665561)
-_player = NodePath("")
+_player = NodePath("../Player")
 ID = 2
 
 [node name="Checkpoint3" parent="." unique_id=618723758 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.796425, 0, -1.0098753)
-_player = NodePath("")
+_player = NodePath("../Player")
 ID = 3
 
 [node name="Checkpoint4" parent="." unique_id=2052862915 node_paths=PackedStringArray("_player") instance=ExtResource("1_o7ijt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8714333, 0, 9.698651)
-_player = NodePath("")
+_player = NodePath("../Player")
 ID = 4
 
 [node name="TestUI" parent="." unique_id=1310375095 instance=ExtResource("5_1iv4c")]
@@ -271,11 +272,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3021413, 1)
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("4_ef25m")]
 
-[connection signal="LoseEnergy" from="Checkpoint" to="TestUI/EnergyLabel" method="LoseEnergy"]
-[connection signal="LoseEnergy" from="Checkpoint2" to="TestUI/EnergyLabel" method="LoseEnergy"]
-[connection signal="LoseEnergy" from="Checkpoint3" to="TestUI/EnergyLabel" method="LoseEnergy"]
-[connection signal="LoseEnergy" from="Checkpoint4" to="TestUI/EnergyLabel" method="LoseEnergy"]
+[connection signal="LoseEnergy" from="Checkpoint" to="Player" method="ChangeEnergy"]
+[connection signal="LoseEnergy" from="Checkpoint2" to="Player" method="ChangeEnergy"]
+[connection signal="LoseEnergy" from="Checkpoint3" to="Player" method="ChangeEnergy"]
+[connection signal="LoseEnergy" from="Checkpoint4" to="Player" method="ChangeEnergy"]
 [connection signal="Report" from="ReportButton" to="Checkpoint" method="fixAnomaly"]
+[connection signal="Drink" from="Coffee" to="Player" method="ChangeEnergy"]
 
 [editable path="TestUI"]
 [editable path="Level1"]

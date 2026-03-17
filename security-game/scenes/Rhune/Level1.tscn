@@ -7,16 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bv2ysgwofhnmj" path="res://assets/kenney/prototype/GLB format/floor-small-square.glb" id="5_u2dil"]
 [ext_resource type="PackedScene" uid="uid://dbvjf2yq8sa8p" path="res://assets/kenney/prototype/GLB format/floor-square.glb" id="6_1hgd1"]
 [ext_resource type="PackedScene" uid="uid://ke4f7g4d0w5l" path="res://assets/kenney/prototype/GLB format/wall-round.glb" id="7_d5jmj"]
-[ext_resource type="PackedScene" uid="uid://c4547ojvdtnv0" path="res://assets/kenney/prototype/GLB format/weapon-shield.glb" id="8_6xnbw"]
-[ext_resource type="PackedScene" uid="uid://dr7veibndtx27" path="res://assets/kenney/prototype/GLB format/weapon-sword.glb" id="9_8nfa2"]
-[ext_resource type="PackedScene" uid="uid://ce1pnf0ja7ipq" path="res://assets/kenney/prototype/GLB format/wheelchair.glb" id="10_fhb1y"]
-[ext_resource type="PackedScene" uid="uid://bfuh1ghv6s5ba" path="res://assets/kenney/prototype/GLB format/hat-cap.glb" id="11_o14sp"]
-[ext_resource type="PackedScene" uid="uid://c5nex6y8url0v" path="res://assets/kenney/prototype/GLB format/hat-hard.glb" id="12_j1vr3"]
-[ext_resource type="PackedScene" uid="uid://sijnb4ivvvye" path="res://assets/kenney/prototype/GLB format/figurine-cube-detailed.glb" id="13_uyf3w"]
-[ext_resource type="PackedScene" uid="uid://bs0m3pob7kc8g" path="res://assets/kenney/prototype/GLB format/flag.glb" id="14_17h8i"]
-[ext_resource type="PackedScene" uid="uid://bnqcpe71aesu3" path="res://assets/kenney/prototype/GLB format/animal-horse.glb" id="15_jqes5"]
-[ext_resource type="PackedScene" uid="uid://24fqff0bvkm3" path="res://assets/kenney/prototype/GLB format/animal-bison.glb" id="16_26xgc"]
-[ext_resource type="PackedScene" uid="uid://dicqviu8gbigw" path="res://assets/kenney/prototype/GLB format/coin.glb" id="17_txbbg"]
 [ext_resource type="PackedScene" uid="uid://ctn1fbjt20vuq" path="res://assets/kenney/prototype/GLB format/crate-color.glb" id="18_lagug"]
 [ext_resource type="PackedScene" uid="uid://5d51af6fhhan" path="res://assets/kenney/prototype/GLB format/crate.glb" id="19_vkhc1"]
 [ext_resource type="PackedScene" uid="uid://h76b663innnc" path="res://assets/kenney/prototype/GLB format/floor-thick.glb" id="20_7sddq"]
@@ -734,54 +724,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4811473, 0, -0.98696697)
 
 [node name="wall27" parent="." unique_id=981722126 instance=ExtResource("4_frni8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4811473, 0, -0.0064662695)
-
-[node name="weapon-shield2" parent="." unique_id=963669051 instance=ExtResource("8_6xnbw")]
-transform = Transform3D(0.015445529, 0.99988073, 0, -0.99988073, 0.015445529, 0, 0, 0, 1, -4.1335554, 0.5851406, -0.09069276)
-
-[node name="weapon-sword2" parent="." unique_id=1663027640 instance=ExtResource("9_8nfa2")]
-transform = Transform3D(0.043514777, 0.9990529, 0, -0.8150925, 0.035502195, 0.5782422, 0.5776944, -0.025162075, 0.8158652, -4.153822, 0.603714, -1.109187)
-
-[node name="wheelchair2" parent="." unique_id=298007825 instance=ExtResource("10_fhb1y")]
-transform = Transform3D(-0.7984674, 0, 0.602038, 0, 1, 0, -0.602038, 0, -0.7984674, -1.8957477, 0, -2.7309077)
-
-[node name="hat-cap2" parent="." unique_id=215514831 instance=ExtResource("11_o14sp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 1, -5.9604645e-08, 4.371139e-08, 5.9604645e-08, 1, 1.7763568e-15, 1.8384504, 0.6356567, -3.0022461)
-
-[node name="hat-hard2" parent="." unique_id=1157818563 instance=ExtResource("12_j1vr3")]
-transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 2.9356167, 0.63571596, -3.012082)
-
-[node name="figurine-cube-detailed2" parent="." unique_id=1728300458 instance=ExtResource("13_uyf3w")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.225724, 2.3841858e-07, -0.8092432)
-
-[node name="flag2" parent="." unique_id=895199513 instance=ExtResource("14_17h8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.341018, 0, 2.232428)
-
-[node name="flag3" parent="." unique_id=1348278146 instance=ExtResource("14_17h8i")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.341018, 0, 3.3556821)
-
-[node name="animal-horse2" parent="." unique_id=1423478551 instance=ExtResource("15_jqes5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.257778, 1.1920929e-07, 4.976127)
-
-[node name="animal-bison2" parent="." unique_id=746683751 instance=ExtResource("16_26xgc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0668426, 0, 4.9802217)
-
-[node name="coin3" parent="." unique_id=176589466 instance=ExtResource("17_txbbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1424513, 0.25747865, 2.7413495)
-
-[node name="coin4" parent="." unique_id=378947329 instance=ExtResource("17_txbbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1424513, 0.25747865, 3.0332024)
-
-[node name="coin5" parent="." unique_id=476912619 instance=ExtResource("17_txbbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1424513, 0.25747865, 3.3521585)
-
-[node name="coin6" parent="." unique_id=1226315541 instance=ExtResource("17_txbbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1424513, 0.5454013, 3.1961546)
-
-[node name="coin7" parent="." unique_id=338620802 instance=ExtResource("17_txbbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1424513, 0.5454013, 2.8722806)
-
-[node name="coin8" parent="." unique_id=380855359 instance=ExtResource("17_txbbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1424513, 0.7973714, 3.0410523)
 
 [node name="crate-color2" parent="." unique_id=18007764 instance=ExtResource("18_lagug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9489893, 0, 2.5584254)
