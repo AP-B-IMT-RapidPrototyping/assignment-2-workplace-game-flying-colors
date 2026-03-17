@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://cpbydwtmukgho" path="res://scenes/Lani/Valuable.cs" id="11_yc10j"]
 [ext_resource type="PackedScene" uid="uid://dicqviu8gbigw" path="res://assets/kenney/prototype/GLB format/coin.glb" id="12_yc10j"]
 [ext_resource type="PackedScene" uid="uid://c4547ojvdtnv0" path="res://assets/kenney/prototype/GLB format/weapon-shield.glb" id="13_jscy8"]
+[ext_resource type="PackedScene" uid="uid://das83dtyhs3pn" path="res://scenes/Lani/e_label.tscn" id="13_vxglm"]
+[ext_resource type="PackedScene" uid="uid://d4is46mdktd3" path="res://scenes/Lani/energy_label.tscn" id="14_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://dr7veibndtx27" path="res://assets/kenney/prototype/GLB format/weapon-sword.glb" id="14_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://ce1pnf0ja7ipq" path="res://assets/kenney/prototype/GLB format/wheelchair.glb" id="15_y6deb"]
 [ext_resource type="PackedScene" uid="uid://bfuh1ghv6s5ba" path="res://assets/kenney/prototype/GLB format/hat-cap.glb" id="16_og1vs"]
@@ -38,6 +40,12 @@ size = Vector3(0.21282959, 1, 3.8709068)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_85g3d"]
 size = Vector3(0.21282959, 1, 2.2443695)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2f3dj"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_yq6so"]
+font_size = 25
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_trceg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -353,9 +361,11 @@ ID = 4
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=983400365]
 
-[node name="ReportButton" parent="Interactibles" unique_id=552731684 node_paths=PackedStringArray("reportMenu") instance=ExtResource("5_85g3d")]
+[node name="ReportButton" parent="Interactibles" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "AnomalyFixedLabel", "AnomalyNotFoundLabel") instance=ExtResource("5_85g3d")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.89221454, 0.5855169, -0.8016658)
 reportMenu = NodePath("../../UIs/ReportMenu")
+AnomalyFixedLabel = NodePath("../../UIs/AnomalyFixed")
+AnomalyNotFoundLabel = NodePath("../../UIs/AnomalyNotFound")
 
 [node name="Coffee" parent="Interactibles" unique_id=1239199630 instance=ExtResource("6_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031135842, 0.25363496, 0.9920467)
@@ -364,6 +374,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031135842, 0.25363496, 0.99
 
 [node name="ReportMenu" parent="UIs" unique_id=108563017 node_paths=PackedStringArray("reportButton") instance=ExtResource("7_ya4ey")]
 reportButton = NodePath("../../Interactibles/ReportButton")
+
+[node name="ELabel" parent="UIs" unique_id=367867780 instance=ExtResource("13_vxglm")]
+
+[node name="EnergyLabel" parent="UIs" unique_id=1614733266 instance=ExtResource("14_2f3dj")]
+
+[node name="GameOverLabel" type="Label" parent="UIs" unique_id=1545002951]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -46.0
+offset_right = 192.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_2f3dj")
+
+[node name="AnomalyFixed" type="Label" parent="UIs" unique_id=775525950]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -17.5
+offset_right = 91.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Anomaly Fixed!"
+label_settings = SubResource("LabelSettings_yq6so")
+
+[node name="AnomalyNotFound" type="Label" parent="UIs" unique_id=733647341]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -17.5
+offset_right = 91.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Anomaly Found"
+label_settings = SubResource("LabelSettings_yq6so")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=493987690]
 environment = SubResource("Environment_a8y0u")
@@ -527,21 +586,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.341018, 0, 2.232428)
 [node name="flag3" parent="Valuables/flags" unique_id=1472977347 instance=ExtResource("19_2f3dj")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.341018, 0, 3.3556821)
 
-[node name="checkpoints" type="Node" parent="." unique_id=861508684 node_paths=PackedStringArray("updateTimer", "stealTimer")]
+[node name="checkpoints" type="Node" parent="." unique_id=861508684 node_paths=PackedStringArray("updateTimer", "stealTimer", "gameOverLabel")]
 script = ExtResource("20_gqmmt")
 updateTimer = NodePath("UpdateSpeed")
 stealTimer = NodePath("StealTimer")
+gameOverLabel = NodePath("../UIs/GameOverLabel")
 
 [node name="UpdateSpeed" type="Timer" parent="checkpoints" unique_id=1822938470]
 
 [node name="StealTimer" type="Timer" parent="checkpoints" unique_id=1027274169]
-wait_time = 30.0
+wait_time = 2.0
 
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint2" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint3" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint4" to="Player" method="ChangeEnergy"]
 [connection signal="Drink" from="Interactibles/Coffee" to="Player" method="ChangeEnergy"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="UIs/ELabel" method="ChangeState"]
+[connection signal="EnergyChanged" from="Player/Stats" to="UIs/EnergyLabel/EnergyBar" method="ChangeValue"]
 [connection signal="EnergyChanged" from="Player/Stats" to="checkpoints" method="OnEnergyChanged"]
 
+[editable path="UIs/EnergyLabel"]
 [editable path="Player"]

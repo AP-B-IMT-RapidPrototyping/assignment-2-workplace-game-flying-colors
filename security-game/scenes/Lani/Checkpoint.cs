@@ -36,7 +36,7 @@ public partial class Checkpoint : StaticBody3D
 		if (body == _player)
 		{
 			GD.Print("PLayer entered checkpoint.");
-			EmitSignal(SignalName.LoseEnergy, -20);
+			EmitSignal(SignalName.LoseEnergy, -25);
 		}
 	}
 
@@ -54,7 +54,7 @@ public partial class Checkpoint : StaticBody3D
 	//Stel een nieuwe random tijd in om een nieuwe anomaly aan te maken
 	private void SetRandomWaitTime()
 	{
-		anomalyTimer.WaitTime = GD.RandRange(10, 60);
+		anomalyTimer.WaitTime = GD.RandRange(10, 120);
 	}
 
 	public void FixAnomaly()

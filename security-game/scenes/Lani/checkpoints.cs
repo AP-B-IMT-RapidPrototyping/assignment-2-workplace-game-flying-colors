@@ -8,12 +8,14 @@ public partial class Checkpoints : Node
 	private Godot.Collections.Array<Godot.Node> _valuableLights;
 	[Export] private Timer updateTimer;
 	[Export] private Timer stealTimer;
+	[Export] private Label gameOverLabel;
 	private bool stealTimerOn = false;
 	private int stolenItemCounter = 0;
 	private bool doorsPretending = false;
 
 	public override void _Ready()
 	{
+		gameOverLabel.Visible = false;
 		_checkpoints = GetTree().GetNodesInGroup("checkpoints");
 		_valuables = GetTree().GetNodesInGroup("valuables");
 		_valuableLights = GetTree().GetNodesInGroup("valuableLight");
@@ -76,7 +78,13 @@ public partial class Checkpoints : Node
 				valuableLight.TurnRed();
 			}
 		}
-		stolenItemCounter++;
+		if (stolenItemCounter >= 9)
+		{
+			gameOverLabel.Visible = true;
+		} else
+		{
+			stolenItemCounter++;
+		}
 		GD.Print("Item stolen");
 		stealTimer.Start();
 	}

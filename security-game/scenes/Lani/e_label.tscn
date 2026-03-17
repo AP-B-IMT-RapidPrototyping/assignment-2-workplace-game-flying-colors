@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://das83dtyhs3pn"]
+
+[ext_resource type="Script" uid="uid://415qm4mbj7j6" path="res://scenes/Lani/ELabel.cs" id="1_spics"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tohhp"]
+font_size = 28
+
+[node name="ELabel" type="Control" unique_id=367867780]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_spics")
+
+[node name="Label" type="Label" parent="." unique_id=952170788]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -98.0
+offset_right = 48.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E"
+label_settings = SubResource("LabelSettings_tohhp")
