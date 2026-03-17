@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://h76b663innnc" path="res://assets/kenney/prototype/GLB format/floor-thick.glb" id="20_7sddq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5jmj"]
-size = Vector3(25.765503, 0.51782227, 18.410645)
+size = Vector3(30, 0.518, 30)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6xnbw"]
 size = Vector3(4.944092, 1.5004883, 0.26635742)
@@ -56,7 +56,7 @@ size = Vector3(0.30126953, 0.7719116, 0.33789063)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82152754, 0, 1.3149477)
 
 [node name="FloorCollision" type="CollisionShape3D" parent="StaticBody3D" unique_id=585937833]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7007446, -0.24108887, -0.7595216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87028795, -0.24108887, -0.7595216)
 shape = SubResource("BoxShape3D_d5jmj")
 
 [node name="Wall1" type="CollisionShape3D" parent="StaticBody3D" unique_id=1458224378]
