@@ -14,6 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://0trqs6ixq3ir" path="res://assets/kenney/prototype/GLB format/wall.glb" id="12_durmc"]
 [ext_resource type="PackedScene" uid="uid://cipje3ywk6tmy" path="res://scenes/Lani/ExitSign.tscn" id="13_durmc"]
 [ext_resource type="PackedScene" uid="uid://be802a3bb7d4e" path="res://scenes/Lani/coffee.tscn" id="13_vg5ee"]
+[ext_resource type="PackedScene" uid="uid://bnqcpe71aesu3" path="res://assets/kenney/prototype/GLB format/animal-horse.glb" id="15_xnq0e"]
+[ext_resource type="PackedScene" uid="uid://24fqff0bvkm3" path="res://assets/kenney/prototype/GLB format/animal-bison.glb" id="16_vtx8u"]
+[ext_resource type="PackedScene" uid="uid://dicqviu8gbigw" path="res://assets/kenney/prototype/GLB format/coin.glb" id="17_184rc"]
+[ext_resource type="PackedScene" uid="uid://c4547ojvdtnv0" path="res://assets/kenney/prototype/GLB format/weapon-shield.glb" id="18_5dw2v"]
+[ext_resource type="PackedScene" uid="uid://dr7veibndtx27" path="res://assets/kenney/prototype/GLB format/weapon-sword.glb" id="19_4vpkg"]
+[ext_resource type="PackedScene" uid="uid://ce1pnf0ja7ipq" path="res://assets/kenney/prototype/GLB format/wheelchair.glb" id="20_jc83n"]
+[ext_resource type="PackedScene" uid="uid://bfuh1ghv6s5ba" path="res://assets/kenney/prototype/GLB format/hat-cap.glb" id="21_dv1jn"]
+[ext_resource type="PackedScene" uid="uid://c5nex6y8url0v" path="res://assets/kenney/prototype/GLB format/hat-hard.glb" id="22_m0wko"]
+[ext_resource type="PackedScene" uid="uid://sijnb4ivvvye" path="res://assets/kenney/prototype/GLB format/figurine-cube-detailed.glb" id="23_i8ktw"]
+[ext_resource type="PackedScene" uid="uid://bs0m3pob7kc8g" path="res://assets/kenney/prototype/GLB format/flag.glb" id="24_xl33f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ef25m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -271,6 +281,59 @@ transform = Transform3D(0.5, -8.742278e-08, 3.821371e-15, 0, -2.1855694e-08, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3021413, 1)
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("4_ef25m")]
+
+[node name="Items" type="Node3D" parent="." unique_id=1424370762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.257778, 1.1920929e-07, 4.976127)
+
+[node name="animal-horse2" parent="Items" unique_id=1738535118 instance=ExtResource("15_xnq0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.257778, 1.1920929e-07, 4.976127)
+
+[node name="animal-bison2" parent="Items" unique_id=1523578108 instance=ExtResource("16_vtx8u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0668426, 0, 4.9802217)
+
+[node name="Coins" type="Node3D" parent="Items" unique_id=1469904623]
+
+[node name="coin3" parent="Items/Coins" unique_id=1088276242 instance=ExtResource("17_184rc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1424513, 0.25747865, 2.7413495)
+
+[node name="coin4" parent="Items/Coins" unique_id=2125120474 instance=ExtResource("17_184rc")]
+transform = Transform3D(0.999985, -0.0025528173, 0.0048454637, 0.0025966305, 0.9999556, -0.009062242, -0.0048221266, 0.0090746805, 0.99994725, -4.1422005, 0.25808457, 3.0311809)
+
+[node name="coin5" parent="Items/Coins" unique_id=1307450411 instance=ExtResource("17_184rc")]
+transform = Transform3D(0.999985, -0.0025528173, 0.0048454637, 0.0025966305, 0.9999556, -0.009062242, -0.0048221266, 0.0090746805, 0.99994725, -4.140655, 0.2551941, 3.35012)
+
+[node name="coin6" parent="Items/Coins" unique_id=1215079556 instance=ExtResource("17_184rc")]
+transform = Transform3D(0.999985, -0.0025528173, 0.0048454637, 0.0025966305, 0.9999556, -0.009062242, -0.0048221266, 0.0090746805, 0.99994725, -4.1421456, 0.5445177, 3.1967373)
+
+[node name="coin7" parent="Items/Coins" unique_id=1795777300 instance=ExtResource("17_184rc")]
+transform = Transform3D(0.999985, -0.0025528173, 0.0048454637, 0.0025966305, 0.9999556, -0.009062242, -0.0048221266, 0.0090746805, 0.99994725, -4.143715, 0.5474527, 2.8728805)
+
+[node name="coin8" parent="Items/Coins" unique_id=952017021 instance=ExtResource("17_184rc")]
+transform = Transform3D(0.999985, -0.0025528173, 0.0048454637, 0.0025966305, 0.9999556, -0.009062242, -0.0048221266, 0.0090746805, 0.99994725, -4.1435404, 0.7978822, 3.0439298)
+
+[node name="weapon-shield2" parent="Items" unique_id=2068730838 instance=ExtResource("18_5dw2v")]
+transform = Transform3D(0.015445529, 0.99988073, 0, -0.99988073, 0.015445529, 0, 0, 0, 1, -4.1335554, 0.5851406, -0.09069276)
+
+[node name="weapon-sword2" parent="Items" unique_id=1067717714 instance=ExtResource("19_4vpkg")]
+transform = Transform3D(0.043514777, 0.9990529, 0, -0.8150925, 0.035502195, 0.5782422, 0.5776944, -0.025162075, 0.8158652, -4.153822, 0.603714, -1.109187)
+
+[node name="wheelchair2" parent="Items" unique_id=1486236086 instance=ExtResource("20_jc83n")]
+transform = Transform3D(-0.7984674, 0, 0.602038, 0, 1, 0, -0.602038, 0, -0.7984674, -1.8957477, 0, -2.7309077)
+
+[node name="hat-cap2" parent="Items" unique_id=1798138340 instance=ExtResource("21_dv1jn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -5.9604645e-08, 4.371139e-08, 5.9604645e-08, 1, 1.7763568e-15, 1.8384504, 0.6356567, -3.0022461)
+
+[node name="hat-hard2" parent="Items" unique_id=643924350 instance=ExtResource("22_m0wko")]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 2.9356167, 0.63571596, -3.012082)
+
+[node name="figurine-cube-detailed2" parent="Items" unique_id=2087686833 instance=ExtResource("23_i8ktw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.225724, 2.3841858e-07, -0.8092432)
+
+[node name="flag2" parent="Items" unique_id=1220780725 instance=ExtResource("24_xl33f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.341018, 0, 2.232428)
+
+[node name="flag3" parent="Items" unique_id=210077285 instance=ExtResource("24_xl33f")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 4.341018, 0, 3.3556821)
 
 [connection signal="LoseEnergy" from="Checkpoint" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoint2" to="Player" method="ChangeEnergy"]

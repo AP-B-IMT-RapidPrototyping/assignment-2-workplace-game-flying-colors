@@ -23,6 +23,8 @@ project/assembly_name="Security Game"
 
 interactable=""
 checkpoints=""
+valuables=""
+valuableLight=""
 
 [input]
 
