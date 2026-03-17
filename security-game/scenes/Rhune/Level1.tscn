@@ -48,6 +48,18 @@ size = Vector3(4.7005615, 1.5024414, 0.22729492)
 [sub_resource type="BoxShape3D" id="BoxShape3D_jqes5"]
 size = Vector3(0.2015686, 1.5001221, 4.7421875)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_26xgc"]
+size = Vector3(0.97802734, 1, 0.49804688)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_txbbg"]
+size = Vector3(0.5253906, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lagug"]
+size = Vector3(0.5058594, 1, 0.48425293)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkhc1"]
+size = Vector3(0.30126953, 0.7719116, 0.33789063)
+
 [node name="Level1" type="Node3D" unique_id=218085899]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1538432440]
@@ -144,6 +156,26 @@ shape = SubResource("BoxShape3D_jqes5")
 [node name="Wall22" type="CollisionShape3D" parent="StaticBody3D" unique_id=407493818]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.551467, 0.25006104, -6.865203)
 shape = SubResource("BoxShape3D_jqes5")
+
+[node name="Doos1" type="CollisionShape3D" parent="StaticBody3D" unique_id=1756044988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9887776, 0, -1.8446687)
+shape = SubResource("BoxShape3D_26xgc")
+
+[node name="Doos2" type="CollisionShape3D" parent="StaticBody3D" unique_id=274215746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5726914, 0, -1.8655726)
+shape = SubResource("BoxShape3D_26xgc")
+
+[node name="Doos3" type="CollisionShape3D" parent="StaticBody3D" unique_id=742792507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.771634, 0, 0.9852823)
+shape = SubResource("BoxShape3D_txbbg")
+
+[node name="Doos4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1320686578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2621512, 0, 1.2374991)
+shape = SubResource("BoxShape3D_lagug")
+
+[node name="Doos5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1379267038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8524552, -0.11404419, -0.3260677)
+shape = SubResource("BoxShape3D_vkhc1")
 
 [node name="wall-corner-rounded2" parent="." unique_id=2029854462 instance=ExtResource("1_v3qos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9112968, 0, -0.4918198)
