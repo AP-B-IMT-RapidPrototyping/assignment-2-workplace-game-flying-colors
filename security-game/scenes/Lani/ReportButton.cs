@@ -11,10 +11,10 @@ public partial class ReportButton : Node3D, IInteractible
 
 	[Export] private ReportMenu reportMenu;
 
-	public override void _Ready()
-	{
-		checkpoints = GetTree().GetNodesInGroup("checkpoints");
-	}
+    public override void _Ready()
+    {
+        checkpoints = GetTree().GetNodesInGroup("checkpoints");
+    }
 
 	public void Interact(Node3D interactor, Vector3 hitPosition)
 	{
