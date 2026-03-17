@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bifa4teocaw32"]
 
+[ext_resource type="Script" uid="uid://i4iwy8us7j0v" path="res://scenes/Cengiz/Label.cs" id="1_bhtwt"]
+
 [node name="Test" type="Node3D" unique_id=1805605175]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1563925831]
@@ -7,3 +9,21 @@
 [node name="EnergieBar" type="ProgressBar" parent="CanvasLayer" unique_id=2077432532]
 offset_right = 175.0
 offset_bottom = 27.0
+
+[node name="Node3D" type="Node3D" parent="." unique_id=788037827]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=1361926200]
+
+[node name="RayCast3D" type="RayCast3D" parent="Node3D/Camera3D" unique_id=371363504]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Node3D/Camera3D/RayCast3D" unique_id=1653003543]
+
+[node name="Label" type="Label" parent="Node3D/Camera3D/RayCast3D/CanvasLayer" unique_id=1647620601]
+anchors_preset = -1
+offset_left = 571.0
+offset_top = 295.0
+offset_right = 692.0
+offset_bottom = 333.0
+text = "Press E"
+horizontal_alignment = 1
+script = ExtResource("1_bhtwt")
