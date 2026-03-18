@@ -6,9 +6,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtjyi"]
 size = Vector3(0.3, 0.1, 0.3)
 
-[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("labelTimer") groups=["interactable"]]
+[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("labelTimer", "light") groups=["interactable"]]
 script = ExtResource("1_qtjyi")
 labelTimer = NodePath("LabelResetTimer")
+light = NodePath("OmniLight3D")
 
 [node name="button-floor-round-small2" parent="." unique_id=674540464 instance=ExtResource("1_pgb3t")]
 
@@ -27,3 +28,7 @@ omni_range = 0.17568064
 
 [node name="LabelResetTimer" type="Timer" parent="." unique_id=688942096]
 wait_time = 2.0
+
+[node name="DisableTimer" type="Timer" parent="." unique_id=1120196070]
+wait_time = 3.0
+one_shot = true
