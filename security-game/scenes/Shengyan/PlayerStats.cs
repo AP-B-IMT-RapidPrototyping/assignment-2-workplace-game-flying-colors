@@ -18,7 +18,7 @@ public partial class PlayerStats : Node
 
 	public void SetEnergy(float energy)
 	{
-		GD.Print("Set Energy triggered.");
+		// GD.Print("Set Energy triggered.");
 		float clampedEnergy = Mathf.Clamp(energy, MinEnergy, MaxEnergy);
 		if (_energy == clampedEnergy)
 		{
