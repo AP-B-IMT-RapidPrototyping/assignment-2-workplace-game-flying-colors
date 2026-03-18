@@ -10,8 +10,8 @@ public partial class PlayerController : CharacterBody3D
 	[Export] private PlayerStats _stats;
 
 	[Export] private float _speed = 1.0f;	
-	[Export] private float _speedSprint = 1.0f;
-	[Export] private float _sprintEnergyConsumption = 0.1f;
+	[Export] private float _speedSprint = 2.0f;
+	[Export] private float _sprintEnergyConsumption = 0.01f;
 
 	// Jump disabled
 	//public const float JumpVelocity = 4.5f;
@@ -78,19 +78,31 @@ public partial class PlayerController : CharacterBody3D
 		// 	velocity.Y = JumpVelocity;
 		// }
 
+		float speed;
+		if(Input.IsActionPressed("sprint"))
+		{
+			speed=_speedSprint;
+			ChangeEnergy(-_sprintEnergyConsumption * (float)delta);
+
+		}
+		else
+		{
+			speed=_speed;
+		}
+
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if (direction != Vector3.Zero)
 		{
-			velocity.X = direction.X * _speed;
-			velocity.Z = direction.Z * _speed;
+			velocity.X = direction.X * speed;
+			velocity.Z = direction.Z * speed;
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, _speed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, _speed);
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
+			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, speed);
 		}
 
 		Velocity = velocity;
