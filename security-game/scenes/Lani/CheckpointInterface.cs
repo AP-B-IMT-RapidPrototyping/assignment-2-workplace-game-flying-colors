@@ -33,8 +33,9 @@ public partial class CheckpointInterface : Node
 				GD.Print("More than 2 door open, timer started");
 				stealTimer.Start();
 				stealTimerOn = true;
-			}	
-		} else
+			}
+		}
+		else
 		{
 			if (GetOpenDoors() < 2)
 			{
@@ -55,7 +56,7 @@ public partial class CheckpointInterface : Node
 			currentCheckpoint = checkpoint;
 			if (currentCheckpoint.hasAnomaly)
 			{
-				teller++;	
+				teller++;
 			}
 		}
 		return teller;
@@ -81,7 +82,8 @@ public partial class CheckpointInterface : Node
 		if (stolenItemCounter >= 9)
 		{
 			gameOverLabel.Visible = true;
-		} else
+		}
+		else
 		{
 			stolenItemCounter++;
 		}
@@ -103,7 +105,7 @@ public partial class CheckpointInterface : Node
 
 	private void OnEnergyChanged(int energy)
 	{
-		if (energy == 0)
+		if (energy == 0f)
 		{
 			if (!doorsPretending)
 			{
@@ -114,7 +116,8 @@ public partial class CheckpointInterface : Node
 				}
 				doorsPretending = true;
 			}
-		} else if (energy > 0)
+		}
+		else if (energy > 0f)
 		{
 			if (doorsPretending)
 			{
