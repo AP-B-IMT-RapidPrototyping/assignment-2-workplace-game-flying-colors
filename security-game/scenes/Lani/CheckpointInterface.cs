@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Checkpoints : Node
+public partial class CheckpointInterface : Node
 {
 	private Godot.Collections.Array<Godot.Node> _checkpoints;
 	private Godot.Collections.Array<Godot.Node> _valuables;

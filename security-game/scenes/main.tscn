@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c5nex6y8url0v" path="res://assets/kenney/prototype/GLB format/hat-hard.glb" id="17_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://sijnb4ivvvye" path="res://assets/kenney/prototype/GLB format/figurine-cube-detailed.glb" id="18_vxglm"]
 [ext_resource type="PackedScene" uid="uid://bs0m3pob7kc8g" path="res://assets/kenney/prototype/GLB format/flag.glb" id="19_2f3dj"]
-[ext_resource type="Script" uid="uid://ft48wixl4vc8" path="res://scenes/Lani/Checkpoints.cs" id="20_gqmmt"]
+[ext_resource type="Script" uid="uid://ft48wixl4vc8" path="res://scenes/Lani/CheckpointInterface.cs" id="20_gqmmt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tefeu"]
 size = Vector3(0.21282959, 1, 4.2473125)
