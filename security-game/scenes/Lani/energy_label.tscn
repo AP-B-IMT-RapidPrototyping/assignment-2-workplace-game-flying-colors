@@ -14,11 +14,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="EnergyBar" type="TextureProgressBar" parent="." unique_id=599959606]
-layout_mode = 0
-offset_left = 964.0
-offset_top = 17.999996
-offset_right = 2116.0
-offset_bottom = 738.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_top = 46.0
+offset_right = 934.0
+offset_bottom = 766.0
+grow_horizontal = 0
 scale = Vector2(0.7, 0.7)
 fill_mode = 5
 radial_initial_angle = 55.0
@@ -26,11 +30,11 @@ texture_under = ExtResource("1_2g7pv")
 texture_progress = ExtResource("2_3m6xw")
 script = ExtResource("3_hy7tu")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=275583320]
+[node name="TextureRect" type="TextureRect" parent="EnergyBar" unique_id=275583320]
 layout_mode = 0
-offset_left = 1045.0
-offset_top = 52.0
-offset_right = 1140.0
-offset_bottom = 183.0
+offset_left = 122.857056
+offset_top = 65.71428
+offset_right = 217.85706
+offset_bottom = 196.71428
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_3m6xw")
