@@ -9,6 +9,6 @@ public partial class Coffee : Node3D, IInteractible
 	public void Interact(Node3D interactor, Vector3 hitPosition)
 	{
 		GD.Print("Drink signal emitted");
-		EmitSignal(SignalName.Drink, 100);
+		EmitSignal(SignalName.Drink, 1f);
 	}
 }

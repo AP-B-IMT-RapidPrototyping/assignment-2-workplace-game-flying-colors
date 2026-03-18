@@ -9,13 +9,15 @@ public partial class PlayerController : CharacterBody3D
 	[Export] private Camera3D _camera;
 	[Export] private PlayerStats _stats;
 
-	[Export] private float _speed = 1.0f;
+	[Export] private float _speed = 1.0f;	
+	[Export] private float _speedSprint = 1.0f;
+	[Export] private float _sprintEnergyConsumption = 0.1f;
 
 	// Jump disabled
 	//public const float JumpVelocity = 4.5f;
 
 	public PlayerStats Stats => _stats;
-	public int Energy => _stats?.Energy ?? PlayerStats.MinEnergy;
+	public float Energy => _stats?.Energy ?? 0f;
 
 
 	public override void _Ready()
@@ -37,7 +39,7 @@ public partial class PlayerController : CharacterBody3D
 		}
 	}
 
-	public void SetEnergy(int energy)
+	public void SetEnergy(float energy)
 	{
 		if (_stats == null)
 		{
@@ -49,7 +51,7 @@ public partial class PlayerController : CharacterBody3D
 	}
 
 
-	public void ChangeEnergy(int amount)
+	public void ChangeEnergy(float amount)
 	{
 		if (_stats == null)
 		{

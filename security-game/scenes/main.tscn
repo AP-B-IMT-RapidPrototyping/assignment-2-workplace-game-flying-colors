@@ -379,6 +379,9 @@ reportButton = NodePath("../../Interactibles/ReportButton")
 
 [node name="EnergyLabel" parent="UIs" unique_id=1614733266 instance=ExtResource("14_2f3dj")]
 
+[node name="EnergyBar" parent="UIs/EnergyLabel" index="0" unique_id=599959606]
+max_value = 1.0
+
 [node name="GameOverLabel" type="Label" parent="UIs" unique_id=1545002951]
 anchors_preset = 8
 anchor_left = 0.5

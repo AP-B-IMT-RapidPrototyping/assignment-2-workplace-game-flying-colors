@@ -6,10 +6,10 @@ public partial class EnergyBar : TextureProgressBar
 	
 	public override void _Ready()
 	{
-		this.Value = 100;
+		this.Value = 1f;
 	}
 
-	public void ChangeValue(int energy)
+	public void ChangeValue(float energy)
 	{
 		this.Value = energy;
 	}

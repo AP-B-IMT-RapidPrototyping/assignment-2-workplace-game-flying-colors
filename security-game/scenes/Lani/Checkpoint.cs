@@ -36,7 +36,7 @@ public partial class Checkpoint : StaticBody3D
 		if (body == _player)
 		{
 			GD.Print("PLayer entered checkpoint.");
-			EmitSignal(SignalName.LoseEnergy, -25);
+			EmitSignal(SignalName.LoseEnergy, -0.25f);
 		}
 	}
 
