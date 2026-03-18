@@ -79,10 +79,11 @@ public partial class PlayerController : CharacterBody3D
 		// }
 
 		float speed;
-		if(Input.IsActionPressed("sprint"))
+		bool isSprinting=false;
+		if(Input.IsActionPressed("sprint") && _stats.Energy > 0f)
 		{
 			speed=_speedSprint;
-			ChangeEnergy(-_sprintEnergyConsumption * (float)delta);
+			isSprinting=true;
 
 		}
 		else
@@ -98,6 +99,11 @@ public partial class PlayerController : CharacterBody3D
 		{
 			velocity.X = direction.X * speed;
 			velocity.Z = direction.Z * speed;
+			if(isSprinting)
+			{
+				ChangeEnergy(-_sprintEnergyConsumption * (float)delta);
+
+			}
 		}
 		else
 		{
