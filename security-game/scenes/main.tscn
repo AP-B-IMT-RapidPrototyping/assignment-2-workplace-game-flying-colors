@@ -595,7 +595,7 @@ gameOverLabel = NodePath("../UIs/GameOverLabel")
 [node name="UpdateSpeed" type="Timer" parent="checkpoints" unique_id=1822938470]
 
 [node name="StealTimer" type="Timer" parent="checkpoints" unique_id=1027274169]
-wait_time = 10.0
+wait_time = 15.0
 
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint2" to="Player" method="ChangeEnergy"]
