@@ -103,7 +103,7 @@ public partial class CheckpointInterface : Node
 		}
 	}
 
-	private void OnEnergyChanged(int energy)
+	private void OnEnergyChanged(float energy)
 	{
 		if (energy == 0f)
 		{
