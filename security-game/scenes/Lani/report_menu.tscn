@@ -18,6 +18,9 @@ outline_color = Color(0, 1, 0, 1)
 font_size = 23
 outline_color = Color(0, 1, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_4hrfr"]
+font_size = 21
+
 [node name="ReportMenu" type="Control" unique_id=108563017 node_paths=PackedStringArray("label1", "label2", "label3", "label4")]
 layout_mode = 3
 anchors_preset = 15
@@ -70,3 +73,12 @@ offset_bottom = 296.0
 text = "Checkpoint4 (press 4)"
 label_settings = SubResource("LabelSettings_qbutq")
 horizontal_alignment = 1
+
+[node name="Enter" type="Label" parent="." unique_id=1460394220]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = 291.0
+offset_bottom = 46.0
+text = "Press enter to confirm"
+label_settings = SubResource("LabelSettings_4hrfr")
