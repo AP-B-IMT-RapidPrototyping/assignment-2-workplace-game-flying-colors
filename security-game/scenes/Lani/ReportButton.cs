@@ -10,8 +10,12 @@ public partial class ReportButton : Node3D, IInteractible
 	private Godot.Collections.Array<Godot.Node> checkpoints;
 
 	[Export] private ReportMenu reportMenu;
-	[Export] private Label AnomalyFixedLabel;
-	[Export] private Label AnomalyNotFoundLabel;
+	[Export] private Label anomalyFixedLabel;
+	[Export] private Label anomalyNotFoundLabel;
+	[Export] private Label warningLabel;
+	[Export] private Label firstStrikeLabel;
+	[Export] private Label secondStrikeLabel;
+	[Export] private Label noResponseLabel;
 	[Export] private Timer labelTimer;
 
 	// --- Penalty for mass false reporting ---
@@ -32,8 +36,12 @@ public partial class ReportButton : Node3D, IInteractible
 	public override void _Ready()
 	{
 		checkpoints = GetTree().GetNodesInGroup("checkpoints");
-		AnomalyFixedLabel.Visible = false;
-		AnomalyNotFoundLabel.Visible = false;
+		anomalyFixedLabel.Visible = false;
+		anomalyNotFoundLabel.Visible = false;
+		warningLabel.Visible = false;
+		firstStrikeLabel.Visible = false;
+		secondStrikeLabel.Visible = false;
+		noResponseLabel.Visible = false;
 		labelTimer.Timeout += RemoveLabels;
 		if (light == null)
 		{
@@ -55,6 +63,7 @@ public partial class ReportButton : Node3D, IInteractible
 		if (!isEnabled)
 		{
 			GD.Print("ReportButton: Ignored interaction while disabled.");
+			ShowLabel(noResponseLabel);
 			return;
 		}
 
@@ -67,6 +76,7 @@ public partial class ReportButton : Node3D, IInteractible
 		if (!isEnabled)
 		{
 			GD.Print("ReportButton: Ignored report while disabled.");
+			ShowLabel(noResponseLabel);
 			return;
 		}
 
@@ -83,29 +93,36 @@ public partial class ReportButton : Node3D, IInteractible
 					consecutiveFalseCount = 0;
 					currentCheckpoint.FixAnomaly();
 					GD.Print($"Checkpoint ID:{id} is fixed.");
-					AnomalyFixedLabel.Visible = true;
-					labelTimer.Start();
+					ShowLabel(anomalyFixedLabel);
 					return;
 				}
 				else
 				{
 					consecutiveFalseCount++;
-					if (firstStrikeReached)
+					if (consecutiveFalseCount == 2)
+					{
+						ShowLabel(warningLabel);
+					}
+					else if (firstStrikeReached)
 					{
 						GD.Print("ReportButton: Second strike, permanently disabled");
+						ShowLabel(secondStrikeLabel);
 						Disable(false);
 
 					}
 					else if (consecutiveFalseCount >= tolerance)
 					{
 						GD.Print("ReportButton: First strike, disabled with timer");
+						ShowLabel(firstStrikeLabel);
 						firstStrikeReached = true;
 						Disable(true);
-
+					}
+					else
+					{
+						ShowLabel(anomalyNotFoundLabel);
 					}
 					GD.Print($"Checkpoint ID:{id} doesn't have an anomaly.");
-					AnomalyNotFoundLabel.Visible = true;
-					labelTimer.Start();
+
 				}
 			}
 		}
@@ -115,8 +132,13 @@ public partial class ReportButton : Node3D, IInteractible
 
 	public void RemoveLabels()
 	{
-		AnomalyFixedLabel.Visible = false;
-		AnomalyNotFoundLabel.Visible = false;
+		anomalyFixedLabel.Visible = false;
+		anomalyNotFoundLabel.Visible = false;
+		warningLabel.Visible = false;
+		firstStrikeLabel.Visible = false;
+		secondStrikeLabel.Visible = false;
+		noResponseLabel.Visible = false;
+
 	}
 	private void Disable(bool withTimer = false)
 	{
@@ -141,5 +163,11 @@ public partial class ReportButton : Node3D, IInteractible
 			GD.Print("ReportButton: Re-enabled");
 		}
 		light.Visible = true;
+	}
+	private void ShowLabel(Label label)
+	{
+		RemoveLabels();
+		label.Visible = true;
+		labelTimer.Start();
 	}
 }
