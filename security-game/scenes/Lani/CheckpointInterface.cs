@@ -28,7 +28,7 @@ public partial class CheckpointInterface : Node
 	{
 		if (!stealTimerOn)
 		{
-			if (GetOpenDoors() >= 3)
+			if (GetOpenDoors() >= 2)
 			{
 				GD.Print("More than 2 door open, timer started");
 				stealTimer.Start();
@@ -36,7 +36,7 @@ public partial class CheckpointInterface : Node
 			}	
 		} else
 		{
-			if (GetOpenDoors() < 3)
+			if (GetOpenDoors() < 2)
 			{
 				GD.Print("Less then 3 doors open, timer stopped");
 				stealTimer.Stop();
