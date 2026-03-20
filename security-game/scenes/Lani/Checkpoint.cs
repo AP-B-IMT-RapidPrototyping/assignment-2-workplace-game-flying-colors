@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.ComponentModel;
 
-public partial class Checkpoint : StaticBody3D
+public partial class Checkpoint : Node3D
 {
 	[Export] private Node3D _player;
 	[Export] private Timer anomalyTimer;
@@ -10,6 +10,9 @@ public partial class Checkpoint : StaticBody3D
 	[Export] public bool hasAnomaly;
 	[Export] public int ID = 1;
 	[Export] private AnimationPlayer animations;
+
+	[Export] private string openAnimation;
+	[Export] private string closeAnimation;
 	
 	[Signal]
 	public delegate void LoseEnergyEventHandler();
@@ -20,7 +23,7 @@ public partial class Checkpoint : StaticBody3D
 	{
 		SetRandomWaitTime();
 		anomalyTimer.Start();
-		animations.Play("close");
+		animations.Play(closeAnimation);
 		anomalyTimer.Timeout += MakeAnomaly;
 		//tempTimer.Timeout += fixAnomaly;
 	}
@@ -29,24 +32,13 @@ public partial class Checkpoint : StaticBody3D
 	{
 	}
 
-
-	//Roep signaal aan om energie te verliezen wanneer de speler binnen de range komt
-	private void OnPLayerEnteredCheckpoint(Node3D body)
-	{
-		if (body == _player)
-		{
-			GD.Print("PLayer entered checkpoint.");
-			EmitSignal(SignalName.LoseEnergy, -0.25f);
-		}
-	}
-
 	// Maak een nieuwe anomaly (momenteel kan de deur alleen open gaan)
 	private void MakeAnomaly()
 	{
 		if (hasAnomaly)
 			return;
 		if (!pretending)
-			animations.Play("open");
+			animations.Play(openAnimation);
 		hasAnomaly = true;
 		//tempTimer.Start();
 	}
