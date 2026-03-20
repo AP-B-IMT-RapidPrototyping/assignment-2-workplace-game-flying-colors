@@ -44,7 +44,7 @@ public partial class Checkpoint : Node3D
 	//Stel een nieuwe random tijd in om een nieuwe anomaly aan te maken
 	private void SetRandomWaitTime()
 	{
-		anomalyTimer.WaitTime = GD.RandRange(10, 20);
+		anomalyTimer.WaitTime = GD.RandRange(10, 120);
 	}
 
 	public void FixAnomaly()

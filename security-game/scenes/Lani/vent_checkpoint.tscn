@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://ddo6xb266rswb"]
+
+[ext_resource type="PackedScene" uid="uid://8tt5c7r8uh25" path="res://assets/EigenAssets/Vent.glb" id="1_06lm2"]
+[ext_resource type="PackedScene" uid="uid://bp7tos6nqwtip" path="res://assets/kenney/prototype/GLB format/wall-window-cutout-large.glb" id="2_bmsl5"]
+[ext_resource type="PackedScene" uid="uid://cvqrnkb7l0eru" path="res://scenes/Lani/checkpoint.tscn" id="3_bmsl5"]
+
+[sub_resource type="Animation" id="Animation_4thje"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ventBase:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.1, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ventBase:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_06lm2"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ventBase:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.4622886, 2.4622886),
+"update": 0,
+"values": [Vector3(-0.16833985, 0.5, 0), Vector3(-0.1, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ventBase:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.4622886, 2.4622886),
+"update": 0,
+"values": [Vector3(0, 0, -0.23258257), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m5i4h"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ventBase:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.008333334, 1, 1.0083333),
+"transitions": PackedFloat32Array(2.4622886, 1, 2.4622886),
+"update": 0,
+"values": [Vector3(-0.1, 0.5, 0), Vector3(-0.168, 0.5, 0), Vector3(-0.16833985, 0.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ventBase:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.008333334, 1),
+"transitions": PackedFloat32Array(2.4622886, 2.4622886),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.23258257)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6eu5q"]
+_data = {
+&"RESET": SubResource("Animation_4thje"),
+&"close": SubResource("Animation_06lm2"),
+&"open": SubResource("Animation_m5i4h")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_um1da"]
+size = Vector3(0.3, 1, 1)
+
+[node name="vent_checkpoint" type="StaticBody3D" unique_id=2117653039]
+
+[node name="Vent" parent="." unique_id=1807556314 instance=ExtResource("1_06lm2")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vent" unique_id=887746673]
+libraries/ = SubResource("AnimationLibrary_6eu5q")
+
+[node name="wall-window-cutout-large2" parent="." unique_id=51720225 instance=ExtResource("2_bmsl5")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1995137680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_um1da")
+
+[node name="Checkpoint" parent="." unique_id=1059306128 node_paths=PackedStringArray("animations") instance=ExtResource("3_bmsl5")]
+animations = NodePath("../Vent/AnimationPlayer")
+
+[editable path="Vent"]

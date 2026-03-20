@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bnqcpe71aesu3" path="res://assets/kenney/prototype/GLB format/animal-horse.glb" id="10_0ld40"]
 [ext_resource type="PackedScene" uid="uid://xxguc0rxwbnn" path="res://scenes/Lani/window_checkpoint.tscn" id="10_fv21b"]
 [ext_resource type="Script" uid="uid://vrsd0t72fye2" path="res://scenes/Lani/ValuableLight.cs" id="10_jscy8"]
+[ext_resource type="PackedScene" uid="uid://ddo6xb266rswb" path="res://scenes/Lani/vent_checkpoint.tscn" id="10_tel4y"]
 [ext_resource type="PackedScene" uid="uid://24fqff0bvkm3" path="res://assets/kenney/prototype/GLB format/animal-bison.glb" id="11_gqmmt"]
 [ext_resource type="Script" uid="uid://cpbydwtmukgho" path="res://scenes/Lani/Valuable.cs" id="11_yc10j"]
 [ext_resource type="PackedScene" uid="uid://dicqviu8gbigw" path="res://assets/kenney/prototype/GLB format/coin.glb" id="12_yc10j"]
@@ -355,10 +356,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.129, 0, -8.666)
 _player = NodePath("../../../Player")
 ID = 2
 
-[node name="doorCheckpoint3" parent="Checkpoints" unique_id=455803302 instance=ExtResource("9_yq6so")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.796, 0, -1.01)
+[node name="vent_checkpoint" parent="Checkpoints" unique_id=2117653039 instance=ExtResource("10_tel4y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.845963, 0, -1)
 
-[node name="Checkpoint" parent="Checkpoints/doorCheckpoint3" index="3" unique_id=1059306128 node_paths=PackedStringArray("_player")]
+[node name="Checkpoint" parent="Checkpoints/vent_checkpoint" index="3" unique_id=1059306128 node_paths=PackedStringArray("_player")]
 _player = NodePath("../../../Player")
 ID = 3
 
@@ -692,8 +693,8 @@ script = ExtResource("29_yq6so")
 [editable path="Checkpoints/doorCheckpoint/door-sliding-double2"]
 [editable path="Checkpoints/doorCheckpoint2"]
 [editable path="Checkpoints/doorCheckpoint2/door-sliding-double2"]
-[editable path="Checkpoints/doorCheckpoint3"]
-[editable path="Checkpoints/doorCheckpoint3/door-sliding-double2"]
+[editable path="Checkpoints/vent_checkpoint"]
+[editable path="Checkpoints/vent_checkpoint/Vent"]
 [editable path="Checkpoints/window_checkpoint"]
 [editable path="Checkpoints/window_checkpoint/SlideWindow"]
 [editable path="Interactibles/ReportButton"]
