@@ -14,8 +14,6 @@ public partial class Checkpoint : Node3D
 	[Export] private string openAnimation;
 	[Export] private string closeAnimation;
 	
-	[Signal]
-	public delegate void LoseEnergyEventHandler();
 
 	private bool pretending = false;
 
@@ -46,7 +44,7 @@ public partial class Checkpoint : Node3D
 	//Stel een nieuwe random tijd in om een nieuwe anomaly aan te maken
 	private void SetRandomWaitTime()
 	{
-		anomalyTimer.WaitTime = GD.RandRange(10, 120);
+		anomalyTimer.WaitTime = GD.RandRange(10, 20);
 	}
 
 	public void FixAnomaly()

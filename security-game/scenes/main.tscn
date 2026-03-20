@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dj1mkkb0d7gs3" path="res://assets/kenney/prototype/GLB format/number-double-4.glb" id="8_yq6so"]
 [ext_resource type="PackedScene" uid="uid://b3gci0v4p2kiq" path="res://scenes/Lani/door_checkpoint.tscn" id="9_yq6so"]
 [ext_resource type="PackedScene" uid="uid://bnqcpe71aesu3" path="res://assets/kenney/prototype/GLB format/animal-horse.glb" id="10_0ld40"]
+[ext_resource type="PackedScene" uid="uid://xxguc0rxwbnn" path="res://scenes/Lani/window_checkpoint.tscn" id="10_fv21b"]
 [ext_resource type="Script" uid="uid://vrsd0t72fye2" path="res://scenes/Lani/ValuableLight.cs" id="10_jscy8"]
 [ext_resource type="PackedScene" uid="uid://24fqff0bvkm3" path="res://assets/kenney/prototype/GLB format/animal-bison.glb" id="11_gqmmt"]
 [ext_resource type="Script" uid="uid://cpbydwtmukgho" path="res://scenes/Lani/Valuable.cs" id="11_yc10j"]
@@ -361,6 +362,13 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.7
 _player = NodePath("../../../Player")
 ID = 3
 
+[node name="window_checkpoint" parent="Checkpoints" unique_id=514632922 instance=ExtResource("10_fv21b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 9.7231655)
+
+[node name="Checkpoint" parent="Checkpoints/window_checkpoint" index="3" unique_id=1059306128 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../../Player")
+ID = 4
+
 [node name="Interactibles" type="Node3D" parent="." unique_id=983400365]
 
 [node name="ReportButton" parent="Interactibles" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "anomalyFixedLabel", "anomalyNotFoundLabel", "warningLabel", "firstStrikeLabel", "secondStrikeLabel", "noResponseLabel") instance=ExtResource("5_85g3d")]
@@ -499,6 +507,7 @@ environment = SubResource("Environment_a8y0u")
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("8_eb6dy")]
 _speedSprint = 3.0
+_sprintEnergyConsumption = 0.1
 
 [node name="Lights" type="Node3D" parent="." unique_id=1654128894]
 
@@ -672,9 +681,6 @@ wait_time = 15.0
 wait_time = 5.0
 script = ExtResource("29_yq6so")
 
-[connection signal="LoseEnergy" from="Checkpoints/doorCheckpoint/Checkpoint" to="Player/Stats" method="ChangeEnergy"]
-[connection signal="LoseEnergy" from="Checkpoints/doorCheckpoint2/Checkpoint" to="Player/Stats" method="ChangeEnergy"]
-[connection signal="LoseEnergy" from="Checkpoints/doorCheckpoint3/Checkpoint" to="Player/Stats" method="ChangeEnergy"]
 [connection signal="Drink" from="Interactibles/Coffee" to="Player" method="ChangeEnergy"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Interactibles/ReportButton" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="UIs/ELabel" method="ChangeState"]
@@ -688,6 +694,8 @@ script = ExtResource("29_yq6so")
 [editable path="Checkpoints/doorCheckpoint2/door-sliding-double2"]
 [editable path="Checkpoints/doorCheckpoint3"]
 [editable path="Checkpoints/doorCheckpoint3/door-sliding-double2"]
+[editable path="Checkpoints/window_checkpoint"]
+[editable path="Checkpoints/window_checkpoint/SlideWindow"]
 [editable path="Interactibles/ReportButton"]
 [editable path="UIs/EnergyLabel"]
 [editable path="Player"]
