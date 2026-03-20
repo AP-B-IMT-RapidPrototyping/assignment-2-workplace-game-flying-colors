@@ -673,6 +673,7 @@ wait_time = 15.0
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint3" to="Player" method="ChangeEnergy"]
 [connection signal="LoseEnergy" from="Checkpoints/Checkpoint4" to="Player" method="ChangeEnergy"]
 [connection signal="Drink" from="Interactibles/Coffee" to="Player" method="ChangeEnergy"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Interactibles/ReportButton" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="UIs/ELabel" method="ChangeState"]
 [connection signal="EnergyChanged" from="Player/Stats" to="UIs/EnergyLabel/EnergyBar" method="ChangeValue"]
 [connection signal="EnergyChanged" from="Player/Stats" to="checkpoints" method="OnEnergyChanged"]

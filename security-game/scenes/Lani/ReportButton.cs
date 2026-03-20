@@ -170,4 +170,13 @@ public partial class ReportButton : Node3D, IInteractible
 		label.Visible = true;
 		labelTimer.Start();
 	}
+
+	public void OnLookedAtInteractableChanged(Node3D CurrentLookedAtInteractable, bool IsLookingAtInteractable)
+	{
+		if (!IsLookingAtInteractable)
+		{
+			reportMenu.CloseMenu();
+
+		}
+	}
 }
