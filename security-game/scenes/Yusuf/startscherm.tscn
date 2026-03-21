@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://bgtgmvj0basua"]
+
+[ext_resource type="Script" uid="uid://vlyvlafug2ai" path="res://scenes/Yusuf/MenuItems.cs" id="1_n3eb5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n3eb5"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_dqqon"]
+sky_material = SubResource("ProceduralSkyMaterial_n3eb5")
+
+[sub_resource type="Environment" id="Environment_206dx"]
+background_mode = 2
+sky = SubResource("Sky_dqqon")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="TextMesh" id="TextMesh_dqqon"]
+text = "play"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_206dx"]
+size = Vector3(0.38233185, 0.19104004, 0.20458984)
+
+[sub_resource type="TextMesh" id="TextMesh_2t6du"]
+text = "quit"
+
+[sub_resource type="Animation" id="Animation_f6mji"]
+resource_name = "KIESSCHERM"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Control:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1.8832343, 1.8832343, 1.7031177, 0), Color(1.8832343, 1.8832343, 1.7031177, 0.9843137)]
+}
+
+[sub_resource type="Animation" id="Animation_65k5y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgqil"]
+_data = {
+&"KIESSCHERM": SubResource("Animation_f6mji"),
+&"RESET": SubResource("Animation_65k5y")
+}
+
+[node name="test" type="Node3D" unique_id=821141609]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=827844802]
+environment = SubResource("Environment_206dx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1803615105]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="menuItems" type="Node3D" parent="." unique_id=1617651413 node_paths=PackedStringArray("_animationPlayer")]
+script = ExtResource("1_n3eb5")
+_animationPlayer = NodePath("AnimationPlayer")
+
+[node name="PLAY" type="MeshInstance3D" parent="menuItems" unique_id=1213332802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7465129, 0.08605629, 0.45322418, -0.35853267)
+mesh = SubResource("TextMesh_dqqon")
+
+[node name="Area3D" type="Area3D" parent="menuItems/PLAY" unique_id=984326011]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="menuItems/PLAY/Area3D" unique_id=429039198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012599945, 0.007507324, -0.014892548)
+shape = SubResource("BoxShape3D_206dx")
+
+[node name="QUIT" type="MeshInstance3D" parent="menuItems" unique_id=20002531]
+transform = Transform3D(1.0483774, 0, 0, 0, 1, 0, 0, 0, 0.937771, 0.070495605, 0.114637166, -0.3433379)
+mesh = SubResource("TextMesh_2t6du")
+
+[node name="Area3D" type="Area3D" parent="menuItems/QUIT" unique_id=1161450729]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="menuItems/QUIT/Area3D" unique_id=4623635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.8210093, 0.021339417, 0.007507324, -0.0148925185)
+shape = SubResource("BoxShape3D_206dx")
+
+[node name="Camera3D" type="Camera3D" parent="menuItems" unique_id=5346211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00216119, 0.2618162, 0.52811915)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="menuItems" unique_id=1973542459]
+libraries/ = SubResource("AnimationLibrary_kgqil")
+
+[node name="Control" type="Control" parent="." unique_id=282613157]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=476794625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.50980395)
+
+[node name="GAME" type="Button" parent="Control" unique_id=268426589]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 401.0
+offset_right = 969.0
+offset_bottom = 449.0
+text = "GAME"
+
+[node name="TUTORIAL" type="Button" parent="Control" unique_id=126478841]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 412.0
+offset_right = 284.0
+offset_bottom = 460.0
+text = "TUTORIAL"
+
+[node name="BACK" type="Button" parent="Control" unique_id=1887668253]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 521.0
+offset_right = 600.0
+offset_bottom = 569.0
+text = "BACK"
+
+[node name="Label" type="Label" parent="Control" unique_id=2115476029]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 207.0
+offset_right = 1060.0
+offset_bottom = 301.0
+theme_override_font_sizes/font_size = 34
+text = "Kies of u eerst een tutorial wilt afleggen of direct spelen "
+
+[connection signal="input_event" from="menuItems/PLAY/Area3D" to="menuItems" method="StartButton"]
+[connection signal="input_event" from="menuItems/QUIT/Area3D" to="menuItems" method="QuitButton"]
+[connection signal="pressed" from="Control/GAME" to="menuItems" method="Game"]
+[connection signal="pressed" from="Control/TUTORIAL" to="menuItems" method="Tutorial"]
+[connection signal="pressed" from="Control/BACK" to="menuItems" method="Back"]
