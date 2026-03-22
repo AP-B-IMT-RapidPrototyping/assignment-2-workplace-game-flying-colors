@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://2r2oqpayobxk"
-path="res://.godot/imported/boat-row-small.glb-2acb4cba4ecee0ebd2287d2b935cbe78.scn"
+uid="uid://bahrc3enkk1af"
+path="res://.godot/imported/OldDesk.glb-474f98d61d72e6e4b354bebcbe0bef60.scn"
 
 [deps]
 
-source_file="res://assets/kenney/Kenney_pirate/OBJ format/boat-row-small.glb"
-dest_files=["res://.godot/imported/boat-row-small.glb-2acb4cba4ecee0ebd2287d2b935cbe78.scn"]
+source_file="res://assets/EigenAssets/OldDesk.glb"
+dest_files=["res://.godot/imported/OldDesk.glb-474f98d61d72e6e4b354bebcbe0bef60.scn"]
 
 [params]
 

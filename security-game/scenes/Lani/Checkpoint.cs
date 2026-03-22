@@ -4,7 +4,6 @@ using System.ComponentModel;
 
 public partial class Checkpoint : Node3D
 {
-	[Export] private Node3D _player;
 	[Export] private Timer anomalyTimer;
 	[Export] private Timer tempTimer;
 	[Export] public bool hasAnomaly;
@@ -31,7 +30,7 @@ public partial class Checkpoint : Node3D
 	}
 
 	// Maak een nieuwe anomaly (momenteel kan de deur alleen open gaan)
-	private void MakeAnomaly()
+	public void MakeAnomaly()
 	{
 		if (hasAnomaly)
 			return;

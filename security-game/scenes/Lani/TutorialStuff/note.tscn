@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dak4obve13vtg"]
+
+[ext_resource type="PackedScene" uid="uid://bljerq6ldvqfo" path="res://assets/EigenAssets/Note.glb" id="1_4hhy3"]
+[ext_resource type="Script" uid="uid://dfmt3jpuf110f" path="res://scenes/Lani/TutorialStuff/Note.cs" id="1_omsjv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_omsjv"]
+size = Vector3(0.02, 0.25, 0.2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_omsjv"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Note" type="Node3D" unique_id=73472107 node_paths=PackedStringArray("text") groups=["interactable"]]
+script = ExtResource("1_omsjv")
+text = NodePath("Text")
+
+[node name="NoteObject" parent="." unique_id=884968079 instance=ExtResource("1_4hhy3")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1680458187]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27422944, 0, 0)
+light_color = Color(1, 1, 0.23137255, 1)
+shadow_enabled = true
+spot_range = 0.421
+spot_attenuation = -0.03
+spot_angle = 28.57
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2113808402]
+
+[node name="NoteCollision" type="CollisionShape3D" parent="StaticBody3D" unique_id=1284028397]
+shape = SubResource("BoxShape3D_omsjv")
+
+[node name="Text" type="Control" parent="." unique_id=1120716171]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Text" unique_id=1584089275]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6266168, 0.5359379, 0.21080142, 1)
+
+[node name="Label" type="Label" parent="Text" unique_id=915741923]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5375
+anchor_top = -4.275
+anchor_right = 0.5375
+anchor_bottom = -4.275
+offset_left = -144.5
+offset_right = 144.5
+offset_bottom = 387.0
+grow_horizontal = 2
+text = "Welcome to your new security job!
+
+Sadly our security system has broken
+down last week. This means you'll be
+responsible for the safety of the 
+museum.
+
+To make sure nothing gets stolen
+you'll have to go around the museum
+and check for any signs of a break-in.
+
+I put together this practice course
+to make you familier with the job.
+
+Good luck!"
+label_settings = SubResource("LabelSettings_omsjv")
+metadata/_edit_use_anchors_ = true

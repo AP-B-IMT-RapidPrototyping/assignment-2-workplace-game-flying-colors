@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcsrg1qrpfch7"
-path.s3tc="res://.godot/imported/colormap.png-8bab0a3c3c5d599df9b5fec13a292fed.s3tc.ctex"
+uid="uid://ch4x4caaj1cad"
+path.s3tc="res://.godot/imported/colormap.png-b3490b37262e57c8d12b1183c8d36853.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/kenney/Kenney_pirate/OBJ format/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-8bab0a3c3c5d599df9b5fec13a292fed.s3tc.ctex"]
+source_file="res://assets/kenney/Kenney_pirate/GLB format/Textures/colormap.png"
+dest_files=["res://.godot/imported/colormap.png-b3490b37262e57c8d12b1183c8d36853.s3tc.ctex"]
 
 [params]
 

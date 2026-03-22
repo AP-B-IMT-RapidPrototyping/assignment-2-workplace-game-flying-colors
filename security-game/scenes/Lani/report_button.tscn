@@ -2,14 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://bymm01d4hoca3" path="res://assets/kenney/prototype/GLB format/button-floor-round-small.glb" id="1_pgb3t"]
 [ext_resource type="Script" uid="uid://cwlnygwajixub" path="res://scenes/Lani/ReportButton.cs" id="1_qtjyi"]
+[ext_resource type="PackedScene" uid="uid://btsypc4o7xyew" path="res://scenes/Lani/report_menu.tscn" id="3_0f2d4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtjyi"]
 size = Vector3(0.3, 0.1, 0.3)
 
-[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("labelTimer", "light") groups=["interactable"]]
+[sub_resource type="LabelSettings" id="LabelSettings_qtjyi"]
+font_size = 25
+
+[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "anomalyFixedLabel", "anomalyNotFoundLabel", "warningLabel", "firstStrikeLabel", "secondStrikeLabel", "noResponseLabel", "labelTimer", "light", "disableTimer") groups=["interactable"]]
 script = ExtResource("1_qtjyi")
+reportMenu = NodePath("ReportMenu")
+anomalyFixedLabel = NodePath("AnomalyFixed")
+anomalyNotFoundLabel = NodePath("AnomalyNotFound")
+warningLabel = NodePath("FalseWarning")
+firstStrikeLabel = NodePath("FalseFirstStrike")
+secondStrikeLabel = NodePath("FalseSecondStrike")
+noResponseLabel = NodePath("NoResponse")
 labelTimer = NodePath("LabelResetTimer")
 light = NodePath("OmniLight3D")
+disableTimer = NodePath("DisableTimer")
 
 [node name="button-floor-round-small2" parent="." unique_id=674540464 instance=ExtResource("1_pgb3t")]
 
@@ -32,3 +44,96 @@ wait_time = 2.0
 [node name="DisableTimer" type="Timer" parent="." unique_id=1120196070]
 wait_time = 3.0
 one_shot = true
+
+[node name="AnomalyFixed" type="Label" parent="." unique_id=958871536]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -17.5
+offset_right = 91.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Anomaly Fixed!"
+label_settings = SubResource("LabelSettings_qtjyi")
+
+[node name="AnomalyNotFound" type="Label" parent="." unique_id=2093383632]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -17.5
+offset_right = 91.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Anomaly Found"
+label_settings = SubResource("LabelSettings_qtjyi")
+
+[node name="FalseWarning" type="Label" parent="." unique_id=436718087]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -17.5
+offset_right = 115.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you serious right now?"
+label_settings = SubResource("LabelSettings_qtjyi")
+
+[node name="FalseFirstStrike" type="Label" parent="." unique_id=208780965]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -17.5
+offset_right = 160.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Alright very funny I'm going for a coffee break."
+label_settings = SubResource("LabelSettings_qtjyi")
+
+[node name="FalseSecondStrike" type="Label" parent="." unique_id=585582697]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -17.5
+offset_right = 160.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "That's it I'm quitting, good luck."
+label_settings = SubResource("LabelSettings_qtjyi")
+
+[node name="NoResponse" type="Label" parent="." unique_id=913418546]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -17.5
+offset_right = 91.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No Response"
+label_settings = SubResource("LabelSettings_qtjyi")
+
+[node name="ReportMenu" parent="." unique_id=108563017 node_paths=PackedStringArray("reportButton") instance=ExtResource("3_0f2d4")]
+reportButton = NodePath("..")
