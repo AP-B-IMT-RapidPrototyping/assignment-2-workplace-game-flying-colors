@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="1_ueuuf"]
 [ext_resource type="PackedScene" uid="uid://lst45yb82xh1" path="res://scenes/Lani/TutorialStuff/tutorial_design.tscn" id="2_m3e6o"]
+[ext_resource type="Script" uid="uid://cpbydwtmukgho" path="res://scenes/Lani/Valuable.cs" id="3_7dqo1"]
 [ext_resource type="PackedScene" uid="uid://dak4obve13vtg" path="res://scenes/Lani/TutorialStuff/note.tscn" id="3_m3e6o"]
 [ext_resource type="Script" uid="uid://dj8wfocdr28w5" path="res://scenes/Lani/TutorialStuff/SecurityNote.cs" id="4_84v0n"]
 [ext_resource type="PackedScene" uid="uid://das83dtyhs3pn" path="res://scenes/Lani/e_label.tscn" id="4_drydf"]
@@ -12,6 +13,8 @@
 [ext_resource type="Script" uid="uid://de7e5rg7j1be4" path="res://scenes/Lani/EnergyTimer.cs" id="9_kvmro"]
 [ext_resource type="Script" uid="uid://b83gi634rq76t" path="res://scenes/Lani/TutorialStuff/AreaEnergy.cs" id="10_r0il6"]
 [ext_resource type="Script" uid="uid://gbltsngsxs80" path="res://scenes/Lani/TutorialStuff/AreaRemoveEnergy.cs" id="12_66ia6"]
+[ext_resource type="Script" uid="uid://dc15ynenivh2d" path="res://scenes/Lani/TutorialStuff/AreaValuable.cs" id="13_612vr"]
+[ext_resource type="Script" uid="uid://cve3wix2vl1yw" path="res://scenes/Lani/TutorialStuff/AreaEnd.cs" id="15_evj4i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ueuuf"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -32,11 +35,20 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqtm7"]
 size = Vector3(0.2, 1, 2.057129)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_evj4i"]
+size = Vector3(0.2, 1, 2.6657104)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kvmro"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xlhf3"]
 size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dqo1"]
+size = Vector3(2, 2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbcj1"]
+size = Vector3(3, 2, 3)
 
 [node name="Tutorial" type="Node3D" unique_id=1815153980]
 
@@ -44,13 +56,16 @@ size = Vector3(2, 2, 2)
 environment = SubResource("Environment_drydf")
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("1_ueuuf")]
-transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 1.0029975, 0, 0)
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.79877484, 0, -0.22843194)
 _sprintEnergyConsumption = 0.2
 
 [node name="SpotLight3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(1963969163, 1835365883) index="0" unique_id=366307131]
 visible = false
 
 [node name="TutorialDesign" parent="." unique_id=143953795 instance=ExtResource("2_m3e6o")]
+
+[node name="animal-horse2" parent="TutorialDesign/Valuables" parent_id_path=PackedInt32Array(143953795, 53111684) index="0" unique_id=1738535118 groups=["valuables"]]
+script = ExtResource("3_7dqo1")
 
 [node name="Notes" type="Node3D" parent="." unique_id=2127333406]
 
@@ -190,6 +205,61 @@ a bit slower..
 So make sure to drink enough
 coffee!!"
 
+[node name="ValuableNote" parent="Notes" unique_id=1715699127 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.788769, 0.5697595, 14.349953)
+script = ExtResource("5_uqtm7")
+collision = NodePath("../../FlowCollisions/ValuableCollision")
+
+[node name="NoteObject" parent="Notes/ValuableNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/ValuableNote/Text" parent_id_path=PackedInt32Array(1715699127, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "Throughout the museum you'll see
+different valuables with spotlights
+on them.
+It's very important that they don't
+get stolen.
+
+At the end of your schift you'll see
+how many valuables are still 
+remaining. If you lose all of them,
+your schift ends.
+
+So keep paying attention!"
+
+[node name="GoodLuckNote" parent="Notes" unique_id=200076190 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24.788769, 0.5697595, 11.349953)
+script = ExtResource("5_uqtm7")
+collision = NodePath("../../FlowCollisions/GoodLuckCollision")
+
+[node name="NoteObject" parent="Notes/GoodLuckNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/GoodLuckNote/Text" parent_id_path=PackedInt32Array(200076190, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "Now you are fully prepared to 
+protect the museum!
+
+Your schift starts Monday at 0:00
+and ends at 7:00.
+
+Good luck!"
+
 [node name="ELabel" parent="." unique_id=367867780 instance=ExtResource("4_drydf")]
 
 [node name="FlowCollisions" type="StaticBody3D" parent="." unique_id=1069676762]
@@ -224,6 +294,14 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.91
 shape = SubResource("BoxShape3D_uqtm7")
 disabled = true
 
+[node name="ValuableCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=1151968605]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.81669, 0.46599162, 13.247744)
+shape = SubResource("BoxShape3D_uqtm7")
+
+[node name="GoodLuckCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=152711571]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.620548, 0.46599162, 9.891117)
+shape = SubResource("BoxShape3D_evj4i")
+
 [node name="EnergyLabel" parent="." unique_id=1614733266 instance=ExtResource("8_vqkqv")]
 
 [node name="EnergyBar" parent="EnergyLabel" index="0" unique_id=599959606]
@@ -252,6 +330,37 @@ _player = NodePath("../../Player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.04537, 0, 14.20165)
 shape = SubResource("BoxShape3D_xlhf3")
 
+[node name="AreaValuable" type="Area3D" parent="Areas" unique_id=628600914 node_paths=PackedStringArray("_player", "valuable", "valuableLight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 11.657017)
+script = ExtResource("13_612vr")
+_player = NodePath("../../Player")
+valuable = NodePath("../../TutorialDesign/Valuables/animal-horse2")
+valuableLight = NodePath("../../TutorialDesign/Lights/ValuableLight")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/AreaValuable" unique_id=909794469]
+shape = SubResource("BoxShape3D_7dqo1")
+
+[node name="AreaEnd" type="Area3D" parent="Areas" unique_id=1384853225 node_paths=PackedStringArray("_player", "label", "endTimer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 8)
+script = ExtResource("15_evj4i")
+_player = NodePath("../../Player")
+label = NodePath("../../Label3D")
+endTimer = NodePath("../../EndTimer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/AreaEnd" unique_id=1637892939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5142689, 0, 0.33089256)
+shape = SubResource("BoxShape3D_kbcj1")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=772096645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.551987, 0.5896287, 6.2539654)
+modulate = Color(1, 0, 0, 1)
+text = "23:59"
+font_size = 149
+horizontal_alignment = 2
+
+[node name="EndTimer" type="Timer" parent="." unique_id=1739641708]
+wait_time = 5.0
+
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/SecurityNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ClosedDoorNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CheckpointNote" method="OnLookedAtInteractableChanged"]
@@ -259,6 +368,8 @@ shape = SubResource("BoxShape3D_xlhf3")
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeSprintNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeTiredNote2" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="ELabel" method="ChangeState"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ValuableNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/GoodLuckNote" method="OnLookedAtInteractableChanged"]
 [connection signal="EnergyChanged" from="Player/Stats" to="EnergyLabel/EnergyBar" method="ChangeValue"]
 [connection signal="Drink" from="TutorialDesign/Interactibles/Coffee" to="Player/Stats" method="ChangeEnergy"]
 [connection signal="Drink" from="TutorialDesign/Interactibles/Coffee2" to="Player/Stats" method="ChangeEnergy"]
@@ -269,6 +380,8 @@ shape = SubResource("BoxShape3D_xlhf3")
 [connection signal="RemoveEnergy" from="Areas/AreaRemoveEnergy" to="Player/Stats" method="SetEnergy"]
 [connection signal="StopTimer" from="Areas/AreaRemoveEnergy" to="EnergyTimer" method="StopTimer"]
 [connection signal="body_entered" from="Areas/AreaRemoveEnergy" to="Areas/AreaRemoveEnergy" method="playerEntered"]
+[connection signal="body_entered" from="Areas/AreaValuable" to="Areas/AreaValuable" method="playerEntered"]
+[connection signal="body_entered" from="Areas/AreaEnd" to="Areas/AreaEnd" method="playerEntered"]
 
 [editable path="Player"]
 [editable path="TutorialDesign"]
@@ -285,4 +398,6 @@ shape = SubResource("BoxShape3D_xlhf3")
 [editable path="Notes/CoffeeNote"]
 [editable path="Notes/CoffeeSprintNote"]
 [editable path="Notes/CoffeeTiredNote2"]
+[editable path="Notes/ValuableNote"]
+[editable path="Notes/GoodLuckNote"]
 [editable path="EnergyLabel"]

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bgtgmvj0basua"]
 
+[ext_resource type="Script" uid="uid://pl13d4h7qgyh" path="res://scenes/Yusuf/Startscherm.cs" id="1_dqqon"]
 [ext_resource type="Script" uid="uid://vlyvlafug2ai" path="res://scenes/Yusuf/MenuItems.cs" id="1_n3eb5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n3eb5"]
@@ -85,6 +86,7 @@ _data = {
 }
 
 [node name="test" type="Node3D" unique_id=821141609]
+script = ExtResource("1_dqqon")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=827844802]
 environment = SubResource("Environment_206dx")
