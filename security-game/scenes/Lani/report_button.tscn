@@ -42,7 +42,7 @@ omni_range = 0.17568064
 wait_time = 2.0
 
 [node name="DisableTimer" type="Timer" parent="." unique_id=1120196070]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="AnomalyFixed" type="Label" parent="." unique_id=958871536]

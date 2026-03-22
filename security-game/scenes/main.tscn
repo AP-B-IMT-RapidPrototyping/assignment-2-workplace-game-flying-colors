@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://be802a3bb7d4e" path="res://scenes/Lani/coffee.tscn" id="6_choun"]
 [ext_resource type="PackedScene" uid="uid://3paa6pceaug4" path="res://assets/kenney/prototype/GLB format/number-double-2.glb" id="6_vxglm"]
 [ext_resource type="PackedScene" uid="uid://sum2o65fbo5x" path="res://assets/kenney/prototype/GLB format/number-double-3.glb" id="7_2f3dj"]
-[ext_resource type="PackedScene" uid="uid://btsypc4o7xyew" path="res://scenes/Lani/report_menu.tscn" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="8_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dj1mkkb0d7gs3" path="res://assets/kenney/prototype/GLB format/number-double-4.glb" id="8_yq6so"]
 [ext_resource type="PackedScene" uid="uid://b3gci0v4p2kiq" path="res://scenes/Lani/door_checkpoint.tscn" id="9_yq6so"]
@@ -46,9 +45,6 @@ size = Vector3(0.21282959, 1, 2.2443695)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2f3dj"]
 font_size = 100
-
-[sub_resource type="LabelSettings" id="LabelSettings_yq6so"]
-font_size = 25
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_trceg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -346,49 +342,33 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.00
 [node name="doorCheckpoint" parent="Checkpoints" unique_id=1260266045 instance=ExtResource("9_yq6so")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.041, 0, 3)
 
-[node name="Checkpoint" parent="Checkpoints/doorCheckpoint" index="3" unique_id=1059306128 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../../Player")
-
 [node name="doorCheckpoint2" parent="Checkpoints" unique_id=888596787 instance=ExtResource("9_yq6so")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.129, 0, -8.666)
 
-[node name="Checkpoint" parent="Checkpoints/doorCheckpoint2" index="3" unique_id=1059306128 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../../Player")
+[node name="Checkpoint" parent="Checkpoints/doorCheckpoint2" index="3" unique_id=1059306128]
 ID = 2
 
 [node name="vent_checkpoint" parent="Checkpoints" unique_id=2117653039 instance=ExtResource("10_tel4y")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.845963, 0, -1)
 
-[node name="Checkpoint" parent="Checkpoints/vent_checkpoint" index="3" unique_id=1059306128 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../../Player")
+[node name="Checkpoint" parent="Checkpoints/vent_checkpoint" index="3" unique_id=1059306128]
 ID = 3
 
 [node name="window_checkpoint" parent="Checkpoints" unique_id=514632922 instance=ExtResource("10_fv21b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 9.7231655)
 
-[node name="Checkpoint" parent="Checkpoints/window_checkpoint" index="3" unique_id=1059306128 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../../Player")
+[node name="Checkpoint" parent="Checkpoints/window_checkpoint" index="3" unique_id=1059306128]
 ID = 4
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=983400365]
 
-[node name="ReportButton" parent="Interactibles" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "anomalyFixedLabel", "anomalyNotFoundLabel", "warningLabel", "firstStrikeLabel", "secondStrikeLabel", "noResponseLabel") instance=ExtResource("5_85g3d")]
+[node name="ReportButton" parent="Interactibles" unique_id=552731684 instance=ExtResource("5_85g3d")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.89221454, 0.5855169, -0.8016658)
-reportMenu = NodePath("../../UIs/ReportMenu")
-anomalyFixedLabel = NodePath("../../UIs/AnomalyFixed")
-anomalyNotFoundLabel = NodePath("../../UIs/AnomalyNotFound")
-warningLabel = NodePath("../../UIs/FalseWarning")
-firstStrikeLabel = NodePath("../../UIs/FalseFirstStrike")
-secondStrikeLabel = NodePath("../../UIs/FalseSecondStrike")
-noResponseLabel = NodePath("../../UIs/NoResponse")
 
 [node name="Coffee" parent="Interactibles" unique_id=1239199630 instance=ExtResource("6_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031135842, 0.25363496, 0.9920467)
 
 [node name="UIs" type="Node3D" parent="." unique_id=671804489]
-
-[node name="ReportMenu" parent="UIs" unique_id=108563017 node_paths=PackedStringArray("reportButton") instance=ExtResource("7_ya4ey")]
-reportButton = NodePath("../../Interactibles/ReportButton")
 
 [node name="ELabel" parent="UIs" unique_id=367867780 instance=ExtResource("13_vxglm")]
 
@@ -413,101 +393,10 @@ grow_vertical = 2
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_2f3dj")
 
-[node name="AnomalyFixed" type="Label" parent="UIs" unique_id=775525950]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.5
-offset_top = -17.5
-offset_right = 91.5
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Anomaly Fixed!"
-label_settings = SubResource("LabelSettings_yq6so")
-
-[node name="AnomalyNotFound" type="Label" parent="UIs" unique_id=733647341]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.5
-offset_top = -17.5
-offset_right = 91.5
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "No Anomaly Found"
-label_settings = SubResource("LabelSettings_yq6so")
-
-[node name="FalseWarning" type="Label" parent="UIs" unique_id=1428996391]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = -17.5
-offset_right = 115.0
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Are you serious right now?"
-label_settings = SubResource("LabelSettings_yq6so")
-
-[node name="FalseFirstStrike" type="Label" parent="UIs" unique_id=354886900]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -17.5
-offset_right = 160.0
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Alright very funny I'm going for a coffee break."
-label_settings = SubResource("LabelSettings_yq6so")
-
-[node name="FalseSecondStrike" type="Label" parent="UIs" unique_id=290429705]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -17.5
-offset_right = 160.0
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "That's it I'm quitting, good luck."
-label_settings = SubResource("LabelSettings_yq6so")
-
-[node name="NoResponse" type="Label" parent="UIs" unique_id=2033959360]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.5
-offset_top = -17.5
-offset_right = 91.5
-offset_bottom = 17.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "No Response"
-label_settings = SubResource("LabelSettings_yq6so")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=493987690]
 environment = SubResource("Environment_a8y0u")
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("8_eb6dy")]
-_speedSprint = 3.0
 _sprintEnergyConsumption = 0.1
 
 [node name="Lights" type="Node3D" parent="." unique_id=1654128894]

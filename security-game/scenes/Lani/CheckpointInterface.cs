@@ -103,31 +103,4 @@ public partial class CheckpointInterface : Node
 		}
 	}
 
-	private void OnEnergyChanged(float energy)
-	{
-		if (energy == 0f)
-		{
-			if (!doorsPretending)
-			{
-				GD.Print("No more energy");
-				foreach (Checkpoint checkpoint in _checkpoints)
-				{
-					checkpoint.PretendClosed();
-				}
-				doorsPretending = true;
-			}
-		}
-		else if (energy > 0f)
-		{
-			if (doorsPretending)
-			{
-				GD.Print("Got energy again");
-				foreach (Checkpoint checkpoint in _checkpoints)
-				{
-					checkpoint.StopPretending();
-				}
-				doorsPretending = false;
-			}
-		}
-	}
 }

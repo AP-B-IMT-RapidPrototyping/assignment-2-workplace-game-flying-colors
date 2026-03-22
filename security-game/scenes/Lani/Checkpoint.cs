@@ -59,23 +59,4 @@ public partial class Checkpoint : Node3D
 		anomalyTimer.Start();
 	}
 
-	public void PretendClosed()
-	{
-		pretending = true;
-		if (hasAnomaly)
-		{
-			animations.Play("close");
-			GD.Print($"Pretends to be closed ID:{ID}");
-		}
-	}
-
-	public void StopPretending()
-	{
-		pretending = false;
-		if (hasAnomaly)
-		{
-			animations.Play("open");
-			GD.Print($"Checkpoint: {ID} no longer pretends to be closed.");
-		} 
-	}
 }
