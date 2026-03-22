@@ -85,7 +85,7 @@ _data = {
 &"RESET": SubResource("Animation_65k5y")
 }
 
-[node name="test" type="Node3D" unique_id=821141609]
+[node name="titleScreen" type="Node3D" unique_id=821141609]
 script = ExtResource("1_dqqon")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=827844802]
