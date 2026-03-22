@@ -75,6 +75,23 @@ script = ExtResource("4_84v0n")
 doorCollision = NodePath("../../TutorialDesign/Collisions/CollisionShapeDoor")
 doorAnimations = NodePath("../../TutorialDesign/Doors/securityDoor/AnimationPlayer")
 
+[node name="Label" parent="Notes/SecurityNote/Text" parent_id_path=PackedInt32Array(1100640809, 1120716171) index="1" unique_id=915741923]
+text = "Welcome to your new security job!
+
+Sadly our security system has broken
+down last week. This means you'll be
+responsible for the safety of the 
+museum.
+
+To make sure nothing gets stolen
+you'll have to go around the museum
+and check for any signs of a break-in.
+
+I put together this practice course
+to make you familiar with the job.
+
+Good luck!"
+
 [node name="ClosedDoorNote" parent="Notes" unique_id=73472107 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.866356, 0.5697595, 2.8954825)
 script = ExtResource("5_uqtm7")
@@ -146,7 +163,7 @@ offset_top = 1.5258789e-05
 offset_right = 137.0
 offset_bottom = 354.0
 text = "Because you are working the night 
-schift it's normal you start to feel
+shift it's normal you start to feel
 more tired over time.
 
 To counter that we provide you with
@@ -175,7 +192,7 @@ offset_right = 137.0
 offset_bottom = 354.0
 text = "If you ever feel like you need to 
 hurry to get somewhere faster,
-you can try holding SCHIFT to run.
+you can try holding SHIFT to run.
 
 Be careful! Sprinting takes more
 energy."
@@ -228,7 +245,7 @@ on them.
 It's very important that they don't
 get stolen.
 
-At the end of your schift you'll see
+At the end of your shift you'll see
 how many valuables are still 
 remaining. If you lose all of them,
 your schift ends.
@@ -255,7 +272,7 @@ offset_bottom = 354.0
 text = "Now you are fully prepared to 
 protect the museum!
 
-Your schift starts Monday at 0:00
+Your shift starts Monday at 0:00
 and ends at 7:00.
 
 Good luck!"
