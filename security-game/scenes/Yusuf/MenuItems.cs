@@ -30,7 +30,7 @@ public partial class MenuItems : Node3D
 
 	private void Game()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/Levels/Library.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Levels/full_level_2.tscn");
 	}
 
 	private void Back()

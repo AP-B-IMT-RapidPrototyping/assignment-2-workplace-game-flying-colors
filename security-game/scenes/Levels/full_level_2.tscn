@@ -3,7 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://uh7615xvesbw" path="res://scenes/Rhune/Level2.tscn" id="1_nm7nd"]
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="2_dkq8y"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dkq8y"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6t368"]
+sky_material = SubResource("ProceduralSkyMaterial_dkq8y")
+
+[sub_resource type="Environment" id="Environment_gw1xu"]
+background_energy_multiplier = 0.1
+sky = SubResource("Sky_6t368")
+tonemap_mode = 2
+glow_enabled = true
+
 [node name="FullLevel2" type="Node3D" unique_id=2022245150]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=938190335]
+environment = SubResource("Environment_gw1xu")
 
 [node name="Level2" parent="." unique_id=144622609 instance=ExtResource("1_nm7nd")]
 
