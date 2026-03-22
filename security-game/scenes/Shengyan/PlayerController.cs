@@ -9,9 +9,10 @@ public partial class PlayerController : CharacterBody3D
 	[Export] private Camera3D _camera;
 	[Export] private PlayerStats _stats;
 
-	[Export] private float _speed = 1.0f;	
-	[Export] private float _speedSprint = 2.0f;
+	[Export] private float _speed = 2.0f;	
+	[Export] private float _speedSprint = 3.0f;
 	[Export] private float _sprintEnergyConsumption = 0.01f;
+	[Export] private float _speedSlow = 1.0f;
 
 	// Jump disabled
 	//public const float JumpVelocity = 4.5f;
@@ -85,6 +86,9 @@ public partial class PlayerController : CharacterBody3D
 			speed=_speedSprint;
 			isSprinting=true;
 
+		} else if (_stats.Energy == 0f)
+		{
+			speed = _speedSlow;
 		}
 		else
 		{

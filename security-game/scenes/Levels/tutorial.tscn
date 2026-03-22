@@ -45,7 +45,6 @@ environment = SubResource("Environment_drydf")
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("1_ueuuf")]
 transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 1.0029975, 0, 0)
-_speedSprint = 3.0
 _sprintEnergyConsumption = 0.2
 
 [node name="SpotLight3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(1963969163, 1835365883) index="0" unique_id=366307131]
@@ -250,7 +249,7 @@ script = ExtResource("12_66ia6")
 _player = NodePath("../../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/AreaRemoveEnergy" unique_id=1159932795]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.235344, 0, 14.20165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.04537, 0, 14.20165)
 shape = SubResource("BoxShape3D_xlhf3")
 
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/SecurityNote" method="OnLookedAtInteractableChanged"]
