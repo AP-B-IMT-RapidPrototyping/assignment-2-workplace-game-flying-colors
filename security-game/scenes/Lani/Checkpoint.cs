@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 public partial class Checkpoint : Node3D
 {
-	[Export] private Timer anomalyTimer;
+	[Export] protected Timer anomalyTimer;
 	[Export] private Timer tempTimer;
 	[Export] public bool hasAnomaly;
 	[Export] public int ID = 1;
@@ -30,7 +30,7 @@ public partial class Checkpoint : Node3D
 	}
 
 	// Maak een nieuwe anomaly (momenteel kan de deur alleen open gaan)
-	public void MakeAnomaly()
+	public virtual void MakeAnomaly()
 	{
 		if (hasAnomaly)
 			return;
@@ -41,7 +41,7 @@ public partial class Checkpoint : Node3D
 	}
 
 	//Stel een nieuwe random tijd in om een nieuwe anomaly aan te maken
-	private void SetRandomWaitTime()
+	public virtual void SetRandomWaitTime()
 	{
 		anomalyTimer.WaitTime = GD.RandRange(10, 120);
 	}

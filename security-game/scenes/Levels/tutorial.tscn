@@ -376,7 +376,7 @@ font_size = 149
 horizontal_alignment = 2
 
 [node name="EndTimer" type="Timer" parent="." unique_id=1739641708]
-wait_time = 5.0
+wait_time = 3.0
 
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/SecurityNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ClosedDoorNote" method="OnLookedAtInteractableChanged"]
