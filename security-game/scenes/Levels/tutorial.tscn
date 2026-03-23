@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="1_ueuuf"]
 [ext_resource type="PackedScene" uid="uid://lst45yb82xh1" path="res://scenes/Lani/TutorialStuff/tutorial_design.tscn" id="2_m3e6o"]
 [ext_resource type="Script" uid="uid://cpbydwtmukgho" path="res://scenes/Lani/Valuable.cs" id="3_7dqo1"]
+[ext_resource type="PackedScene" uid="uid://i8tlgkjx8q0l" path="res://assets/kenney/prototype/wall_2_collision.tscn" id="3_kbcj1"]
 [ext_resource type="PackedScene" uid="uid://dak4obve13vtg" path="res://scenes/Lani/TutorialStuff/note.tscn" id="3_m3e6o"]
 [ext_resource type="Script" uid="uid://dj8wfocdr28w5" path="res://scenes/Lani/TutorialStuff/SecurityNote.cs" id="4_84v0n"]
 [ext_resource type="PackedScene" uid="uid://das83dtyhs3pn" path="res://scenes/Lani/e_label.tscn" id="4_drydf"]
@@ -63,6 +64,12 @@ _sprintEnergyConsumption = 0.2
 visible = false
 
 [node name="TutorialDesign" parent="." unique_id=143953795 instance=ExtResource("2_m3e6o")]
+
+[node name="wall20" parent="TutorialDesign/Walls" parent_id_path=PackedInt32Array(143953795, 1792398085) index="20" unique_id=1148781219 instance=ExtResource("3_kbcj1")]
+transform = Transform3D(-4.3711385e-08, 0, -9.412456, 0, 0.99999994, 0, 0.99999994, 0, -4.1143147e-07, 3.2864184, 0, 5.24848)
+
+[node name="wall21" parent="TutorialDesign/Walls" parent_id_path=PackedInt32Array(143953795, 1792398085) index="21" unique_id=62165319 instance=ExtResource("3_kbcj1")]
+transform = Transform3D(-0.9999998, 0, 3.9677187e-07, 0, 0.9999999, 0, -8.7422755e-08, 0, -4.5385413, 3.2864184, 0, 5.24848)
 
 [node name="animal-horse2" parent="TutorialDesign/Valuables" parent_id_path=PackedInt32Array(143953795, 53111684) index="0" unique_id=1738535118 groups=["valuables"]]
 script = ExtResource("3_7dqo1")
@@ -218,6 +225,10 @@ offset_bottom = 354.0
 text = "If you ever run out of energy
 you might notice walking becomes
 a bit slower..
+
+This next hallway will show exactly
+what happens when you lose all 
+energy.
 
 So make sure to drink enough
 coffee!!"
@@ -377,6 +388,10 @@ horizontal_alignment = 2
 
 [node name="EndTimer" type="Timer" parent="." unique_id=1739641708]
 wait_time = 3.0
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1202079783]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.406535, 0.56865275, 3.944117)
+text = ":3"
 
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/SecurityNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ClosedDoorNote" method="OnLookedAtInteractableChanged"]

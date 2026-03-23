@@ -24,13 +24,24 @@ sky = SubResource("Sky_dqqon")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmriq"]
+resource_local_to_scene = true
+emission = Color(0.3470683, 0.3470683, 0.3470683, 1)
+emission_energy_multiplier = 1.48
+
 [sub_resource type="TextMesh" id="TextMesh_dqqon"]
+material = SubResource("StandardMaterial3D_xmriq")
 text = "play"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_206dx"]
 size = Vector3(0.38233185, 0.19104004, 0.20458984)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8d7o"]
+emission = Color(0.34901962, 0.34901962, 0.34901962, 1)
+emission_energy_multiplier = 1.48
+
 [sub_resource type="TextMesh" id="TextMesh_2t6du"]
+material = SubResource("StandardMaterial3D_v8d7o")
 text = "quit"
 
 [sub_resource type="Animation" id="Animation_f6mji"]
@@ -188,9 +199,11 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 visible = false
 shadow_enabled = true
 
-[node name="menuItems" type="Node3D" parent="." unique_id=1617651413 node_paths=PackedStringArray("_animationPlayer")]
+[node name="menuItems" type="Node3D" parent="." unique_id=1617651413 node_paths=PackedStringArray("_animationPlayer", "playMesh", "quitMesh")]
 script = ExtResource("1_n3eb5")
 _animationPlayer = NodePath("AnimationPlayer")
+playMesh = NodePath("PLAY")
+quitMesh = NodePath("QUIT")
 
 [node name="PLAY" type="MeshInstance3D" parent="menuItems" unique_id=1213332802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7465129, 0.08605629, 0.45322418, -0.35853267)
@@ -367,7 +380,7 @@ shadow_caster_mask = 4294967293
 spot_angle = 45.39
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Light" unique_id=577096995]
-transform = Transform3D(0.99471176, 0.08240055, 0.061307613, 0.05972768, -0.94971013, 0.3073813, 0.08355285, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
+transform = Transform3D(0.9947117, 0.08240055, 0.061307613, 0.059727676, -0.94971013, 0.3073813, 0.083552845, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
 light_color = Color(0.5450788, 0.15080866, 0.14261675, 1)
 light_energy = 5.064
 light_indirect_energy = 3.73
@@ -393,7 +406,11 @@ spot_angle = 45.39
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 1, 0, 0.5, 0, -2.1855694e-08, -1.4991882, -0.277108, -2.93267)
 
 [connection signal="input_event" from="menuItems/PLAY/Area3D" to="menuItems" method="StartButton"]
+[connection signal="mouse_entered" from="menuItems/PLAY/Area3D" to="menuItems" method="playHighlight"]
+[connection signal="mouse_exited" from="menuItems/PLAY/Area3D" to="menuItems" method="playUnHighlight"]
 [connection signal="input_event" from="menuItems/QUIT/Area3D" to="menuItems" method="QuitButton"]
+[connection signal="mouse_entered" from="menuItems/QUIT/Area3D" to="menuItems" method="quitHighlight"]
+[connection signal="mouse_exited" from="menuItems/QUIT/Area3D" to="menuItems" method="quitUnHighlight"]
 [connection signal="pressed" from="Control/GAME" to="menuItems" method="Game"]
 [connection signal="pressed" from="Control/TUTORIAL" to="menuItems" method="Tutorial"]
 [connection signal="pressed" from="Control/BACK" to="menuItems" method="Back"]
