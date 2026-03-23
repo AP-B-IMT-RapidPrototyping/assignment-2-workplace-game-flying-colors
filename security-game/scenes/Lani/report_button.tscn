@@ -10,7 +10,7 @@ size = Vector3(0.3, 0.1, 0.3)
 [sub_resource type="LabelSettings" id="LabelSettings_qtjyi"]
 font_size = 25
 
-[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "anomalyFixedLabel", "anomalyNotFoundLabel", "warningLabel", "firstStrikeLabel", "secondStrikeLabel", "noResponseLabel", "labelTimer", "light", "disableTimer") groups=["interactable"]]
+[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "anomalyFixedLabel", "anomalyNotFoundLabel", "warningLabel", "firstStrikeLabel", "secondStrikeLabel", "noResponseLabel", "labelTimer", "bufferTimer", "light", "disableTimer") groups=["interactable"]]
 script = ExtResource("1_qtjyi")
 reportMenu = NodePath("ReportMenu")
 anomalyFixedLabel = NodePath("AnomalyFixed")
@@ -20,6 +20,7 @@ firstStrikeLabel = NodePath("FalseFirstStrike")
 secondStrikeLabel = NodePath("FalseSecondStrike")
 noResponseLabel = NodePath("NoResponse")
 labelTimer = NodePath("LabelResetTimer")
+bufferTimer = NodePath("BufferTimer")
 light = NodePath("OmniLight3D")
 disableTimer = NodePath("DisableTimer")
 
@@ -135,5 +136,9 @@ grow_vertical = 2
 text = "No Response"
 label_settings = SubResource("LabelSettings_qtjyi")
 
-[node name="ReportMenu" parent="." unique_id=108563017 node_paths=PackedStringArray("reportButton") instance=ExtResource("3_0f2d4")]
+[node name="ReportMenu" parent="." unique_id=108563017 node_paths=PackedStringArray("reportButton", "bufferTimer") instance=ExtResource("3_0f2d4")]
 reportButton = NodePath("..")
+bufferTimer = NodePath("../BufferTimer")
+
+[node name="BufferTimer" type="Timer" parent="." unique_id=4120046]
+one_shot = true

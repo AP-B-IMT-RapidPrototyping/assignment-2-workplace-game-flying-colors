@@ -17,6 +17,7 @@ public partial class ReportButton : Node3D, IInteractible
 	[Export] private Label secondStrikeLabel;
 	[Export] private Label noResponseLabel;
 	[Export] private Timer labelTimer;
+	[Export] private Timer bufferTimer;
 
 	// --- Penalty for mass false reporting ---
 	// After x amount of consecutive false report, 
@@ -60,6 +61,10 @@ public partial class ReportButton : Node3D, IInteractible
 
 	public void Interact(Node3D interactor, Vector3 hitPosition)
 	{
+		if (bufferTimer.TimeLeft > 0)
+			return;
+		if (reportMenu._isOpen)
+			return;
 		if (!isEnabled)
 		{
 			GD.Print("ReportButton: Ignored interaction while disabled.");
@@ -68,6 +73,7 @@ public partial class ReportButton : Node3D, IInteractible
 		}
 
 		GD.Print("Button pressed");
+		reportMenu._isOpen = true;
 		reportMenu.OpenMenu();
 	}
 

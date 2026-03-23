@@ -8,15 +8,18 @@ public partial class ReportMenu : Control
 	[Export] private Label label2;
 	[Export] private Label label3;
 	[Export] private Label label4;
-	private bool _isOpen = false;
-	private int _selectedCheckpoint = 1;
-	private Color selectedColor = Colors.LimeGreen;
+	[Export] private Timer bufferTimer;
+	public bool _isOpen = false;
+	private int _selectedCheckpoint = 0;
+	private Color gray = new Color(0.668f, 0.668f, 0.668f);
+	private Color white = new Color(1.0f, 1.0f, 1.0f);
 
 	public override void _Ready()
 	{
 		Visible = false;
+		ResetColors();
 	}
-	public override void _Process(double delta)
+	public override void _Input(InputEvent @event)
 	{
 		if (!_isOpen)
 			return;
@@ -25,7 +28,6 @@ public partial class ReportMenu : Control
 		{
 			_selectedCheckpoint = 1;
 			ResetColors();
-			label1.LabelSettings.OutlineSize = 3;
 			GD.Print($"Selected checkpoint: {_selectedCheckpoint}");
 		}
 
@@ -33,7 +35,6 @@ public partial class ReportMenu : Control
 		{
 			_selectedCheckpoint = 2;
 			ResetColors();
-			label2.LabelSettings.OutlineSize = 3;
 			GD.Print($"Selected checkpoint: {_selectedCheckpoint}");
 		}
 
@@ -41,7 +42,6 @@ public partial class ReportMenu : Control
 		{
 			_selectedCheckpoint = 3;
 			ResetColors();
-			label3.LabelSettings.OutlineSize = 3;
 			GD.Print($"Selected checkpoint: {_selectedCheckpoint}");
 		}
 
@@ -49,28 +49,43 @@ public partial class ReportMenu : Control
 		{
 			_selectedCheckpoint = 4;
 			ResetColors();
-			label4.LabelSettings.OutlineSize = 3;
 			GD.Print($"Selected checkpoint: {_selectedCheckpoint}");
 		}
 
-		if (Input.IsActionJustPressed("enter"))
+		if (Input.IsActionJustPressed("enter") || Input.IsActionJustPressed("interact"))
 		{
+			GD.Print("Interacted to report");
 			reportButton.ReportCheckpoint(_selectedCheckpoint);
+			_selectedCheckpoint = 0;
+			ResetColors();
 			CloseMenu();
-		}
-
-		if (Input.IsActionJustPressed("ui_cancel"))
+		} else if (Input.IsActionJustPressed("ui_cancel"))
 		{
+			_selectedCheckpoint = 0;
+			ResetColors();
 			CloseMenu();
 		}
 	}
 
 	private void ResetColors()
 	{
-		label1.LabelSettings.OutlineSize = 0;
-		label2.LabelSettings.OutlineSize = 0;
-		label3.LabelSettings.OutlineSize = 0;
-		label4.LabelSettings.OutlineSize = 0;
+		label1.LabelSettings.FontColor = gray;
+		label2.LabelSettings.FontColor = gray;
+		label3.LabelSettings.FontColor = gray;
+		label4.LabelSettings.FontColor = gray;
+		if (_selectedCheckpoint == 1)
+		{
+			label1.LabelSettings.FontColor = white;
+		} else if (_selectedCheckpoint == 2)
+		{
+			label2.LabelSettings.FontColor = white;
+		} else if (_selectedCheckpoint == 3)
+		{
+			label3.LabelSettings.FontColor = white;
+		} else if (_selectedCheckpoint == 4)
+		{
+			label4.LabelSettings.FontColor = white;
+		}
 	}
 
 	public void OpenMenu()
@@ -86,6 +101,7 @@ public partial class ReportMenu : Control
 		_isOpen = false;
 		Visible = false;
 		GD.Print("Report menu closed");
+		bufferTimer.Start();
 	}
 	
 }
