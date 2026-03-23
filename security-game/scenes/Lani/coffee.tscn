@@ -6,8 +6,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_d8qxe"]
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="Coffee" type="Node3D" unique_id=1239199630 groups=["interactable"]]
+[sub_resource type="LabelSettings" id="LabelSettings_hfe50"]
+font_size = 20
+
+[node name="Coffee" type="Node3D" unique_id=1239199630 node_paths=PackedStringArray("coffeeText", "visibilityTimer") groups=["interactable"]]
 script = ExtResource("1_hfe50")
+coffeeText = NodePath("Label")
+visibilityTimer = NodePath("VisibilityTimer")
 
 [node name="cup-coffee2" parent="." unique_id=779566656 instance=ExtResource("2_hhhir")]
 
@@ -16,3 +21,20 @@ script = ExtResource("1_hfe50")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1492251638]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07118124, 0)
 shape = SubResource("BoxShape3D_d8qxe")
+
+[node name="Label" type="Label" parent="." unique_id=1342525170]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 110.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Delicious coffee!"
+label_settings = SubResource("LabelSettings_hfe50")
+
+[node name="VisibilityTimer" type="Timer" parent="." unique_id=385382453]
+wait_time = 2.0
+one_shot = true
