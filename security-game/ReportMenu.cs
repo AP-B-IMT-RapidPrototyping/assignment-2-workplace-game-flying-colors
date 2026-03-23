@@ -8,6 +8,7 @@ public partial class ReportMenu : Control
 	[Export] private Label label2;
 	[Export] private Label label3;
 	[Export] private Label label4;
+	[Export] private Label label5;
 	[Export] private Timer bufferTimer;
 	public bool _isOpen = false;
 	private int _selectedCheckpoint = 0;
@@ -52,6 +53,13 @@ public partial class ReportMenu : Control
 			GD.Print($"Selected checkpoint: {_selectedCheckpoint}");
 		}
 
+		if (Input.IsActionJustPressed("5"))
+		{
+			_selectedCheckpoint = 5;
+			ResetColors();
+			GD.Print($"Selected checkpoint: {_selectedCheckpoint}");
+		}
+
 		if (Input.IsActionJustPressed("enter") || Input.IsActionJustPressed("interact"))
 		{
 			GD.Print("Interacted to report");
@@ -73,6 +81,7 @@ public partial class ReportMenu : Control
 		label2.LabelSettings.FontColor = gray;
 		label3.LabelSettings.FontColor = gray;
 		label4.LabelSettings.FontColor = gray;
+		label5.LabelSettings.FontColor = gray;
 		if (_selectedCheckpoint == 1)
 		{
 			label1.LabelSettings.FontColor = white;
@@ -85,6 +94,9 @@ public partial class ReportMenu : Control
 		} else if (_selectedCheckpoint == 4)
 		{
 			label4.LabelSettings.FontColor = white;
+		} else if (_selectedCheckpoint == 5)
+		{
+			label5.LabelSettings.FontColor = white;
 		}
 	}
 
@@ -92,7 +104,7 @@ public partial class ReportMenu : Control
 	{
 		_isOpen = true;
 		Visible = true;
-		_selectedCheckpoint = 1;
+		_selectedCheckpoint = 0;
 		GD.Print("Report menu opened");
 	}
 

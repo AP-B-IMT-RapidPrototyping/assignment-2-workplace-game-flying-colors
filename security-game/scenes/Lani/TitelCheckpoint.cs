@@ -8,6 +8,9 @@ public partial class TitelCheckpoint : Checkpoint
 	public override void _Ready()
 	{
 		base._Ready();
+		SetRandomWaitTime();
+		anomalyTimer.Start();
+		anomalyTimer.Timeout += MakeAnomaly;
 		fixAnomalyTimer.Timeout += base.FixAnomaly;
 	}
 	public override void SetRandomWaitTime()

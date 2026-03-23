@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class CheckpointInterface : Node
 {
@@ -8,10 +9,13 @@ public partial class CheckpointInterface : Node
 	private Godot.Collections.Array<Godot.Node> _valuableLights;
 	[Export] private Timer updateTimer;
 	[Export] private Timer stealTimer;
+	[Export] private Timer anomalyTimer;
 	[Export] private Label gameOverLabel;
 	private bool stealTimerOn = false;
 	private int stolenItemCounter = 0;
 	private bool doorsPretending = false;
+	private int anomalyCounter = 0;
+	private int maxAnomalies = 3;
 
 	public override void _Ready()
 	{
@@ -22,24 +26,28 @@ public partial class CheckpointInterface : Node
 		updateTimer.Timeout += Update;
 		stealTimer.Timeout += StealItem;
 		updateTimer.Start();
+
+		SetRandomWaitTime();
+		anomalyTimer.Start();
+		anomalyTimer.Timeout += addAnomaly;
 	}
 
 	public void Update()
 	{
 		if (!stealTimerOn)
 		{
-			if (GetOpenDoors() >= 2)
+			if (anomalyCounter >= 2)
 			{
-				GD.Print("More than 2 door open, timer started");
+				GD.Print("2 or more anomalies active");
 				stealTimer.Start();
 				stealTimerOn = true;
 			}
 		}
 		else
 		{
-			if (GetOpenDoors() < 2)
+			if (anomalyCounter < 2)
 			{
-				GD.Print("Less then 3 doors open, timer stopped");
+				GD.Print("Less then 2 anomalies active, timer stopped");
 				stealTimer.Stop();
 				stealTimerOn = false;
 			}
@@ -47,20 +55,11 @@ public partial class CheckpointInterface : Node
 		updateTimer.Start();
 	}
 
-	private int GetOpenDoors()
-	{
-		int teller = 0;
-		Checkpoint currentCheckpoint;
-		foreach (Checkpoint checkpoint in _checkpoints)
-		{
-			currentCheckpoint = checkpoint;
-			if (currentCheckpoint.hasAnomaly)
-			{
-				teller++;
-			}
-		}
-		return teller;
-	}
+	/* 
+		---------------------
+		Stealing items system
+		---------------------
+	*/
 
 	private void StealItem()
 	{
@@ -101,6 +100,45 @@ public partial class CheckpointInterface : Node
 		{
 			valuableLight.TurnGreen();
 		}
+	}
+
+	/* 
+		-------------------------
+		Creating anomalies system
+		-------------------------
+	*/
+
+	public void SetRandomWaitTime()
+	{
+		anomalyTimer.WaitTime = GD.RandRange(2, 10);
+	}
+
+	private void addAnomaly()
+	{
+		if (anomalyCounter < maxAnomalies)
+		{
+			int ranIndex = GD.RandRange(0, _checkpoints.Count() - 1);
+			for (int i = 0; i < _checkpoints.Count(); i++)
+			{
+				if (ranIndex == _checkpoints.Count())
+					ranIndex = 0;
+
+				Checkpoint currentCheckpoint = _checkpoints[ranIndex] as Checkpoint;
+				if (!currentCheckpoint.hasAnomaly)
+				{
+					currentCheckpoint.MakeAnomaly();
+					anomalyCounter++;
+					break;
+				}
+				ranIndex++;
+			}
+			GD.Print("Amount of active anomalies:" + anomalyCounter);
+		}
+	}
+
+	private void anomalyWasFixed()
+	{
+		anomalyCounter--;
 	}
 
 }

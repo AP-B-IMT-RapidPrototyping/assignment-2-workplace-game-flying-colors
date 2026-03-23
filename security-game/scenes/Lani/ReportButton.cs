@@ -7,6 +7,9 @@ public partial class ReportButton : Node3D, IInteractible
 	[Signal]
 	public delegate void ReportEventHandler(Node3D interactor, Vector3 hitPosition);
 
+	[Signal]
+	public delegate void AnomalyFixedEventHandler();
+
 	private Godot.Collections.Array<Godot.Node> checkpoints;
 
 	[Export] private ReportMenu reportMenu;
@@ -100,6 +103,7 @@ public partial class ReportButton : Node3D, IInteractible
 					currentCheckpoint.FixAnomaly();
 					GD.Print($"Checkpoint ID:{id} is fixed.");
 					ShowLabel(anomalyFixedLabel);
+					EmitSignal(SignalName.AnomalyFixed);
 					return;
 				}
 				else

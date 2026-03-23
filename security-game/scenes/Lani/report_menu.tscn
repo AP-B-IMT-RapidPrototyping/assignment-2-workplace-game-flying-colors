@@ -19,10 +19,14 @@ outline_color = Color(0, 1, 0, 1)
 font_size = 23
 outline_color = Color(0, 1, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_y2hnr"]
+font_size = 23
+outline_color = Color(0, 1, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_4hrfr"]
 font_size = 21
 
-[node name="ReportMenu" type="Control" unique_id=108563017 node_paths=PackedStringArray("label1", "label2", "label3", "label4")]
+[node name="ReportMenu" type="Control" unique_id=108563017 node_paths=PackedStringArray("label1", "label2", "label3", "label4", "label5")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +38,7 @@ label1 = NodePath("VBoxContainer/Label1")
 label2 = NodePath("VBoxContainer/Label2")
 label3 = NodePath("VBoxContainer/Label3")
 label4 = NodePath("VBoxContainer/Label4")
+label5 = NodePath("VBoxContainer/Label5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1603375507]
 layout_mode = 1
@@ -65,6 +70,12 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Checkpoint4 (press 4)"
 label_settings = SubResource("LabelSettings_qbutq")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer" unique_id=1561826875]
+layout_mode = 2
+text = "Checkpoint5 (press 5)"
+label_settings = SubResource("LabelSettings_y2hnr")
 horizontal_alignment = 1
 
 [node name="Enter" type="Label" parent="VBoxContainer" unique_id=1460394220]

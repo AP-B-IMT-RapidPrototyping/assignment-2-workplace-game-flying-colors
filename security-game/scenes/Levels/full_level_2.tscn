@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://uh7615xvesbw" path="res://scenes/Rhune/Level2.tscn" id="1_nm7nd"]
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="2_dkq8y"]
+[ext_resource type="PackedScene" uid="uid://b3gci0v4p2kiq" path="res://scenes/Lani/door_checkpoint.tscn" id="3_6t368"]
+[ext_resource type="PackedScene" uid="uid://ddo6xb266rswb" path="res://scenes/Lani/vent_checkpoint.tscn" id="4_ju3tp"]
+[ext_resource type="PackedScene" uid="uid://xxguc0rxwbnn" path="res://scenes/Lani/window_checkpoint.tscn" id="5_a6syh"]
+[ext_resource type="Script" uid="uid://ft48wixl4vc8" path="res://scenes/Lani/CheckpointInterface.cs" id="6_a6syh"]
+[ext_resource type="PackedScene" uid="uid://b4bv0t6810nb5" path="res://scenes/Lani/report_button.tscn" id="7_twjjy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dkq8y"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,6 +21,9 @@ sky = SubResource("Sky_6t368")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="LabelSettings" id="LabelSettings_a6syh"]
+font_size = 100
+
 [node name="FullLevel2" type="Node3D" unique_id=2022245150]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=938190335]
@@ -24,3 +32,95 @@ environment = SubResource("Environment_gw1xu")
 [node name="Level2" parent="." unique_id=144622609 instance=ExtResource("1_nm7nd")]
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("2_dkq8y")]
+
+[node name="Checkpoints" type="Node3D" parent="." unique_id=1522912143]
+
+[node name="doorCheckpoint" parent="Checkpoints" unique_id=1260266045 instance=ExtResource("3_6t368")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, -0.018232882, 7.826)
+
+[node name="vent_checkpoint" parent="Checkpoints" unique_id=2117653039 instance=ExtResource("4_ju3tp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.914234, -0.026253343, -2.2561183)
+
+[node name="Checkpoint" parent="Checkpoints/vent_checkpoint" index="3" unique_id=1059306128]
+ID = 2
+
+[node name="vent_checkpoint2" parent="Checkpoints" unique_id=1795655052 instance=ExtResource("4_ju3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.161594, -0.029272199, 3.5754588)
+
+[node name="Checkpoint" parent="Checkpoints/vent_checkpoint2" index="3" unique_id=1059306128]
+ID = 3
+
+[node name="window_checkpoint" parent="Checkpoints" unique_id=514632922 instance=ExtResource("5_a6syh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.912546, -0.028455496, 3.5816553)
+
+[node name="Checkpoint" parent="Checkpoints/window_checkpoint" index="3" unique_id=1059306128]
+ID = 4
+
+[node name="window_checkpoint2" parent="Checkpoints" unique_id=983906127 instance=ExtResource("5_a6syh")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 24.165052, -0.026895523, -8.293131)
+
+[node name="Checkpoint" parent="Checkpoints/window_checkpoint2" index="3" unique_id=1059306128]
+ID = 5
+
+[node name="checkpoints" type="Node" parent="." unique_id=744635452 node_paths=PackedStringArray("updateTimer", "stealTimer", "anomalyTimer", "gameOverLabel")]
+script = ExtResource("6_a6syh")
+updateTimer = NodePath("UpdateSpeed")
+stealTimer = NodePath("StealTimer")
+anomalyTimer = NodePath("AnomalyTimer")
+gameOverLabel = NodePath("../UI/GameOverLabel")
+
+[node name="UpdateSpeed" type="Timer" parent="checkpoints" unique_id=164615601]
+
+[node name="StealTimer" type="Timer" parent="checkpoints" unique_id=1434655637]
+wait_time = 15.0
+
+[node name="AnomalyTimer" type="Timer" parent="checkpoints" unique_id=1207732677]
+
+[node name="UI" type="Control" parent="." unique_id=476461997]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="UI" unique_id=355137092]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -46.0
+offset_right = 192.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_a6syh")
+
+[node name="Interactibles" type="Node3D" parent="." unique_id=39077267]
+
+[node name="ReportButton" parent="Interactibles" unique_id=552731684 instance=ExtResource("7_twjjy")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 12.003264, 0.5573231, -2.5651908)
+
+[connection signal="AnomalyFixed" from="Interactibles/ReportButton" to="checkpoints" method="anomalyWasFixed"]
+
+[editable path="Checkpoints/doorCheckpoint"]
+[editable path="Checkpoints/doorCheckpoint/door-sliding-double2"]
+[editable path="Checkpoints/vent_checkpoint"]
+[editable path="Checkpoints/vent_checkpoint/Vent"]
+[editable path="Checkpoints/vent_checkpoint2"]
+[editable path="Checkpoints/vent_checkpoint2/Vent"]
+[editable path="Checkpoints/window_checkpoint"]
+[editable path="Checkpoints/window_checkpoint/SlideWindow"]
+[editable path="Checkpoints/window_checkpoint2"]
+[editable path="Checkpoints/window_checkpoint2/SlideWindow"]
