@@ -248,7 +248,7 @@ get stolen.
 At the end of your shift you'll see
 how many valuables are still 
 remaining. If you lose all of them,
-your schift ends.
+your shift ends.
 
 So keep paying attention!"
 
@@ -384,9 +384,9 @@ wait_time = 3.0
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeSprintNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeTiredNote2" method="OnLookedAtInteractableChanged"]
-[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="ELabel" method="ChangeState"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ValuableNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/GoodLuckNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="ELabel" method="ChangeState"]
 [connection signal="EnergyChanged" from="Player/Stats" to="EnergyLabel/EnergyBar" method="ChangeValue"]
 [connection signal="Drink" from="TutorialDesign/Interactibles/Coffee" to="Player/Stats" method="ChangeEnergy"]
 [connection signal="Drink" from="TutorialDesign/Interactibles/Coffee2" to="Player/Stats" method="ChangeEnergy"]

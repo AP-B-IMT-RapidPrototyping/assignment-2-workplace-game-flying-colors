@@ -19,13 +19,19 @@ public partial class Note : Node3D, IInteractible
 		{
 			CloseNote();
 		}
+		
 	}
 
 	public void Interact(Node3D interactor, Vector3 hitPosition)
 	{
-		GD.Print("Note interacted");
-		text.Visible = true;
-		openedNote = true;
+		if (!openedNote) {
+			GD.Print("Note interacted");
+			text.Visible = true;
+			openedNote = true;
+		} else
+		{
+			CloseNote();
+		}
 	}
 
 	public virtual void CloseNote()
