@@ -8,11 +8,16 @@ public partial class PlayerController : CharacterBody3D
 	[Export] private float _mouseSensitivity = 0.003f;
 	[Export] private Camera3D _camera;
 	[Export] private PlayerStats _stats;
+	[Export] private AudioStreamPlayer3D _footstepPlayer;
 
-	[Export] private float _speed = 2.0f;	
+	[Export] private float _speed = 2.0f;
 	[Export] private float _speedSprint = 3.0f;
 	[Export] private float _sprintEnergyConsumption = 0.01f;
 	[Export] private float _speedSlow = 1.0f;
+
+	private float _footstepCooldown = 0.4f;
+	private float _footstepSprintCooldown = 0.267f; // 0.4 / 1.5 for 1.5x faster
+	private float _footstepTimer = 0f;
 
 	// Jump disabled
 	//public const float JumpVelocity = 4.5f;
@@ -80,19 +85,20 @@ public partial class PlayerController : CharacterBody3D
 		// }
 
 		float speed;
-		bool isSprinting=false;
-		if(Input.IsActionPressed("sprint") && _stats.Energy > 0f)
+		bool isSprinting = false;
+		if (Input.IsActionPressed("sprint") && _stats.Energy > 0f)
 		{
-			speed=_speedSprint;
-			isSprinting=true;
+			speed = _speedSprint;
+			isSprinting = true;
 
-		} else if (_stats.Energy == 0f)
+		}
+		else if (_stats.Energy == 0f)
 		{
 			speed = _speedSlow;
 		}
 		else
 		{
-			speed=_speed;
+			speed = _speed;
 		}
 
 		// Get the input direction and handle the movement/deceleration.
@@ -103,7 +109,17 @@ public partial class PlayerController : CharacterBody3D
 		{
 			velocity.X = direction.X * speed;
 			velocity.Z = direction.Z * speed;
-			if(isSprinting)
+
+			// Handle footstep sounds
+			_footstepTimer -= (float)delta;
+			if (_footstepTimer <= 0f && IsOnFloor())
+			{
+				PlayRandomFootstep();
+				float cooldown = isSprinting ? _footstepSprintCooldown : _footstepCooldown;
+				_footstepTimer = cooldown;
+			}
+
+			if (isSprinting)
 			{
 				ChangeEnergy(-_sprintEnergyConsumption * (float)delta);
 
@@ -140,5 +156,27 @@ public partial class PlayerController : CharacterBody3D
 			_camera.Rotation = cameraRotation;
 		}
 	}
-	
+
+	private void PlayRandomFootstep()
+	{
+		if (_footstepPlayer == null)
+		{
+			return;
+		}
+
+		int randomIndex = (int)(GD.Randi() % 10); // Random number 0-9
+		string footstepPath = $"res://scenes/Shengyan/footstep{randomIndex:00}.ogg";
+
+		var audioStream = GD.Load<AudioStream>(footstepPath);
+		if (audioStream != null)
+		{
+			_footstepPlayer.Stream = audioStream;
+			_footstepPlayer.Play();
+		}
+		else
+		{
+			GD.PushWarning($"PlayerController: Failed to load footstep sound at {footstepPath}");
+		}
+	}
+
 }

@@ -6,11 +6,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxdda"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1963969163 node_paths=PackedStringArray("_camera", "_stats")]
+[node name="Player" type="CharacterBody3D" unique_id=1963969163 node_paths=PackedStringArray("_camera", "_stats", "_footstepPlayer")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = ExtResource("1_dinqr")
 _camera = NodePath("Camera3D")
 _stats = NodePath("Stats")
+_footstepPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489573448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -39,3 +40,6 @@ _player = NodePath("..")
 
 [node name="Stats" type="Node" parent="." unique_id=1229230640]
 script = ExtResource("3_2u7ev")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=436187561]
+volume_db = -40.0
