@@ -35,7 +35,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxpuw"]
-size = Vector3(0.1596756, 1, 0.86130524)
+size = Vector3(1.382082, 1, 0.7137337)
 
 [sub_resource type="LabelSettings" id="LabelSettings_a6syh"]
 font_size = 100
@@ -56,7 +56,7 @@ environment = SubResource("Environment_gw1xu")
 [node name="Level2" parent="." unique_id=144622609 instance=ExtResource("1_nm7nd")]
 
 [node name="Desk" type="CollisionShape3D" parent="Level2/Collision" parent_id_path=PackedInt32Array(144622609, 567548172) index="47" unique_id=237198390]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8962965, 0.14344788, -3.9176474)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.889584, 0.14344788, -3.9914331)
 shape = SubResource("BoxShape3D_oxpuw")
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("2_dkq8y")]
@@ -68,29 +68,41 @@ _sprintEnergyConsumption = 0.05
 [node name="doorCheckpoint" parent="Checkpoints" unique_id=1260266045 instance=ExtResource("3_6t368")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, -0.018232882, 7.826)
 
+[node name="Checkpoint" parent="Checkpoints/doorCheckpoint" index="3" unique_id=1059306128]
+openSound = null
+closeSound = null
+
 [node name="vent_checkpoint" parent="Checkpoints" unique_id=2117653039 instance=ExtResource("4_ju3tp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -10.914234, -0.026253343, -2.2561183)
 
 [node name="Checkpoint" parent="Checkpoints/vent_checkpoint" index="3" unique_id=1059306128]
 ID = 2
+openSound = null
+closeSound = null
 
 [node name="vent_checkpoint2" parent="Checkpoints" unique_id=1795655052 instance=ExtResource("4_ju3tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.161594, -0.029272199, 3.5754588)
 
 [node name="Checkpoint" parent="Checkpoints/vent_checkpoint2" index="3" unique_id=1059306128]
 ID = 3
+openSound = null
+closeSound = null
 
 [node name="window_checkpoint" parent="Checkpoints" unique_id=514632922 instance=ExtResource("5_a6syh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.912546, -0.028455496, 3.5816553)
 
 [node name="Checkpoint" parent="Checkpoints/window_checkpoint" index="3" unique_id=1059306128]
 ID = 4
+openSound = null
+closeSound = null
 
 [node name="window_checkpoint2" parent="Checkpoints" unique_id=983906127 instance=ExtResource("5_a6syh")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 24.165052, -0.026895523, -8.293131)
 
 [node name="Checkpoint" parent="Checkpoints/window_checkpoint2" index="3" unique_id=1059306128]
 ID = 5
+openSound = null
+closeSound = null
 
 [node name="checkpoints" type="Node" parent="." unique_id=744635452 node_paths=PackedStringArray("updateTimer", "stealTimer", "anomalyTimer", "bufferTimer", "gameOverLabel")]
 script = ExtResource("6_a6syh")
@@ -140,12 +152,12 @@ label_settings = SubResource("LabelSettings_a6syh")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=39077267]
 
-[node name="ReportButton" parent="Interactibles" unique_id=552731684 node_paths=PackedStringArray("playerInteractor") instance=ExtResource("7_twjjy")]
+[node name="ReportButton" parent="Interactibles" unique_id=552731684 instance=ExtResource("7_twjjy")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 12.003264, 0.5573231, -2.5651908)
-playerInteractor = NodePath("../../Player/Interactor")
 
 [node name="Coffee" parent="Interactibles" unique_id=1239199630 instance=ExtResource("8_yumuv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.282463, 0.5504205, -2.5253546)
+drinkSound = null
 
 [node name="Extra assets" type="Node3D" parent="." unique_id=865003340]
 
@@ -180,7 +192,124 @@ spot_range = 3.0
 spot_angle = 71.43
 
 [node name="OldDesk" parent="Extra assets" unique_id=710630192 instance=ExtResource("15_mt6en")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.837926, 0.05575189, -3.9272752)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.837926, -0.02081886, -3.9272752)
+
+[node name="LevelTime" type="Node3D" parent="." unique_id=2141233893 node_paths=PackedStringArray("endTimer", "bufferTimer", "clock", "spotlights", "endLabel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07657075, 0)
+script = ExtResource("20_ycfvk")
+endTimer = NodePath("Timer")
+bufferTimer = NodePath("BufferTimer")
+clock = NodePath("MeshInstance3D/Label3D")
+spotlights = NodePath("Spotlights")
+endLabel = NodePath("ShiftEndLabel")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelTime" unique_id=486189818]
+transform = Transform3D(-0.041515093, 0, -0.44343856, 0, 0.22127458, 0, 0.15493648, 0, -0.11881903, 10.24679, 0.4877013, -4.009369)
+mesh = SubResource("BoxMesh_48iua")
+surface_material_override/0 = SubResource("StandardMaterial3D_xoqq6")
+
+[node name="Label3D" type="Label3D" parent="LevelTime/MeshInstance3D" unique_id=1771779992]
+transform = Transform3D(-4.7683716e-07, 0, 6.234337, 0, 4.519274, 0, -2.1782622, 0, -1.1920929e-07, 0.51436615, 0.07828498, 0.008684158)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "00:00"
+
+[node name="OmniLight3D" type="SpotLight3D" parent="LevelTime" unique_id=1653979644]
+transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 10.2362995, 0.52598447, -3.922567)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.1
+shadow_enabled = true
+spot_angle = 88.57
+
+[node name="Timer" type="Timer" parent="LevelTime" unique_id=2040391949]
+wait_time = 420.0
+one_shot = true
+autostart = true
+
+[node name="Spotlights" type="Node3D" parent="LevelTime" unique_id=1178321319]
+visible = false
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=1063493490]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7, 2.544187, 7.665739)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_angle = 55.71
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=232897371]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19.426094, 2.544187, 1.8677349)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=1184301604]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.833596, 2.544187, 1.8677349)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=371286001]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.284352, 2.544187, -6.4779663)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=489685394]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.14271975, 2.544187, -6.4779663)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=854596477]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 8.804686, 2.544187, 1.5220337)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="SpotLight3D12" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=347429070]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.7116337, 2.544187, 1.5220337)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="SpotLight3D13" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=136750437]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.35335, 2.544187, -7.343151)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="SpotLight3D14" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=845964726]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 18.07431, 2.544187, -6.291347)
+light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
+shadow_enabled = true
+spot_range = 8.763
+spot_angle = 76.42
+
+[node name="ShiftEndLabel" type="Label" parent="LevelTime" unique_id=1877606583]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.5
+offset_top = -43.0
+offset_right = 265.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SHIFT HAS ENDED"
+label_settings = SubResource("LabelSettings_ycfvk")
+
+[node name="BufferTimer" type="Timer" parent="LevelTime" unique_id=502644509]
+wait_time = 3.0
+one_shot = true
 
 [node name="ValuableLights" type="Node3D" parent="." unique_id=1705057735]
 
@@ -302,132 +431,16 @@ wait_time = 5.0
 autostart = true
 script = ExtResource("19_t0iin")
 
-[node name="LevelTime" type="Node3D" parent="." unique_id=2141233893 node_paths=PackedStringArray("endTimer", "bufferTimer", "clock", "spotlights", "endLabel")]
-script = ExtResource("20_ycfvk")
-endTimer = NodePath("Timer")
-bufferTimer = NodePath("BufferTimer")
-clock = NodePath("MeshInstance3D/Label3D")
-spotlights = NodePath("Spotlights")
-endLabel = NodePath("ShiftEndLabel")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelTime" unique_id=486189818]
-transform = Transform3D(-0.041515093, 0, -0.44343856, 0, 0.22127458, 0, 0.15493648, 0, -0.11881903, 10.24679, 0.4877013, -4.009369)
-mesh = SubResource("BoxMesh_48iua")
-surface_material_override/0 = SubResource("StandardMaterial3D_xoqq6")
-
-[node name="Label3D" type="Label3D" parent="LevelTime/MeshInstance3D" unique_id=1771779992]
-transform = Transform3D(-4.7683716e-07, 0, 6.234337, 0, 4.519274, 0, -2.1782622, 0, -1.1920929e-07, 0.51436615, 0.07828498, 0.008684158)
-modulate = Color(1, 0, 0, 1)
-outline_modulate = Color(0, 0, 0, 0)
-text = "00:00"
-
-[node name="OmniLight3D" type="SpotLight3D" parent="LevelTime" unique_id=1653979644]
-transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 10.2362995, 0.52598447, -3.922567)
-light_color = Color(1, 0, 0, 1)
-light_energy = 0.1
-shadow_enabled = true
-spot_angle = 88.57
-
-[node name="Timer" type="Timer" parent="LevelTime" unique_id=2040391949]
-wait_time = 420.0
-one_shot = true
-autostart = true
-
-[node name="Spotlights" type="Node3D" parent="LevelTime" unique_id=1178321319]
-visible = false
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=1063493490]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 7, 2.544187, 7.665739)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_angle = 55.71
-
-[node name="SpotLight3D7" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=232897371]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 19.426094, 2.544187, 1.8677349)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="SpotLight3D8" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=1184301604]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.833596, 2.544187, 1.8677349)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="SpotLight3D9" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=371286001]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -7.284352, 2.544187, -6.4779663)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="SpotLight3D10" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=489685394]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.14271975, 2.544187, -6.4779663)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="SpotLight3D11" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=854596477]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 8.804686, 2.544187, 1.5220337)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="SpotLight3D12" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=347429070]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.7116337, 2.544187, 1.5220337)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="SpotLight3D13" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=136750437]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 10.35335, 2.544187, -7.343151)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="SpotLight3D14" type="SpotLight3D" parent="LevelTime/Spotlights" unique_id=845964726]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 18.07431, 2.544187, -6.291347)
-light_color = Color(0.99607843, 0.9647059, 0.8901961, 1)
-shadow_enabled = true
-spot_range = 8.763
-spot_angle = 76.42
-
-[node name="ShiftEndLabel" type="Label" parent="LevelTime" unique_id=1877606583]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -265.5
-offset_top = -43.0
-offset_right = 265.5
-offset_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "SHIFT HAS ENDED"
-label_settings = SubResource("LabelSettings_ycfvk")
-
-[node name="BufferTimer" type="Timer" parent="LevelTime" unique_id=502644509]
-wait_time = 3.0
-one_shot = true
-
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="ELabel" method="ChangeState"]
 [connection signal="EnergyChanged" from="Player/Stats" to="EnergyLabel/EnergyBar" method="ChangeValue"]
 [connection signal="UpdateStats" from="checkpoints" to="Interactibles/ReportButton" method="setFixedCounter"]
 [connection signal="UpdateStats" from="checkpoints" to="LevelTime" method="setTimeSurvived"]
 [connection signal="AnomalyFixed" from="Interactibles/ReportButton" to="checkpoints" method="anomalyWasFixed"]
 [connection signal="Drink" from="Interactibles/Coffee" to="Player/Stats" method="ChangeEnergy"]
-[connection signal="LoseEnergy" from="EnergyTimer" to="Player/Stats" method="ChangeEnergy"]
 [connection signal="StopTimers" from="LevelTime" to="checkpoints" method="stopStealTimer"]
 [connection signal="UpdateStats" from="LevelTime" to="checkpoints" method="SetRemaingingItems"]
 [connection signal="UpdateStats" from="LevelTime" to="Interactibles/ReportButton" method="setFixedCounter"]
+[connection signal="LoseEnergy" from="EnergyTimer" to="Player/Stats" method="ChangeEnergy"]
 
 [editable path="Level2"]
 [editable path="Player"]

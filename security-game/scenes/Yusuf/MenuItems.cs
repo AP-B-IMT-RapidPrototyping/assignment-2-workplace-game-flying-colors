@@ -8,6 +8,9 @@ public partial class MenuItems : Node3D
 
 	[Export] private MeshInstance3D playMesh;
 	[Export] private MeshInstance3D quitMesh;
+	[Export] private MeshInstance3D gameMesh;
+	[Export] private MeshInstance3D tutorialMesh;
+	[Export] private MeshInstance3D backMesh;
 
 	private StandardMaterial3D mat;
 
@@ -16,7 +19,7 @@ public partial class MenuItems : Node3D
 	{
 		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
 		{
-			_animationPlayer.Play("KIESSCHERM");
+			_animationPlayer.Play("chooseScreen");
 		}
 	}
 
@@ -25,6 +28,30 @@ public partial class MenuItems : Node3D
 		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
 		{
 			GetTree().Quit();
+		}
+	}
+
+	private void GameButton(Node camera, InputEvent @event, Vector3 position, Vector3 normal, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
+		{
+			Game();
+		}
+	}
+
+	private void TutorialButton(Node camera, InputEvent @event, Vector3 position, Vector3 normal, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
+		{
+			Tutorial();
+		}
+	}
+
+	private void BackButton(Node camera, InputEvent @event, Vector3 position, Vector3 normal, int shapeIdx)
+	{
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
+		{
+			Back();
 		}
 	}
 
@@ -64,6 +91,60 @@ public partial class MenuItems : Node3D
 		}
 	}
 
+	private void GameHighlight()
+	{
+		mat = gameMesh.GetActiveMaterial(0) as StandardMaterial3D;
+		if (mat != null)
+		{
+			mat.EmissionEnabled = true;
+		}
+	}
+
+	private void GameUnHighlight()
+	{
+		mat = gameMesh.GetActiveMaterial(0) as StandardMaterial3D;
+		if (mat != null)
+		{
+			mat.EmissionEnabled = false;
+		}
+	}
+
+	private void TutorialHighlight()
+	{
+		mat = tutorialMesh.GetActiveMaterial(0) as StandardMaterial3D;
+		if (mat != null)
+		{
+			mat.EmissionEnabled = true;
+		}
+	}
+
+	private void TutorialUnHighlight()
+	{
+		mat = tutorialMesh.GetActiveMaterial(0) as StandardMaterial3D;
+		if (mat != null)
+		{
+			mat.EmissionEnabled = false;
+		}
+	}
+
+	private void BackHighlight()
+	{
+		mat = backMesh.GetActiveMaterial(0) as StandardMaterial3D;
+		if (mat != null)
+		{
+			mat.EmissionEnabled = true;
+		}
+	}
+
+	private void BackUnHighlight()
+	{
+		mat = backMesh.GetActiveMaterial(0) as StandardMaterial3D;
+		if (mat != null)
+		{
+			mat.EmissionEnabled = false;
+		}
+	}
+
 	private void Tutorial()
 	{
 		GetTree().ChangeSceneToFile("res://Scenes/Levels/tutorial.tscn");
@@ -76,6 +157,6 @@ public partial class MenuItems : Node3D
 
 	private void Back()
 	{
-		_animationPlayer.PlayBackwards("KIESSCHERM");
+		_animationPlayer.PlayBackwards("chooseScreen");
 	}
 }
