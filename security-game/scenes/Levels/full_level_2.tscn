@@ -34,6 +34,9 @@ sky = SubResource("Sky_6t368")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxpuw"]
+size = Vector3(0.1596756, 1, 0.86130524)
+
 [sub_resource type="LabelSettings" id="LabelSettings_a6syh"]
 font_size = 100
 
@@ -51,6 +54,10 @@ font_size = 62
 environment = SubResource("Environment_gw1xu")
 
 [node name="Level2" parent="." unique_id=144622609 instance=ExtResource("1_nm7nd")]
+
+[node name="Desk" type="CollisionShape3D" parent="Level2/Collision" parent_id_path=PackedInt32Array(144622609, 567548172) index="47" unique_id=237198390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.8962965, 0.14344788, -3.9176474)
+shape = SubResource("BoxShape3D_oxpuw")
 
 [node name="Player" parent="." unique_id=1963969163 instance=ExtResource("2_dkq8y")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 9.887871, 0, -1.2129886)
