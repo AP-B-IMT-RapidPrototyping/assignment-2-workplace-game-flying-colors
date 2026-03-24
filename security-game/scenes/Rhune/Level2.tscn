@@ -508,273 +508,6 @@ transform = Transform3D(7.549788e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, 7.54
 [node name="wall-round5" parent="Walls" unique_id=864233422 instance=ExtResource("7_8o4xd")]
 transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, 14.920763, 0, -1.811433)
 
-[node name="floor-thick5" parent="." unique_id=1914717626 instance=ExtResource("1_wig4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.148853, 0, 2.13179)
-
-[node name="floor-thick6" parent="." unique_id=1899625412 instance=ExtResource("1_wig4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1488533, 0, 2.13179)
-
-[node name="animal-bison2" parent="." unique_id=746683751 groups=["valuables"] instance=ExtResource("8_wdm4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.057285, 0, 2.1591222)
-script = ExtResource("9_g6oq0")
-ID = 99
-
-[node name="animal-dog2" parent="." unique_id=220477499 groups=["valuables"] instance=ExtResource("10_wfx38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1965923, 0, 4.8298445)
-script = ExtResource("9_g6oq0")
-ID = 101
-
-[node name="animal-dog3" parent="." unique_id=2079570517 groups=["valuables"] instance=ExtResource("10_wfx38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1113334, 0, 4.8298445)
-script = ExtResource("9_g6oq0")
-ID = 102
-
-[node name="animal-dog4" parent="." unique_id=1254269237 groups=["valuables"] instance=ExtResource("10_wfx38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0188465, 0, 4.8298445)
-script = ExtResource("9_g6oq0")
-ID = 103
-
-[node name="animal-dog5" parent="." unique_id=1313491577 groups=["valuables"] instance=ExtResource("10_wfx38")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.246885, 0, 4.8298445)
-script = ExtResource("9_g6oq0")
-ID = 104
-
-[node name="animal-horse2" parent="." unique_id=1423478551 groups=["valuables"] instance=ExtResource("11_1uhcg")]
-transform = Transform3D(-0.053503748, 0, -0.99856764, 0, 1, 0, 0.99856764, 0, -0.053503748, -10.758626, 0, 2)
-script = ExtResource("9_g6oq0")
-ID = 105
-
-[node name="animal-horse3" parent="." unique_id=395870015 groups=["valuables"] instance=ExtResource("11_1uhcg")]
-transform = Transform3D(0.05350367, 0, 0.99856776, 0, 1, 0, -0.99856776, 0, 0.05350367, -10.758626, 0, 0.51529896)
-script = ExtResource("9_g6oq0")
-ID = 106
-
-[node name="animal-horse4" parent="." unique_id=419695676 groups=["valuables"] instance=ExtResource("11_1uhcg")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.1101847, 0, 2.1261125)
-script = ExtResource("9_g6oq0")
-ID = 100
-
-[node name="floor-square2" parent="." unique_id=1388574161 instance=ExtResource("12_3xhlm")]
-transform = Transform3D(1.7676021, 0, 0, 0, 1, 0, 0, 0, 1.3384516, 7, 0, 3)
-
-[node name="vehicle" parent="." unique_id=1290840366 groups=["valuables"] instance=ExtResource("13_xyli5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0380435, -0.040896654, 2.9890568)
-script = ExtResource("9_g6oq0")
-ID = 107
-
-[node name="bag-flat2" parent="." unique_id=1677629707 groups=["valuables"] instance=ExtResource("14_e6iqh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.925615, 0, 4.585474)
-script = ExtResource("9_g6oq0")
-ID = 108
-
-[node name="bag-flat3" parent="." unique_id=1670636534 groups=["valuables"] instance=ExtResource("14_e6iqh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.925615, 0, 4.120239)
-script = ExtResource("9_g6oq0")
-ID = 110
-
-[node name="bag-flat4" parent="." unique_id=1505762754 groups=["valuables"] instance=ExtResource("14_e6iqh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.925615, 0, 4.3609614)
-script = ExtResource("9_g6oq0")
-ID = 109
-
-[node name="bag2" parent="." unique_id=1291033033 groups=["valuables"] instance=ExtResource("15_0g7hk")]
-transform = Transform3D(-1.0247644, 0, -0.04414142, 0, 0.5739396, 0, 0.07342006, 0, -0.61610615, 14.946461, 0, 4.3676376)
-script = ExtResource("9_g6oq0")
-ID = 111
-
-[node name="barrel2" parent="." unique_id=1633877931 groups=["valuables"] instance=ExtResource("16_c3pfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.022232, 0, 1.674072)
-script = ExtResource("9_g6oq0")
-ID = 112
-
-[node name="barrel3" parent="." unique_id=385104323 groups=["valuables"] instance=ExtResource("16_c3pfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.022232, 0, 0.99034)
-script = ExtResource("9_g6oq0")
-ID = 113
-
-[node name="barrel4" parent="." unique_id=593012824 groups=["valuables"] instance=ExtResource("16_c3pfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.022232, 0, 0.3219297)
-script = ExtResource("9_g6oq0")
-ID = 114
-
-[node name="barrel5" parent="." unique_id=1859828860 groups=["valuables"] instance=ExtResource("16_c3pfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.022232, 0, -0.34098303)
-script = ExtResource("9_g6oq0")
-ID = 115
-
-[node name="floor-thick7" parent="." unique_id=890945611 instance=ExtResource("1_wig4p")]
-transform = Transform3D(1, 0, 0, 0, 0.24486142, 0, 0, 0, 0.27753222, 19.779215, 0, 4.730242)
-
-[node name="floor-thick14" parent="." unique_id=1857698503 instance=ExtResource("1_wig4p")]
-transform = Transform3D(1, 0, 0, 0, 0.24486142, 0, 0, 0, 0.27753222, -3.8667812, 0, -9.867931)
-
-[node name="floor-thick8" parent="." unique_id=1735663354 instance=ExtResource("1_wig4p")]
-transform = Transform3D(-4.371139e-08, 0, -0.42417562, 0, 0.24486145, 0, 1, 0, -1.8541307e-08, 23.989779, 0, 0.8427193)
-
-[node name="floor-thick9" parent="." unique_id=1443628534 instance=ExtResource("1_wig4p")]
-transform = Transform3D(-4.371139e-08, 0, -0.42417562, 0, 0.24486145, 0, 1, 0, -1.8541307e-08, 23.989779, 0, 2.524044)
-
-[node name="bottle-ketchup2" parent="." unique_id=2117327780 groups=["valuables"] instance=ExtResource("17_gv7oi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.074757, 0, 4.701436)
-script = ExtResource("9_g6oq0")
-ID = 119
-
-[node name="bottle-musterd2" parent="." unique_id=1285335970 groups=["valuables"] instance=ExtResource("18_dv5wx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.767632, 0, 4.6944757)
-script = ExtResource("9_g6oq0")
-ID = 118
-
-[node name="bottle-oil2" parent="." unique_id=1695501220 groups=["valuables"] instance=ExtResource("19_spfti")]
-transform = Transform3D(0.95979506, 0, 0, 0, 1, 0, 0, 0, 1, 19.477415, 0, 4.7026033)
-script = ExtResource("9_g6oq0")
-ID = 117
-
-[node name="frying-pan2" parent="." unique_id=782807952 groups=["valuables"] instance=ExtResource("20_pmt1a")]
-transform = Transform3D(1.9106855e-15, -1, 4.371139e-08, -0.86320174, -2.2068091e-08, -0.50485903, 0.50485903, -3.7731745e-08, -0.86320174, 24.074331, 0.4086547, -0.98977184)
-script = ExtResource("9_g6oq0")
-ID = 126
-
-[node name="donut2" parent="." unique_id=1976807298 groups=["valuables"] instance=ExtResource("21_i3anq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.921886, 0, 0.48514032)
-script = ExtResource("9_g6oq0")
-ID = 125
-
-[node name="donut-sprinkles2" parent="." unique_id=1967230939 groups=["valuables"] instance=ExtResource("22_dngwc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.953205, 0, 0.8350693)
-script = ExtResource("9_g6oq0")
-ID = 124
-
-[node name="donut-chocolate2" parent="." unique_id=309755790 groups=["valuables"] instance=ExtResource("23_qys27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.901093, 0, 1.1632786)
-script = ExtResource("9_g6oq0")
-ID = 123
-
-[node name="cup-coffee2" parent="." unique_id=416105919 groups=["valuables"] instance=ExtResource("24_h6lqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.880178, 0, 2.208835)
-script = ExtResource("9_g6oq0")
-ID = 122
-
-[node name="cup-tea2" parent="." unique_id=1130073261 groups=["valuables"] instance=ExtResource("25_vom7g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.87505, 0, 2.5265656)
-script = ExtResource("9_g6oq0")
-ID = 121
-
-[node name="cup2" parent="." unique_id=1195885544 groups=["valuables"] instance=ExtResource("26_5mir5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.90062, 0, 2.8337586)
-script = ExtResource("9_g6oq0")
-ID = 120
-
-[node name="cake-birthday" parent="." unique_id=1975832366 groups=["valuables"] instance=ExtResource("27_h4v3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.856743, 0, 1.6295593)
-script = ExtResource("9_g6oq0")
-ID = 116
-
-[node name="cake-slicer2" parent="." unique_id=306551582 groups=["valuables"] instance=ExtResource("28_cg4ta")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0.9845857, 0.17490272, 4.303761e-08, -0.17490272, 0.9845857, -7.645241e-09, 22.322607, 0.32615453, -2.094698)
-script = ExtResource("9_g6oq0")
-ID = 127
-
-[node name="floor-thick10" parent="." unique_id=1586835618 instance=ExtResource("1_wig4p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.844007, 0, 1.6355567)
-
-[node name="hat-cap2" parent="." unique_id=215514831 groups=["valuables"] instance=ExtResource("29_ndlql")]
-transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 2.846209, 0.45388126, -2.7352588)
-script = ExtResource("9_g6oq0")
-ID = 129
-
-[node name="hat-hard2" parent="." unique_id=1157818563 groups=["valuables"] instance=ExtResource("30_02rmx")]
-transform = Transform3D(-1.131334e-08, 6.5295387e-23, 1, 0.9659258, 0.2588191, 1.0927849e-08, -0.2588191, 0.9659258, -2.9281084e-09, 3.6556516, 0.45388126, -2.706399)
-script = ExtResource("9_g6oq0")
-ID = 128
-
-[node name="figurine-cube2" parent="." unique_id=305233940 groups=["valuables"] instance=ExtResource("31_oxpuw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.900117, 0, -9.928921)
-script = ExtResource("9_g6oq0")
-ID = 131
-
-[node name="figurine-large2" parent="." unique_id=1496312285 groups=["valuables"] instance=ExtResource("32_gmb2c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.196653, 0, -9.967739)
-script = ExtResource("9_g6oq0")
-ID = 132
-
-[node name="figurine2" parent="." unique_id=1149517905 groups=["valuables"] instance=ExtResource("33_qg582")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.549988, 0, -9.937006)
-script = ExtResource("9_g6oq0")
-ID = 133
-
-[node name="figurine-cube-detailed2" parent="." unique_id=1728300458 groups=["valuables"] instance=ExtResource("34_rf5ne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.184994, 0, -9.944969)
-script = ExtResource("9_g6oq0")
-ID = 130
-
-[node name="crate2" parent="." unique_id=1434997012 instance=ExtResource("35_f5s5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.87116, 0, -9.722828)
-
-[node name="crate5" parent="." unique_id=1116621938 groups=["valuables"] instance=ExtResource("35_f5s5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.87116, 0, -9.722828)
-script = ExtResource("9_g6oq0")
-ID = 139
-
-[node name="crate3" parent="." unique_id=2133699115 groups=["valuables"] instance=ExtResource("35_f5s5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.876507, 0, -9.234618)
-script = ExtResource("9_g6oq0")
-ID = 138
-
-[node name="crate4" parent="." unique_id=649425874 groups=["valuables"] instance=ExtResource("35_f5s5t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.370668, 0, -9.737584)
-script = ExtResource("9_g6oq0")
-ID = 136
-
-[node name="crate-color2" parent="." unique_id=18007764 groups=["valuables"] instance=ExtResource("36_jffkx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.56123, 0, -9.776207)
-script = ExtResource("9_g6oq0")
-ID = 135
-
-[node name="crate-color3" parent="." unique_id=1459186964 groups=["valuables"] instance=ExtResource("36_jffkx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.079424, 0, -9.763706)
-script = ExtResource("9_g6oq0")
-ID = 134
-
-[node name="indicator-round-f2" parent="." unique_id=232220194 groups=["valuables"] instance=ExtResource("37_m2p71")]
-transform = Transform3D(-3.325423e-08, 1, 0, -0.7607682, -4.371139e-08, 0, 0, 0, 0.7504517, 24.024488, 0.4679253, -6.620847)
-script = ExtResource("9_g6oq0")
-ID = 140
-
-[node name="indicator-special-cross2" parent="." unique_id=776374113 groups=["valuables"] instance=ExtResource("38_y4shm")]
-transform = Transform3D(-3.059797e-08, -1, 0, 0.7, -4.371139e-08, 0, 0, 0, 0.7, 24.055939, 0.4679253, -5.633435)
-script = ExtResource("9_g6oq0")
-ID = 141
-
-[node name="indicator-special-lines2" parent="." unique_id=2119225751 groups=["valuables"] instance=ExtResource("39_p4bcj")]
-transform = Transform3D(-3.292138e-08, -1, 0, 0.75315344, -4.371139e-08, 0, 0, 0, 0.7325812, 23.995918, 0.4679253, -4.5814114)
-script = ExtResource("9_g6oq0")
-ID = 142
-
-[node name="weapon-shield2" parent="." unique_id=963669051 groups=["valuables"] instance=ExtResource("40_3wpxk")]
-transform = Transform3D(4.371139e-08, 1, 8.742278e-08, 1, -4.371139e-08, 0, 3.821371e-15, 8.742278e-08, -1, -4.5046883, 0.4679253, 2.0430703)
-script = ExtResource("9_g6oq0")
-ID = 143
-
-[node name="weapon-sword2" parent="." unique_id=1663027640 groups=["valuables"] instance=ExtResource("41_gumvx")]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.5228124, 0.4679253, 1.3709456)
-script = ExtResource("9_g6oq0")
-ID = 144
-
-[node name="coin2" parent="." unique_id=176589466 groups=["valuables"] instance=ExtResource("42_2hg51")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7589788, 0.4679253, -0.9961912)
-script = ExtResource("9_g6oq0")
-ID = 145
-
-[node name="coin3" parent="." unique_id=2043200588 groups=["valuables"] instance=ExtResource("42_2hg51")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.4203117, 0.4679253, -0.9961912)
-script = ExtResource("9_g6oq0")
-ID = 146
-
-[node name="coin4" parent="." unique_id=763688744 groups=["valuables"] instance=ExtResource("42_2hg51")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0136395, 0.4679253, -0.9961912)
-script = ExtResource("9_g6oq0")
-ID = 147
-
 [node name="Collision" type="StaticBody3D" parent="." unique_id=567548172]
 
 [node name="Floor" type="CollisionShape3D" parent="Collision" unique_id=1410084654]
@@ -906,7 +639,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.816577, 0.053649902, 4.400
 shape = SubResource("BoxShape3D_m2p71")
 
 [node name="Cake" type="CollisionShape3D" parent="Collision" unique_id=1010844529]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.835909, 0, 1.6423634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.838467, 0.009646416, 1.6464733)
 shape = SubResource("BoxShape3D_y4shm")
 
 [node name="Flessen" type="CollisionShape3D" parent="Collision" unique_id=1418644980]
@@ -965,140 +698,291 @@ shape = SubResource("BoxShape3D_arocb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.135077, 0, -9.920746)
 shape = SubResource("BoxShape3D_g81i8")
 
-[node name="boat-row-small2" parent="." unique_id=1737585320 groups=["valuables"] instance=ExtResource("43_vom7g")]
-transform = Transform3D(0.54, 0, 0, 0, 0.48000002, 0, 0, 0, 0.48000002, -10.014477, 0, -4.8982)
-script = ExtResource("9_g6oq0")
-ID = 148
+[node name="NonUsedValuables" type="Node3D" parent="." unique_id=1302993706]
 
-[node name="bottle-large2" parent="." unique_id=2139034487 groups=["valuables"] instance=ExtResource("44_5mir5")]
+[node name="bottle-large2" parent="NonUsedValuables" unique_id=2139034487 instance=ExtResource("44_5mir5")]
 transform = Transform3D(0.39999998, 0, 0, 0, 0.39999998, 0, 0, 0, 0.39999998, -3.9548652, 0, -9.828866)
-script = ExtResource("9_g6oq0")
-ID = 155
 
-[node name="bottle2" parent="." unique_id=1902884146 groups=["valuables"] instance=ExtResource("45_h4v3w")]
+[node name="bottle2" parent="NonUsedValuables" unique_id=1902884146 instance=ExtResource("45_h4v3w")]
 transform = Transform3D(0.48000002, 0, 0, 0, 0.48000002, 0, 0, 0, 0.48000002, -3.5249557, 0, -9.856801)
-script = ExtResource("9_g6oq0")
-ID = 156
 
-[node name="chest2" parent="." unique_id=1779081791 groups=["valuables"] instance=ExtResource("46_cg4ta")]
-transform = Transform3D(0.40824, 0, 0, 0, 0.3024, 0, 0, 0, 0.392, -9.032182, 0, -9.752437)
-script = ExtResource("9_g6oq0")
-ID = 151
-
-[node name="chest3" parent="." unique_id=1715822590 groups=["valuables"] instance=ExtResource("46_cg4ta")]
+[node name="chest3" parent="NonUsedValuables" unique_id=1715822590 instance=ExtResource("46_cg4ta")]
 transform = Transform3D(0.40824, 0, 0, 0, 0.3024, 0, 0, 0, 0.392, -9.664787, 0, -9.752437)
-script = ExtResource("9_g6oq0")
-ID = 150
 
-[node name="chest4" parent="." unique_id=185779811 groups=["valuables"] instance=ExtResource("46_cg4ta")]
+[node name="chest4" parent="NonUsedValuables" unique_id=185779811 instance=ExtResource("46_cg4ta")]
 transform = Transform3D(0.40824, 0, 0, 0, 0.3024, 0, 0, 0, 0.392, -8.346302, 0, -9.752437)
-script = ExtResource("9_g6oq0")
-ID = 152
 
-[node name="chest5" parent="." unique_id=1030138534 groups=["valuables"] instance=ExtResource("46_cg4ta")]
+[node name="chest5" parent="NonUsedValuables" unique_id=1030138534 instance=ExtResource("46_cg4ta")]
 transform = Transform3D(0.40824, 0, 0, 0, 0.3024, 0, 0, 0, 0.392, -10.343435, 0, -9.752437)
-script = ExtResource("9_g6oq0")
-ID = 149
 
-[node name="chest6" parent="." unique_id=359761481 groups=["valuables"] instance=ExtResource("46_cg4ta")]
+[node name="chest6" parent="NonUsedValuables" unique_id=359761481 instance=ExtResource("46_cg4ta")]
 transform = Transform3D(0.40824, 0, 0, 0, 0.3024, 0, 0, 0, 0.392, -7.662235, 0, -9.752437)
-script = ExtResource("9_g6oq0")
-ID = 153
 
-[node name="crate-bottles2" parent="." unique_id=1336551616 groups=["valuables"] instance=ExtResource("47_ndlql")]
+[node name="crate-bottles2" parent="NonUsedValuables" unique_id=1336551616 instance=ExtResource("47_ndlql")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -4.5647936, 0, -9.673367)
-script = ExtResource("9_g6oq0")
-ID = 154
 
-[node name="ship-pirate-small2" parent="." unique_id=1244489950 groups=["valuables"] instance=ExtResource("48_02rmx")]
-transform = Transform3D(0.18, 0, 0, 0, 0.12, 0, 0, 0, 0.189, -4.718976, 0, -5.572752)
-script = ExtResource("9_g6oq0")
-ID = 173
-
-[node name="ship-pirate-small3" parent="." unique_id=1554541284 groups=["valuables"] instance=ExtResource("48_02rmx")]
+[node name="ship-pirate-small3" parent="NonUsedValuables" unique_id=1554541284 instance=ExtResource("48_02rmx")]
 transform = Transform3D(0.18, 0, 0, 0, 0.12, 0, 0, 0, 0.189, -3.0743113, 0, -5.572752)
-script = ExtResource("9_g6oq0")
-ID = 172
 
-[node name="ship-pirate-small4" parent="." unique_id=606955440 groups=["valuables"] instance=ExtResource("48_02rmx")]
-transform = Transform3D(0.18, 0, 0, 0, 0.12, 0, 0, 0, 0.189, -1.3880682, 0, -5.572752)
-script = ExtResource("9_g6oq0")
-ID = 171
-
-[node name="ship-pirate-small5" parent="." unique_id=1086527092 groups=["valuables"] instance=ExtResource("48_02rmx")]
+[node name="ship-pirate-small5" parent="NonUsedValuables" unique_id=1086527092 instance=ExtResource("48_02rmx")]
 transform = Transform3D(-7.86805e-09, 0, 0.189, 0, 0.11999999, 0, -0.18, 0, -8.261452e-09, -2.897448, 0, -2.9871829)
-script = ExtResource("9_g6oq0")
-ID = 174
 
-[node name="cannon2" parent="." unique_id=507087825 groups=["valuables"] instance=ExtResource("49_oxpuw")]
+[node name="cannon2" parent="NonUsedValuables" unique_id=507087825 instance=ExtResource("49_oxpuw")]
 transform = Transform3D(0.3456, 0, 0, 0, 0.3024, 0, 0, 0, 0.4, 2.9575124, 0, -9.5309925)
-script = ExtResource("9_g6oq0")
-ID = 159
 
-[node name="cannon3" parent="." unique_id=156126287 groups=["valuables"] instance=ExtResource("49_oxpuw")]
+[node name="cannon3" parent="NonUsedValuables" unique_id=156126287 instance=ExtResource("49_oxpuw")]
 transform = Transform3D(0.3456, 0, 0, 0, 0.3024, 0, 0, 0, 0.4, 3.507108, 0, -9.5309925)
-script = ExtResource("9_g6oq0")
-ID = 160
 
-[node name="cannon4" parent="." unique_id=1198752048 groups=["valuables"] instance=ExtResource("49_oxpuw")]
+[node name="cannon4" parent="NonUsedValuables" unique_id=1198752048 instance=ExtResource("49_oxpuw")]
 transform = Transform3D(0.3456, 0, 0, 0, 0.3024, 0, 0, 0, 0.4, 4.1474075, 0, -9.5309925)
-script = ExtResource("9_g6oq0")
-ID = 161
 
-[node name="cannon5" parent="." unique_id=606470320 groups=["valuables"] instance=ExtResource("49_oxpuw")]
+[node name="cannon5" parent="NonUsedValuables" unique_id=606470320 instance=ExtResource("49_oxpuw")]
 transform = Transform3D(0.3456, 0, 0, 0, 0.3024, 0, 0, 0, 0.4, 2.4071312, 0, -9.5309925)
-script = ExtResource("9_g6oq0")
-ID = 158
 
-[node name="cannon6" parent="." unique_id=1685235616 groups=["valuables"] instance=ExtResource("49_oxpuw")]
+[node name="cannon6" parent="NonUsedValuables" unique_id=1685235616 instance=ExtResource("49_oxpuw")]
 transform = Transform3D(0.3456, 0, 0, 0, 0.3024, 0, 0, 0, 0.4, 1.7962594, 0, -9.5309925)
-script = ExtResource("9_g6oq0")
-ID = 157
 
-[node name="tool-paddle2" parent="." unique_id=1336040720 groups=["valuables"] instance=ExtResource("50_gmb2c")]
+[node name="tool-paddle2" parent="NonUsedValuables" unique_id=1336040720 instance=ExtResource("50_gmb2c")]
 transform = Transform3D(7.4505815e-09, 0, -0.29999998, 0.18308918, 0.1584345, 4.54707e-09, 0.23765174, -0.12205943, 5.9021454e-09, 4.8285465, 0, -7.777093)
-script = ExtResource("9_g6oq0")
-ID = 168
 
-[node name="tool-shovel2" parent="." unique_id=93754867 groups=["valuables"] instance=ExtResource("51_qg582")]
+[node name="tool-shovel2" parent="NonUsedValuables" unique_id=93754867 instance=ExtResource("51_qg582")]
 transform = Transform3D(-8.742277e-09, 0, -0.19999999, -0.12655728, 0.15486526, 5.531994e-09, 0.15486526, 0.12655728, -6.7693757e-09, 4.85907, 0, -7.6123457)
-script = ExtResource("9_g6oq0")
-ID = 169
 
-[node name="cannon-ball2" parent="." unique_id=659458545 instance=ExtResource("52_rf5ne")]
+[node name="cannon-ball2" parent="NonUsedValuables" unique_id=659458545 instance=ExtResource("52_rf5ne")]
 transform = Transform3D(0.27, 0, 0, 0, 0.21599999, 0, 0, 0, 0.24499999, 4.7777576, 0, -8.504639)
 
-[node name="cannon-ball3" parent="." unique_id=1256725344 groups=["valuables"] instance=ExtResource("52_rf5ne")]
+[node name="cannon-ball3" parent="NonUsedValuables" unique_id=1256725344 instance=ExtResource("52_rf5ne")]
 transform = Transform3D(0.27, 0, 0, 0, 0.21599999, 0, 0, 0, 0.24499999, 4.7777576, 0, -8.3551035)
-script = ExtResource("9_g6oq0")
-ID = 164
 
-[node name="cannon-ball4" parent="." unique_id=302335376 groups=["valuables"] instance=ExtResource("52_rf5ne")]
+[node name="cannon-ball4" parent="NonUsedValuables" unique_id=302335376 instance=ExtResource("52_rf5ne")]
 transform = Transform3D(0.27, 0, 0, 0, 0.21599999, 0, 0, 0, 0.24499999, 4.7777576, 0, -8.66699)
-script = ExtResource("9_g6oq0")
-ID = 165
 
-[node name="cannon-ball5" parent="." unique_id=2039228958 groups=["valuables"] instance=ExtResource("52_rf5ne")]
+[node name="cannon-ball5" parent="NonUsedValuables" unique_id=2039228958 instance=ExtResource("52_rf5ne")]
 transform = Transform3D(0.27, 0, 0, 0, 0.21599999, 0, 0, 0, 0.24499999, 4.659474, 0, -8.587591)
-script = ExtResource("9_g6oq0")
-ID = 162
 
-[node name="cannon-ball6" parent="." unique_id=1914237852 groups=["valuables"] instance=ExtResource("52_rf5ne")]
+[node name="cannon-ball6" parent="NonUsedValuables" unique_id=1914237852 instance=ExtResource("52_rf5ne")]
 transform = Transform3D(0.27, 0, 0, 0, 0.21599999, 0, 0, 0, 0.24499999, 4.659474, 0, -8.46807)
-script = ExtResource("9_g6oq0")
-ID = 163
 
-[node name="cannon-ball7" parent="." unique_id=1874711922 groups=["valuables"] instance=ExtResource("52_rf5ne")]
+[node name="cannon-ball7" parent="NonUsedValuables" unique_id=1874711922 instance=ExtResource("52_rf5ne")]
 transform = Transform3D(0.27, 0, 0, 0, 0.21599999, 0, 0, 0, 0.24499999, 4.7398553, 0, -8.46807)
-script = ExtResource("9_g6oq0")
-ID = 167
 
-[node name="cannon-ball8" parent="." unique_id=891422285 groups=["valuables"] instance=ExtResource("52_rf5ne")]
+[node name="cannon-ball8" parent="NonUsedValuables" unique_id=891422285 instance=ExtResource("52_rf5ne")]
 transform = Transform3D(0.27, 0, 0, 0, 0.21599999, 0, 0, 0, 0.24499999, 4.7398553, 0, -8.588294)
-script = ExtResource("9_g6oq0")
-ID = 166
 
-[node name="mast2" parent="." unique_id=257830573 groups=["valuables"] instance=ExtResource("53_f5s5t")]
+[node name="mast2" parent="NonUsedValuables" unique_id=257830573 instance=ExtResource("53_f5s5t")]
 transform = Transform3D(0.29999995, 0, 0, 0, 0.055426322, -0.29131946, 0, 0.083234094, 0.19399218, 2.7681913, 0, -3.5801928)
+
+[node name="floor-thick5" parent="NonUsedValuables" unique_id=1914717626 instance=ExtResource("1_wig4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.148853, 0, 2.13179)
+
+[node name="floor-thick6" parent="NonUsedValuables" unique_id=1899625412 instance=ExtResource("1_wig4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1488533, 0, 2.13179)
+
+[node name="animal-dog2" parent="NonUsedValuables" unique_id=220477499 instance=ExtResource("10_wfx38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1965923, 0, 4.8298445)
+
+[node name="animal-dog4" parent="NonUsedValuables" unique_id=1254269237 instance=ExtResource("10_wfx38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0188465, 0, 4.8298445)
+
+[node name="animal-dog5" parent="NonUsedValuables" unique_id=1313491577 instance=ExtResource("10_wfx38")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.246885, 0, 4.8298445)
+
+[node name="animal-horse2" parent="NonUsedValuables" unique_id=1423478551 instance=ExtResource("11_1uhcg")]
+transform = Transform3D(-0.053503748, 0, -0.99856764, 0, 1, 0, 0.99856764, 0, -0.053503748, -10.758626, 0, 2)
+
+[node name="animal-horse3" parent="NonUsedValuables" unique_id=395870015 instance=ExtResource("11_1uhcg")]
+transform = Transform3D(0.05350367, 0, 0.99856776, 0, 1, 0, -0.99856776, 0, 0.05350367, -10.758626, 0, 0.51529896)
+
+[node name="floor-square2" parent="NonUsedValuables" unique_id=1388574161 instance=ExtResource("12_3xhlm")]
+transform = Transform3D(1.7676021, 0, 0, 0, 1, 0, 0, 0, 1.3384516, 7, 0, 3)
+
+[node name="bag-flat2" parent="NonUsedValuables" unique_id=1677629707 instance=ExtResource("14_e6iqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.925615, 0, 4.585474)
+
+[node name="bag-flat3" parent="NonUsedValuables" unique_id=1670636534 instance=ExtResource("14_e6iqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.925615, 0, 4.120239)
+
+[node name="bag-flat4" parent="NonUsedValuables" unique_id=1505762754 instance=ExtResource("14_e6iqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.925615, 0, 4.3609614)
+
+[node name="bag2" parent="NonUsedValuables" unique_id=1291033033 instance=ExtResource("15_0g7hk")]
+transform = Transform3D(-1.0247644, 0, -0.04414142, 0, 0.5739396, 0, 0.07342006, 0, -0.61610615, 14.946461, 0, 4.3676376)
+
+[node name="barrel2" parent="NonUsedValuables" unique_id=1633877931 instance=ExtResource("16_c3pfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.022232, 0, 1.674072)
+
+[node name="barrel4" parent="NonUsedValuables" unique_id=593012824 instance=ExtResource("16_c3pfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.022232, 0, 0.3219297)
+
+[node name="floor-thick7" parent="NonUsedValuables" unique_id=890945611 instance=ExtResource("1_wig4p")]
+transform = Transform3D(1, 0, 0, 0, 0.24486142, 0, 0, 0, 0.27753222, 19.779215, 0, 4.730242)
+
+[node name="floor-thick14" parent="NonUsedValuables" unique_id=1857698503 instance=ExtResource("1_wig4p")]
+transform = Transform3D(1, 0, 0, 0, 0.24486142, 0, 0, 0, 0.27753222, -3.8667812, 0, -9.867931)
+
+[node name="floor-thick8" parent="NonUsedValuables" unique_id=1735663354 instance=ExtResource("1_wig4p")]
+transform = Transform3D(-4.371139e-08, 0, -0.42417562, 0, 0.24486145, 0, 1, 0, -1.8541307e-08, 23.989779, 0, 0.8427193)
+
+[node name="floor-thick9" parent="NonUsedValuables" unique_id=1443628534 instance=ExtResource("1_wig4p")]
+transform = Transform3D(-4.371139e-08, 0, -0.42417562, 0, 0.24486145, 0, 1, 0, -1.8541307e-08, 23.989779, 0, 2.524044)
+
+[node name="bottle-ketchup2" parent="NonUsedValuables" unique_id=2117327780 instance=ExtResource("17_gv7oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.074757, 0, 4.701436)
+
+[node name="bottle-musterd2" parent="NonUsedValuables" unique_id=1285335970 instance=ExtResource("18_dv5wx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.767632, 0, 4.6944757)
+
+[node name="donut2" parent="NonUsedValuables" unique_id=1976807298 instance=ExtResource("21_i3anq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.921886, 0, 0.48514032)
+
+[node name="donut-sprinkles2" parent="NonUsedValuables" unique_id=1967230939 instance=ExtResource("22_dngwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.953205, 0, 0.8350693)
+
+[node name="donut-chocolate2" parent="NonUsedValuables" unique_id=309755790 instance=ExtResource("23_qys27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.901093, 0, 1.1632786)
+
+[node name="cup-coffee2" parent="NonUsedValuables" unique_id=416105919 instance=ExtResource("24_h6lqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.880178, 0, 2.208835)
+
+[node name="cup-tea2" parent="NonUsedValuables" unique_id=1130073261 instance=ExtResource("25_vom7g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.87505, 0, 2.5265656)
+
+[node name="cup2" parent="NonUsedValuables" unique_id=1195885544 instance=ExtResource("26_5mir5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.90062, 0, 2.8337586)
+
+[node name="cake-slicer2" parent="NonUsedValuables" unique_id=306551582 instance=ExtResource("28_cg4ta")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0.9845857, 0.17490272, 4.303761e-08, -0.17490272, 0.9845857, -7.645241e-09, 22.322607, 0.32615453, -2.094698)
+
+[node name="floor-thick10" parent="NonUsedValuables" unique_id=1586835618 instance=ExtResource("1_wig4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.844007, 0, 1.6355567)
+
+[node name="hat-cap2" parent="NonUsedValuables" unique_id=215514831 instance=ExtResource("29_ndlql")]
+transform = Transform3D(-4.371139e-08, 0, 1, 1, -4.371139e-08, 4.371139e-08, 4.371139e-08, 1, 1.9106855e-15, 2.846209, 0.45388126, -2.7352588)
+
+[node name="hat-hard2" parent="NonUsedValuables" unique_id=1157818563 instance=ExtResource("30_02rmx")]
+transform = Transform3D(-1.131334e-08, 6.5295387e-23, 1, 0.9659258, 0.2588191, 1.0927849e-08, -0.2588191, 0.9659258, -2.9281084e-09, 3.6556516, 0.45388126, -2.706399)
+
+[node name="figurine-cube2" parent="NonUsedValuables" unique_id=305233940 instance=ExtResource("31_oxpuw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.900117, 0, -9.928921)
+
+[node name="figurine2" parent="NonUsedValuables" unique_id=1149517905 instance=ExtResource("33_qg582")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.549988, 0, -9.937006)
+
+[node name="figurine-cube-detailed2" parent="NonUsedValuables" unique_id=1728300458 instance=ExtResource("34_rf5ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.184994, 0, -9.944969)
+
+[node name="crate2" parent="NonUsedValuables" unique_id=1434997012 instance=ExtResource("35_f5s5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.87116, 0, -9.722828)
+
+[node name="crate5" parent="NonUsedValuables" unique_id=1116621938 instance=ExtResource("35_f5s5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.87116, 0, -9.722828)
+
+[node name="crate3" parent="NonUsedValuables" unique_id=2133699115 instance=ExtResource("35_f5s5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.876507, 0, -9.234618)
+
+[node name="crate4" parent="NonUsedValuables" unique_id=649425874 instance=ExtResource("35_f5s5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.370668, 0, -9.737584)
+
+[node name="crate-color2" parent="NonUsedValuables" unique_id=18007764 instance=ExtResource("36_jffkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.56123, 0, -9.776207)
+
+[node name="crate-color3" parent="NonUsedValuables" unique_id=1459186964 instance=ExtResource("36_jffkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.079424, 0, -9.763706)
+
+[node name="indicator-round-f2" parent="NonUsedValuables" unique_id=232220194 instance=ExtResource("37_m2p71")]
+transform = Transform3D(-3.325423e-08, 1, 0, -0.7607682, -4.371139e-08, 0, 0, 0, 0.7504517, 24.024488, 0.4679253, -6.620847)
+
+[node name="indicator-special-lines2" parent="NonUsedValuables" unique_id=2119225751 instance=ExtResource("39_p4bcj")]
+transform = Transform3D(-3.292138e-08, -1, 0, 0.75315344, -4.371139e-08, 0, 0, 0, 0.7325812, 23.995918, 0.4679253, -4.5814114)
+
+[node name="weapon-shield2" parent="NonUsedValuables" unique_id=963669051 instance=ExtResource("40_3wpxk")]
+transform = Transform3D(4.371139e-08, 1, 8.742278e-08, 1, -4.371139e-08, 0, 3.821371e-15, 8.742278e-08, -1, -4.5046883, 0.4679253, 2.0430703)
+
+[node name="weapon-sword2" parent="NonUsedValuables" unique_id=1663027640 instance=ExtResource("41_gumvx")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -4.5228124, 0.4679253, 1.3709456)
+
+[node name="coin2" parent="NonUsedValuables" unique_id=176589466 instance=ExtResource("42_2hg51")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.7589788, 0.4679253, -0.9961912)
+
+[node name="coin3" parent="NonUsedValuables" unique_id=2043200588 instance=ExtResource("42_2hg51")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.4203117, 0.4679253, -0.9961912)
+
+[node name="coin4" parent="NonUsedValuables" unique_id=763688744 instance=ExtResource("42_2hg51")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.0136395, 0.4679253, -0.9961912)
+
+[node name="Valuables" type="Node3D" parent="." unique_id=290992364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0380435, -0.040896654, 2.9890568)
+
+[node name="vehicle" parent="Valuables" unique_id=1290840366 groups=["valuables"] instance=ExtResource("13_xyli5")]
 script = ExtResource("9_g6oq0")
-ID = 170
+ID = 1
+
+[node name="animal-bison2" parent="Valuables" unique_id=746683751 groups=["valuables"] instance=ExtResource("8_wdm4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.095329, 0.040896654, -0.8299346)
+script = ExtResource("9_g6oq0")
+ID = 2
+
+[node name="animal-horse4" parent="Valuables" unique_id=419695676 groups=["valuables"] instance=ExtResource("11_1uhcg")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -13.148228, 0.040896654, -0.86294436)
+script = ExtResource("9_g6oq0")
+ID = 3
+
+[node name="ship-pirate-small4" parent="Valuables" unique_id=606955440 groups=["valuables"] instance=ExtResource("48_02rmx")]
+transform = Transform3D(0.18, 0, 0, 0, 0.12, 0, 0, 0, 0.189, -8.426111, 0.040896654, -8.561809)
+script = ExtResource("9_g6oq0")
+ID = 4
+
+[node name="ship-pirate-small2" parent="Valuables" unique_id=1244489950 groups=["valuables"] instance=ExtResource("48_02rmx")]
+transform = Transform3D(0.18, 0, 0, 0, 0.12, 0, 0, 0, 0.189, -11.757019, 0.040896654, -8.561809)
+script = ExtResource("9_g6oq0")
+ID = 5
+
+[node name="boat-row-small2" parent="Valuables" unique_id=1737585320 groups=["valuables"] instance=ExtResource("43_vom7g")]
+transform = Transform3D(0.54, 0, 0, 0, 0.48000002, 0, 0, 0, 0.48000002, -17.05252, 0.040896654, -7.8872566)
+script = ExtResource("9_g6oq0")
+ID = 6
+
+[node name="figurine-large2" parent="Valuables" unique_id=1496312285 groups=["valuables"] instance=ExtResource("32_gmb2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15861, 0.040896654, -12.956796)
+script = ExtResource("9_g6oq0")
+ID = 7
+
+[node name="indicator-special-cross2" parent="Valuables" unique_id=776374113 groups=["valuables"] instance=ExtResource("38_y4shm")]
+transform = Transform3D(-3.059797e-08, -1, 0, 0.7, -4.371139e-08, 0, 0, 0, 0.7, 17.017895, 0.50882196, -8.622492)
+script = ExtResource("9_g6oq0")
+ID = 8
+
+[node name="cake-birthday" parent="Valuables" unique_id=1975832366 groups=["valuables"] instance=ExtResource("27_h4v3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.818699, 0.040896654, -1.3594975)
+script = ExtResource("9_g6oq0")
+ID = 9
+
+[node name="barrel5" parent="Valuables" unique_id=1859828860 groups=["valuables"] instance=ExtResource("16_c3pfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9841886, 0.040896654, -3.33004)
+script = ExtResource("9_g6oq0")
+ID = 10
+
+[node name="barrel3" parent="Valuables" unique_id=385104323 groups=["valuables"] instance=ExtResource("16_c3pfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9841886, 0.040896654, -1.9987168)
+script = ExtResource("9_g6oq0")
+ID = 11
+
+[node name="frying-pan2" parent="Valuables" unique_id=782807952 groups=["valuables"] instance=ExtResource("20_pmt1a")]
+transform = Transform3D(1.9106855e-15, -1, 4.371139e-08, -0.86320174, -2.2068091e-08, -0.50485903, 0.50485903, -3.7731745e-08, -0.86320174, 17.036287, 0.44955134, -3.9788287)
+script = ExtResource("9_g6oq0")
+ID = 12
+
+[node name="bottle-oil2" parent="Valuables" unique_id=1695501220 groups=["valuables"] instance=ExtResource("19_spfti")]
+transform = Transform3D(0.95979506, 0, 0, 0, 1, 0, 0, 0, 1, 12.439371, 0.040896654, 1.7135465)
+script = ExtResource("9_g6oq0")
+ID = 13
+
+[node name="animal-dog3" parent="Valuables" unique_id=2079570517 groups=["valuables"] instance=ExtResource("10_wfx38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.149377, 0.040896654, 1.8407876)
+script = ExtResource("9_g6oq0")
+ID = 14
+
+[node name="chest2" parent="Valuables" unique_id=1779081791 groups=["valuables"] instance=ExtResource("46_cg4ta")]
+transform = Transform3D(0.40824, 0, 0, 0, 0.3024, 0, 0, 0, 0.392, -16.070225, 0.040896654, -12.741493)
+script = ExtResource("9_g6oq0")
+ID = 15

@@ -12,7 +12,7 @@ public partial class CheckpointInterface : Node
 	[Export] private Timer anomalyTimer;
 	[Export] private Label gameOverLabel;
 	private bool stealTimerOn = false;
-	private int stolenItemCounter = 0;
+	private int stolenItemCounter = 1;
 	private bool doorsPretending = false;
 	private int anomalyCounter = 0;
 	private int maxAnomalies = 3;
@@ -69,6 +69,7 @@ public partial class CheckpointInterface : Node
 			if (valuable.ID == stolenItemCounter)
 			{
 				valuable.Visible = false;
+				GD.Print("Valuable made invisible");
 			}
 		}
 		foreach (ValuableLight valuableLight in _valuableLights)
@@ -78,7 +79,7 @@ public partial class CheckpointInterface : Node
 				valuableLight.TurnRed();
 			}
 		}
-		if (stolenItemCounter >= 9)
+		if (stolenItemCounter > _valuables.Count())
 		{
 			gameOverLabel.Visible = true;
 		}
@@ -110,7 +111,7 @@ public partial class CheckpointInterface : Node
 
 	public void SetRandomWaitTime()
 	{
-		anomalyTimer.WaitTime = GD.RandRange(2, 10);
+		anomalyTimer.WaitTime = GD.RandRange(10, 120);
 	}
 
 	private void addAnomaly()
