@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://cvqrnkb7l0eru"]
 
 [ext_resource type="Script" uid="uid://wslmmmb05mqc" path="res://scenes/Lani/Checkpoint.cs" id="1_w15jd"]
+[ext_resource type="AudioStream" uid="uid://c1hjchj26wqsa" path="res://scenes/Shengyan/cloth1.ogg" id="2_fhpy4"]
 
-[node name="Checkpoint" type="Node3D" unique_id=1059306128 node_paths=PackedStringArray("anomalyTimer", "tempTimer", "animations") groups=["checkpoints"]]
+[node name="Checkpoint" type="Node3D" unique_id=1059306128 node_paths=PackedStringArray("anomalyTimer", "tempTimer") groups=["checkpoints"]]
 script = ExtResource("1_w15jd")
 anomalyTimer = NodePath("AnomalyTimer")
 tempTimer = NodePath("Temp")
-animations = NodePath("")
 openAnimation = "open"
 closeAnimation = "close"
+openSound = ExtResource("2_fhpy4")
+closeSound = ExtResource("2_fhpy4")
 
 [node name="AnomalyTimer" type="Timer" parent="." unique_id=961653131]
 
 [node name="Temp" type="Timer" parent="." unique_id=366252513]
 wait_time = 5.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=139996675]

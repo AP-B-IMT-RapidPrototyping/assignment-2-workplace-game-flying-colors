@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbh4ncb76yhw" path="res://assets/EigenAssets/SlideWindow.glb" id="1_pdxwf"]
 [ext_resource type="PackedScene" uid="uid://bp7tos6nqwtip" path="res://assets/kenney/prototype/GLB format/wall-window-cutout-large.glb" id="2_23ihf"]
 [ext_resource type="PackedScene" uid="uid://cvqrnkb7l0eru" path="res://scenes/Lani/checkpoint.tscn" id="3_jptv5"]
+[ext_resource type="AudioStream" uid="uid://divj0mi1gla5v" path="res://scenes/Shengyan/doorClose_2.ogg" id="4_jptv5"]
 
 [sub_resource type="Animation" id="Animation_xsvqr"]
 length = 0.001
@@ -74,5 +75,7 @@ shape = SubResource("BoxShape3D_wwrb5")
 
 [node name="Checkpoint" parent="." unique_id=1059306128 node_paths=PackedStringArray("animations") instance=ExtResource("3_jptv5")]
 animations = NodePath("../SlideWindow/AnimationPlayer")
+openSound = ExtResource("4_jptv5")
+closeSound = ExtResource("4_jptv5")
 
 [editable path="SlideWindow"]

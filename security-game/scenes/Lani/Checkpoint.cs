@@ -9,15 +9,21 @@ public partial class Checkpoint : Node3D
 	[Export] public bool hasAnomaly;
 	[Export] public int ID = 1;
 	[Export] private AnimationPlayer animations;
+	[Export] private AudioStreamPlayer3D audioPlayer;
 
 	[Export] private string openAnimation;
 	[Export] private string closeAnimation;
-	
+	[Export] private AudioStream openSound;
+	[Export] private AudioStream closeSound;
+
 
 	private bool pretending = false;
 
 	public override void _Ready()
 	{
+		if (audioPlayer == null)
+			audioPlayer = GetNodeOrNull<AudioStreamPlayer3D>("AudioStreamPlayer3D");
+
 		animations.Play(closeAnimation);
 		//tempTimer.Timeout += fixAnomaly;
 	}
@@ -33,7 +39,10 @@ public partial class Checkpoint : Node3D
 		if (hasAnomaly)
 			return;
 		if (!pretending)
+		{
 			animations.Play(openAnimation);
+			PlaySound(openSound);
+		}
 		hasAnomaly = true;
 		//tempTimer.Start();
 	}
@@ -49,12 +58,22 @@ public partial class Checkpoint : Node3D
 		if (!hasAnomaly)
 			return;
 
-		animations.Play("close");
+		animations.Play(closeAnimation);
+		PlaySound(closeSound);
 		hasAnomaly = false;
 		GD.Print($"Checkpoint {ID} anomaly fixed");
 
 		SetRandomWaitTime();
 		anomalyTimer.Start();
+	}
+
+	private void PlaySound(AudioStream stream)
+	{
+		if (audioPlayer == null || stream == null)
+			return;
+
+		audioPlayer.Stream = stream;
+		audioPlayer.Play();
 	}
 
 }
