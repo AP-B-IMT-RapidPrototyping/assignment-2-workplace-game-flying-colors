@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="1_8i1pj"]
 [ext_resource type="Material" uid="uid://dkm5wx46mlcdp" path="res://scenes/Shengyan/debugmat.tres" id="1_v1dff"]
+[ext_resource type="Script" uid="uid://dp5qlhw05wvfl" path="res://scenes/Shengyan/CoffeeInteractible.cs" id="3_v7ag7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8i1pj"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,9 +54,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9340973, 1.3784698, 2.3405
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1510305, 0.7067182, 0.18081498)
 material_override = ExtResource("1_v1dff")
 mesh = SubResource("TorusMesh_v1dff")
+script = ExtResource("3_v7ag7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="InteractableTest" unique_id=3378814 groups=["interactable"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableTest/StaticBody3D" unique_id=1382180424 groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04156494, 0, 0.011627197)
 shape = SubResource("BoxShape3D_v1dff")
+
+[editable path="Player"]

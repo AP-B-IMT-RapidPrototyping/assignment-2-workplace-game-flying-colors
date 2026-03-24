@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://be802a3bb7d4e"]
+
+[ext_resource type="Script" uid="uid://coxglcksy05yy" path="res://Coffee.cs" id="1_hfe50"]
+[ext_resource type="PackedScene" uid="uid://bq8l8brs6qt8h" path="res://assets/kenney_food-kit/Models/GLB format/cup-coffee.glb" id="2_hhhir"]
+[ext_resource type="AudioStream" uid="uid://cb82cg85pb5a8" path="res://scenes/Shengyan/handleSmallLeather.ogg" id="3_a7x4x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d8qxe"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hfe50"]
+font_size = 20
+
+[node name="Coffee" type="Node3D" unique_id=1239199630 node_paths=PackedStringArray("coffeeText", "visibilityTimer", "audioPlayer") groups=["interactable"]]
+script = ExtResource("1_hfe50")
+coffeeText = NodePath("Label")
+visibilityTimer = NodePath("VisibilityTimer")
+audioPlayer = NodePath("AudioStreamPlayer3D")
+drinkSound = ExtResource("3_a7x4x")
+
+[node name="cup-coffee2" parent="." unique_id=779566656 instance=ExtResource("2_hhhir")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2107584062]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1492251638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07118124, 0)
+shape = SubResource("BoxShape3D_d8qxe")
+
+[node name="Label" type="Label" parent="." unique_id=1342525170]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 110.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Delicious coffee!"
+label_settings = SubResource("LabelSettings_hfe50")
+
+[node name="VisibilityTimer" type="Timer" parent="." unique_id=385382453]
+wait_time = 2.0
+one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1994522032]
+stream = ExtResource("3_a7x4x")

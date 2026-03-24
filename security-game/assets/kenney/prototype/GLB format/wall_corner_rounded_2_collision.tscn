@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://baweks5kbh18g"]
+
+[ext_resource type="PackedScene" uid="uid://bo0u0gj66d7nq" path="res://assets/kenney/prototype/GLB format/wall-corner-rounded.glb" id="1_20uwg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n66oa"]
+size = Vector3(1.0097656, 1.0039673, 0.20117188)
+
+[node name="wall-corner-rounded2" unique_id=2029854462 instance=ExtResource("1_20uwg")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0" unique_id=379677381]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1718195113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499115, -0.39941406)
+shape = SubResource("BoxShape3D_n66oa")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=336030422]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.3914734, 0.499115, 0.0006816387)
+shape = SubResource("BoxShape3D_n66oa")

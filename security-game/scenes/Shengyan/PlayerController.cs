@@ -1,48 +1,72 @@
 using Godot;
 using System;
 
+//Handles player movement and input
+
 public partial class PlayerController : CharacterBody3D
 {
-	[Signal]
-	public delegate void InteractionRequestedEventHandler(Node3D target, Vector3 hitPosition);
-
-	[Signal]
-	public delegate void InteractionMissedEventHandler();
-
-	[Signal]
-	public delegate void LookedAtInteractableChangedEventHandler(Node3D interactable, bool isLookingAtInteractable);
-
 	[Export] private float _mouseSensitivity = 0.003f;
-    [Export] private Camera3D _camera;
+	[Export] private Camera3D _camera;
+	[Export] private PlayerStats _stats;
+	[Export] private AudioStreamPlayer3D _footstepPlayer;
 
-	[Export] private string _interactAction = "interact";
-	[Export] private float _interactionReach = 3.0f;
-	[Export(PropertyHint.Layers3DPhysics)] private uint _interactionCollisionMask = uint.MaxValue;
-	[Export] private string _interactableGroupName = "interactable";
-	[Export] private bool _debugInteractionFocus = true;
+	[Export] private float _speed = 2.0f;
+	[Export] private float _speedSprint = 3.0f;
+	[Export] private float _sprintEnergyConsumption = 0.01f;
+	[Export] private float _speedSlow = 1.0f;
 
-	public Node3D CurrentLookedAtInteractable { get; private set; }
-	public Vector3 CurrentLookedAtHitPosition { get; private set; } = Vector3.Zero;
-	public bool IsLookingAtInteractable => CurrentLookedAtInteractable != null;
+	private float _footstepCooldown = 0.4f;
+	private float _footstepSprintCooldown = 0.267f; // 0.4 / 1.5 for 1.5x faster
+	private float _footstepTimer = 0f;
 
-	public const float Speed = 5.0f;
-	public const float JumpVelocity = 4.5f;
+	// Jump disabled
+	//public const float JumpVelocity = 4.5f;
+
+	public PlayerStats Stats => _stats;
+	public float Energy => _stats?.Energy ?? 0f;
 
 
-    public override void _Ready()
-    {
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+	public override void _Ready()
+	{
+		Input.MouseMode = Input.MouseModeEnum.Captured;
 
 		if (_camera == null)
 		{
-			GD.PushWarning("PlayerController: Camera is not assigned. Interaction raycasts are disabled.");
+			GD.PushWarning("PlayerController: Camera is not assigned.");
 		}
 
-		if (!InputMap.HasAction(_interactAction))
+		if (_stats == null)
 		{
-			GD.PushWarning($"PlayerController: Input action '{_interactAction}' does not exist.");
+			_stats = GetNodeOrNull<PlayerStats>("Stats");
+			if (_stats == null)
+			{
+				GD.PushWarning("PlayerController: Stats is not assigned.");
+			}
 		}
-    }
+	}
+
+	public void SetEnergy(float energy)
+	{
+		if (_stats == null)
+		{
+			GD.PushWarning("PlayerController: Cannot set energy because Stats is missing.");
+			return;
+		}
+
+		_stats.SetEnergy(energy);
+	}
+
+
+	public void ChangeEnergy(float amount)
+	{
+		if (_stats == null)
+		{
+			GD.PushWarning("PlayerController: Cannot add energy because Stats is missing.");
+			return;
+		}
+
+		_stats.ChangeEnergy(amount);
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -54,10 +78,27 @@ public partial class PlayerController : CharacterBody3D
 			velocity += GetGravity() * (float)delta;
 		}
 
-		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		// // Handle Jump(disabled).
+		// if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		// {
+		// 	velocity.Y = JumpVelocity;
+		// }
+
+		float speed;
+		bool isSprinting = false;
+		if (Input.IsActionPressed("sprint") && _stats.Energy > 0f)
 		{
-			velocity.Y = JumpVelocity;
+			speed = _speedSprint;
+			isSprinting = true;
+
+		}
+		else if (_stats.Energy == 0f)
+		{
+			speed = _speedSlow;
+		}
+		else
+		{
+			speed = _speed;
 		}
 
 		// Get the input direction and handle the movement/deceleration.
@@ -66,160 +107,76 @@ public partial class PlayerController : CharacterBody3D
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if (direction != Vector3.Zero)
 		{
-			velocity.X = direction.X * Speed;
-			velocity.Z = direction.Z * Speed;
+			velocity.X = direction.X * speed;
+			velocity.Z = direction.Z * speed;
+
+			// Handle footstep sounds
+			_footstepTimer -= (float)delta;
+			if (_footstepTimer <= 0f && IsOnFloor())
+			{
+				PlayRandomFootstep();
+				float cooldown = isSprinting ? _footstepSprintCooldown : _footstepCooldown;
+				_footstepTimer = cooldown;
+			}
+
+			if (isSprinting)
+			{
+				ChangeEnergy(-_sprintEnergyConsumption * (float)delta);
+
+			}
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
+			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, speed);
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
-
-		UpdateLookedAtInteractable();
-
-		if (InputMap.HasAction(_interactAction) && Input.IsActionJustPressed(_interactAction))
-		{
-			if (IsLookingAtInteractable)
-			{
-				EmitSignal(SignalName.InteractionRequested, CurrentLookedAtInteractable, CurrentLookedAtHitPosition);
-			}
-			else
-			{
-				EmitSignal(SignalName.InteractionMissed);
-			}
-		}
-	}
-
-	public bool TryGetInteractionTarget(out Node3D target, out Vector3 hitPosition)
-	{
-		return TryGetLookedAtInteractable(out target, out hitPosition);
-	}
-
-	public bool TryGetLookedAtInteractable(out Node3D interactable, out Vector3 hitPosition)
-	{
-		interactable = null;
-		hitPosition = Vector3.Zero;
-
-		if (!TryRaycastFromCamera(out Node3D hitNode, out hitPosition))
-		{
-			return false;
-		}
-
-		interactable = FindInteractableNode(hitNode);
-		return interactable != null;
-	}
-
-	private void UpdateLookedAtInteractable()
-	{
-		Node3D previousInteractable = CurrentLookedAtInteractable;
-
-		if (TryGetLookedAtInteractable(out Node3D interactable, out Vector3 hitPosition))
-		{
-			CurrentLookedAtInteractable = interactable;
-			CurrentLookedAtHitPosition = hitPosition;
-		}
-		else
-		{
-			CurrentLookedAtInteractable = null;
-			CurrentLookedAtHitPosition = Vector3.Zero;
-		}
-
-		if (previousInteractable != CurrentLookedAtInteractable)
-		{
-			if (_debugInteractionFocus)
-			{
-				if (IsLookingAtInteractable)
-				{
-					GD.Print($"[Interaction] Looking at interactable: {CurrentLookedAtInteractable.Name}");
-				}
-				else
-				{
-					GD.Print("[Interaction] Not looking at an interactable.");
-				}
-			}
-
-			EmitSignal(SignalName.LookedAtInteractableChanged, CurrentLookedAtInteractable, IsLookingAtInteractable);
-		}
-	}
-
-	private bool TryRaycastFromCamera(out Node3D hitNode, out Vector3 hitPosition)
-	{
-		hitNode = null;
-		hitPosition = Vector3.Zero;
-
-		if (_camera == null)
-		{
-			return false;
-		}
-
-		Vector2 viewportCenter = GetViewport().GetVisibleRect().Size * 0.5f;
-		Vector3 rayOrigin = _camera.ProjectRayOrigin(viewportCenter);
-		Vector3 rayDirection = _camera.ProjectRayNormal(viewportCenter);
-
-		PhysicsRayQueryParameters3D query = PhysicsRayQueryParameters3D.Create(
-			rayOrigin,
-			rayOrigin + (rayDirection * _interactionReach),
-			_interactionCollisionMask
-		);
-		query.Exclude = new Godot.Collections.Array<Rid> { GetRid() };
-
-		Godot.Collections.Dictionary result = GetWorld3D().DirectSpaceState.IntersectRay(query);
-		if (result.Count == 0)
-		{
-			return false;
-		}
-
-		hitPosition = ((Variant)result["position"]).AsVector3();
-		GodotObject colliderObject = ((Variant)result["collider"]).AsGodotObject();
-		if (colliderObject is Node3D node)
-		{
-			hitNode = node;
-			return true;
-		}
-
-		return false;
-	}
-
-	private Node3D FindInteractableNode(Node startNode)
-	{
-		Node current = startNode;
-
-		while (current != null)
-		{
-			if (current is Node3D node3D && node3D.IsInGroup(_interactableGroupName))
-			{
-				return node3D;
-			}
-
-			current = current.GetParent();
-		}
-
-		return null;
 	}
 
 	public override void _Input(InputEvent @event)
-    {
+	{
 		if (_camera == null)
 		{
 			return;
 		}
 
 		if (@event is InputEventMouseMotion mouseMotion)
-        {
+		{
 			// Horizontal rotation: rotate the whole player (Y-axis).
-            RotateY(-mouseMotion.Relative.X * _mouseSensitivity);
+			RotateY(-mouseMotion.Relative.X * _mouseSensitivity);
 
 			// Vertical rotation: rotate only the camera (X-axis).
-            _camera.RotateX(-mouseMotion.Relative.Y * _mouseSensitivity);
+			_camera.RotateX(-mouseMotion.Relative.Y * _mouseSensitivity);
 
 			// Keep camera pitch in a safe range so it does not flip.
-            Vector3 cameraRotation = _camera.Rotation;
-            cameraRotation.X = Mathf.Clamp(cameraRotation.X, -1.5f, 1.5f);
-            _camera.Rotation = cameraRotation;
-        }
-    }
-    
+			Vector3 cameraRotation = _camera.Rotation;
+			cameraRotation.X = Mathf.Clamp(cameraRotation.X, -1.5f, 1.5f);
+			_camera.Rotation = cameraRotation;
+		}
+	}
+
+	private void PlayRandomFootstep()
+	{
+		if (_footstepPlayer == null)
+		{
+			return;
+		}
+
+		int randomIndex = (int)(GD.Randi() % 10); // Random number 0-9
+		string footstepPath = $"res://scenes/Shengyan/footstep{randomIndex:00}.ogg";
+
+		var audioStream = GD.Load<AudioStream>(footstepPath);
+		if (audioStream != null)
+		{
+			_footstepPlayer.Stream = audioStream;
+			_footstepPlayer.Play();
+		}
+		else
+		{
+			GD.PushWarning($"PlayerController: Failed to load footstep sound at {footstepPath}");
+		}
+	}
+
 }

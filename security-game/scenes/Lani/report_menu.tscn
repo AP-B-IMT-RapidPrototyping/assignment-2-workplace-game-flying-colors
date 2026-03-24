@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://btsypc4o7xyew"]
+
+[ext_resource type="Script" uid="uid://e3pf01q5qa7s" path="res://ReportMenu.cs" id="1_jugau"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jugau"]
+font_size = 23
+font_color = Color(0.66821647, 0.6682165, 0.6682167, 1)
+outline_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cn7mt"]
+font_size = 23
+outline_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0uc3"]
+font_size = 23
+outline_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbutq"]
+font_size = 23
+outline_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y2hnr"]
+font_size = 23
+outline_color = Color(0, 1, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hrfr"]
+font_size = 21
+
+[node name="ReportMenu" type="Control" unique_id=108563017 node_paths=PackedStringArray("label1", "label2", "label3", "label4", "label5")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jugau")
+label1 = NodePath("VBoxContainer/Label1")
+label2 = NodePath("VBoxContainer/Label2")
+label3 = NodePath("VBoxContainer/Label3")
+label4 = NodePath("VBoxContainer/Label4")
+label5 = NodePath("VBoxContainer/Label5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1603375507]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 232.0
+
+[node name="Label1" type="Label" parent="VBoxContainer" unique_id=1254860131]
+layout_mode = 2
+text = "Checkpoint1 (press 1)"
+label_settings = SubResource("LabelSettings_jugau")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1660190761]
+layout_mode = 2
+text = "Checkpoint2 (press 2)"
+label_settings = SubResource("LabelSettings_cn7mt")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=259030871]
+layout_mode = 2
+text = "Checkpoint3 (press 3)"
+label_settings = SubResource("LabelSettings_v0uc3")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=1314282927]
+layout_mode = 2
+text = "Checkpoint4 (press 4)"
+label_settings = SubResource("LabelSettings_qbutq")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer" unique_id=1561826875]
+layout_mode = 2
+text = "Checkpoint5 (press 5)"
+label_settings = SubResource("LabelSettings_y2hnr")
+horizontal_alignment = 1
+
+[node name="Enter" type="Label" parent="VBoxContainer" unique_id=1460394220]
+layout_mode = 2
+text = "Press enter or left mouse 
+click to confirm"
+label_settings = SubResource("LabelSettings_4hrfr")

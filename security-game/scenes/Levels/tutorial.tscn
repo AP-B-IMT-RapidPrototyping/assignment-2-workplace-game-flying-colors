@@ -1,0 +1,439 @@
+[gd_scene format=3 uid="uid://dadvnrej5f64t"]
+
+[ext_resource type="PackedScene" uid="uid://cyxeuukm1fkcx" path="res://scenes/Shengyan/player.tscn" id="1_ueuuf"]
+[ext_resource type="PackedScene" uid="uid://lst45yb82xh1" path="res://scenes/Lani/TutorialStuff/tutorial_design.tscn" id="2_m3e6o"]
+[ext_resource type="Script" uid="uid://cpbydwtmukgho" path="res://scenes/Lani/Valuable.cs" id="3_7dqo1"]
+[ext_resource type="PackedScene" uid="uid://i8tlgkjx8q0l" path="res://assets/kenney/prototype/wall_2_collision.tscn" id="3_kbcj1"]
+[ext_resource type="PackedScene" uid="uid://dak4obve13vtg" path="res://scenes/Lani/TutorialStuff/note.tscn" id="3_m3e6o"]
+[ext_resource type="Script" uid="uid://dj8wfocdr28w5" path="res://scenes/Lani/TutorialStuff/SecurityNote.cs" id="4_84v0n"]
+[ext_resource type="PackedScene" uid="uid://das83dtyhs3pn" path="res://scenes/Lani/e_label.tscn" id="4_drydf"]
+[ext_resource type="Script" uid="uid://btuub6ge8fyvd" path="res://scenes/Lani/TutorialStuff/CollisionNote.cs" id="5_uqtm7"]
+[ext_resource type="Script" uid="uid://b03uae6p184xr" path="res://scenes/Lani/TutorialStuff/CheckpointNote.cs" id="6_72fly"]
+[ext_resource type="Script" uid="uid://c6eykhvq1f431" path="res://scenes/Lani/TutorialStuff/SprintNote.cs" id="7_xlhf3"]
+[ext_resource type="PackedScene" uid="uid://d4is46mdktd3" path="res://scenes/Lani/energy_label.tscn" id="8_vqkqv"]
+[ext_resource type="Script" uid="uid://de7e5rg7j1be4" path="res://scenes/Lani/EnergyTimer.cs" id="9_kvmro"]
+[ext_resource type="Script" uid="uid://b83gi634rq76t" path="res://scenes/Lani/TutorialStuff/AreaEnergy.cs" id="10_r0il6"]
+[ext_resource type="Script" uid="uid://gbltsngsxs80" path="res://scenes/Lani/TutorialStuff/AreaRemoveEnergy.cs" id="12_66ia6"]
+[ext_resource type="Script" uid="uid://dc15ynenivh2d" path="res://scenes/Lani/TutorialStuff/AreaValuable.cs" id="13_612vr"]
+[ext_resource type="Script" uid="uid://cve3wix2vl1yw" path="res://scenes/Lani/TutorialStuff/AreaEnd.cs" id="15_evj4i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ueuuf"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+energy_multiplier = 0.4
+
+[sub_resource type="Sky" id="Sky_m3e6o"]
+sky_material = SubResource("ProceduralSkyMaterial_ueuuf")
+
+[sub_resource type="Environment" id="Environment_drydf"]
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_m3e6o")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqtm7"]
+size = Vector3(0.2, 1, 2.057129)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_evj4i"]
+size = Vector3(0.2, 1, 2.6657104)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kvmro"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xlhf3"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dqo1"]
+size = Vector3(2, 2, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kbcj1"]
+size = Vector3(3, 2, 3)
+
+[node name="Tutorial" type="Node3D" unique_id=1815153980]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1301976118]
+environment = SubResource("Environment_drydf")
+
+[node name="Player" parent="." unique_id=1963969163 instance=ExtResource("1_ueuuf")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 0.79877484, 0, -0.22843194)
+_sprintEnergyConsumption = 0.2
+
+[node name="SpotLight3D" parent="Player/Camera3D" parent_id_path=PackedInt32Array(1963969163, 1835365883) index="0" unique_id=366307131]
+visible = false
+
+[node name="TutorialDesign" parent="." unique_id=143953795 instance=ExtResource("2_m3e6o")]
+
+[node name="wall20" parent="TutorialDesign/Walls" parent_id_path=PackedInt32Array(143953795, 1792398085) index="20" unique_id=1148781219 instance=ExtResource("3_kbcj1")]
+transform = Transform3D(-4.3711385e-08, 0, -9.412456, 0, 0.99999994, 0, 0.99999994, 0, -4.1143147e-07, 3.2864184, 0, 5.24848)
+
+[node name="wall21" parent="TutorialDesign/Walls" parent_id_path=PackedInt32Array(143953795, 1792398085) index="21" unique_id=62165319 instance=ExtResource("3_kbcj1")]
+transform = Transform3D(-0.9999998, 0, 3.9677187e-07, 0, 0.9999999, 0, -8.7422755e-08, 0, -4.5385413, 3.2864184, 0, 5.24848)
+
+[node name="ReportButton" parent="TutorialDesign/Interactibles" parent_id_path=PackedInt32Array(143953795, 883113566) index="0" unique_id=552731684 node_paths=PackedStringArray("playerInteractor")]
+playerInteractor = NodePath("../../../Player/Interactor")
+
+[node name="animal-horse2" parent="TutorialDesign/Valuables" parent_id_path=PackedInt32Array(143953795, 53111684) index="0" unique_id=1738535118 groups=["valuables"]]
+script = ExtResource("3_7dqo1")
+
+[node name="Notes" type="Node3D" parent="." unique_id=2127333406]
+
+[node name="SecurityNote" parent="Notes" unique_id=1100640809 node_paths=PackedStringArray("doorCollision", "doorAnimations") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.8964478, 0.46009648, 0.4030401)
+script = ExtResource("4_84v0n")
+doorCollision = NodePath("../../TutorialDesign/Collisions/CollisionShapeDoor")
+doorAnimations = NodePath("../../TutorialDesign/Doors/securityDoor/AnimationPlayer")
+
+[node name="Label" parent="Notes/SecurityNote/Text" parent_id_path=PackedInt32Array(1100640809, 1120716171) index="1" unique_id=915741923]
+text = "Welcome to your new security job!
+
+Sadly our security system has broken
+down last week. This means you'll be
+responsible for the safety of the 
+museum.
+
+To make sure nothing gets stolen
+you'll have to go around the museum
+and check for any signs of a break-in.
+
+I put together this practice course
+to make you familiar with the job.
+
+Good luck!"
+
+[node name="ClosedDoorNote" parent="Notes" unique_id=73472107 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.866356, 0.5697595, 2.8954825)
+script = ExtResource("5_uqtm7")
+collision = NodePath("../../FlowCollisions/ClosedDoorCollision")
+
+[node name="NoteObject" parent="Notes/ClosedDoorNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/ClosedDoorNote/Text" parent_id_path=PackedInt32Array(73472107, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "Throughout the museum there will
+be doors, vents and windows.
+It is very important they all stay 
+closed!
+
+On the left of this note you can see 
+an example of a closed door."
+
+[node name="CheckpointNote" parent="Notes" unique_id=833927950 node_paths=PackedStringArray("doorCheckpoint", "windowCheckpoint", "ventCheckpoint", "collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.3502526, 0.607883, 2.8928614)
+script = ExtResource("6_72fly")
+doorCheckpoint = NodePath("../../TutorialDesign/Checkpoints/doorCheckpoint/Checkpoint")
+windowCheckpoint = NodePath("../../TutorialDesign/Checkpoints/window_checkpoint/Checkpoint")
+ventCheckpoint = NodePath("../../TutorialDesign/Checkpoints/vent_checkpoint/Checkpoint")
+collision = NodePath("../../FlowCollisions/CheckpointCollision")
+
+[node name="NoteObject" parent="Notes/CheckpointNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009706497, 0, 0)
+
+[node name="Label" parent="Notes/CheckpointNote/Text" parent_id_path=PackedInt32Array(833927950, 1120716171) index="1" unique_id=915741923]
+text = "On your left you can see an open
+door, window and vent. Each has 
+their own number. 
+
+During the night, if you see one of 
+these open, go to the big red report
+button and select the corresponding
+checkpoint.
+
+Make sure you remember
+which number they have so you can
+report the right one!
+
+Go try it out for the checkpoints you
+see here!"
+
+[node name="CoffeeNote" parent="Notes" unique_id=316735367 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.893092, 0.5697595, 1.9880285)
+script = ExtResource("5_uqtm7")
+collision = NodePath("../../FlowCollisions/CoffeeCollision")
+
+[node name="NoteObject" parent="Notes/CoffeeNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/CoffeeNote/Text" parent_id_path=PackedInt32Array(316735367, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "Because you are working the night 
+shift it's normal you start to feel
+more tired over time.
+
+To counter that we provide you with
+free coffee!
+
+Try refilling your energy with
+this first coffee cup."
+
+[node name="CoffeeSprintNote" parent="Notes" unique_id=1084872523 node_paths=PackedStringArray("noGoBackCollision", "collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.893092, 0.5697595, 6.8168583)
+script = ExtResource("7_xlhf3")
+noGoBackCollision = NodePath("../../FlowCollisions/CoffeeNoGoBackCollision")
+collision = NodePath("../../FlowCollisions/CoffeeSprintCollision")
+
+[node name="NoteObject" parent="Notes/CoffeeSprintNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/CoffeeSprintNote/Text" parent_id_path=PackedInt32Array(1084872523, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "If you ever feel like you need to 
+hurry to get somewhere faster,
+you can try holding SHIFT to run.
+
+Be careful! Sprinting takes more
+energy."
+
+[node name="CoffeeTiredNote2" parent="Notes" unique_id=1034563825 node_paths=PackedStringArray("noGoBackCollision", "collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.090622, 0.5697595, 15.146072)
+script = ExtResource("7_xlhf3")
+noGoBackCollision = NodePath("../../FlowCollisions/CoffeeNoGoBackCollision2")
+collision = NodePath("../../FlowCollisions/CoffeeTiredCollision")
+
+[node name="NoteObject" parent="Notes/CoffeeTiredNote2" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/CoffeeTiredNote2/Text" parent_id_path=PackedInt32Array(1034563825, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "If you ever run out of energy
+you might notice walking becomes
+a bit slower..
+
+This next hallway will show exactly
+what happens when you lose all 
+energy.
+
+So make sure to drink enough
+coffee!!"
+
+[node name="ValuableNote" parent="Notes" unique_id=1715699127 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.788769, 0.5697595, 14.349953)
+script = ExtResource("5_uqtm7")
+collision = NodePath("../../FlowCollisions/ValuableCollision")
+
+[node name="NoteObject" parent="Notes/ValuableNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/ValuableNote/Text" parent_id_path=PackedInt32Array(1715699127, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "Throughout the museum you'll see
+different valuables with spotlights
+on them.
+It's very important that they don't
+get stolen.
+
+At the end of your shift you'll see
+how many valuables are still 
+remaining. If you lose all of them,
+your shift ends.
+
+So keep paying attention!"
+
+[node name="GoodLuckNote" parent="Notes" unique_id=200076190 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24.788769, 0.5697595, 11.349953)
+script = ExtResource("5_uqtm7")
+collision = NodePath("../../FlowCollisions/GoodLuckCollision")
+
+[node name="NoteObject" parent="Notes/GoodLuckNote" index="0" unique_id=884968079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
+
+[node name="Label" parent="Notes/GoodLuckNote/Text" parent_id_path=PackedInt32Array(200076190, 1120716171) index="1" unique_id=915741923]
+anchor_left = 0.5
+anchor_top = -4.3750005
+anchor_right = 0.5
+anchor_bottom = -4.375
+offset_left = -137.0
+offset_top = 1.5258789e-05
+offset_right = 137.0
+offset_bottom = 354.0
+text = "Now you are fully prepared to 
+protect the museum!
+
+Your shift starts Monday at 0:00
+and ends at 7:00.
+
+Good luck!"
+
+[node name="ELabel" parent="." unique_id=367867780 instance=ExtResource("4_drydf")]
+
+[node name="FlowCollisions" type="StaticBody3D" parent="." unique_id=1069676762]
+
+[node name="ClosedDoorCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=1266015403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0414271, 0.46599162, 1.9943707)
+shape = SubResource("BoxShape3D_uqtm7")
+
+[node name="CheckpointCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=1341234498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5914955, 0.46599162, 1.9943707)
+shape = SubResource("BoxShape3D_uqtm7")
+
+[node name="CoffeeCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=1368084353]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.916332, 0.46599162, 3.055467)
+shape = SubResource("BoxShape3D_uqtm7")
+
+[node name="CoffeeSprintCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=2145094882]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.916332, 0.46599162, 8.193783)
+shape = SubResource("BoxShape3D_uqtm7")
+
+[node name="CoffeeTiredCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=1201474324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.213875, 0.46599162, 14.380462)
+shape = SubResource("BoxShape3D_uqtm7")
+
+[node name="CoffeeNoGoBackCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=1479887355]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.916332, 0.46599162, 4.9527497)
+shape = SubResource("BoxShape3D_uqtm7")
+disabled = true
+
+[node name="CoffeeNoGoBackCollision2" type="CollisionShape3D" parent="FlowCollisions" unique_id=355869365]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.916332, 0.46599162, 12.278954)
+shape = SubResource("BoxShape3D_uqtm7")
+disabled = true
+
+[node name="ValuableCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=1151968605]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.81669, 0.46599162, 13.247744)
+shape = SubResource("BoxShape3D_uqtm7")
+
+[node name="GoodLuckCollision" type="CollisionShape3D" parent="FlowCollisions" unique_id=152711571]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.620548, 0.46599162, 9.891117)
+shape = SubResource("BoxShape3D_evj4i")
+
+[node name="EnergyLabel" parent="." unique_id=1614733266 instance=ExtResource("8_vqkqv")]
+
+[node name="EnergyBar" parent="EnergyLabel" index="0" unique_id=599959606]
+max_value = 1.0
+step = 0.01
+
+[node name="EnergyTimer" type="Timer" parent="." unique_id=2056117697]
+wait_time = 5.0
+script = ExtResource("9_kvmro")
+
+[node name="Areas" type="Node3D" parent="." unique_id=2058169209]
+
+[node name="AreaStartEnergyTimer" type="Area3D" parent="Areas" unique_id=181627357 node_paths=PackedStringArray("_player")]
+script = ExtResource("10_r0il6")
+_player = NodePath("../../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/AreaStartEnergyTimer" unique_id=940476283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 2)
+shape = SubResource("BoxShape3D_kvmro")
+
+[node name="AreaRemoveEnergy" type="Area3D" parent="Areas" unique_id=1531560925 node_paths=PackedStringArray("_player")]
+script = ExtResource("12_66ia6")
+_player = NodePath("../../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/AreaRemoveEnergy" unique_id=1159932795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.04537, 0, 14.20165)
+shape = SubResource("BoxShape3D_xlhf3")
+
+[node name="AreaValuable" type="Area3D" parent="Areas" unique_id=628600914 node_paths=PackedStringArray("_player", "valuable", "valuableLight")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 11.657017)
+script = ExtResource("13_612vr")
+_player = NodePath("../../Player")
+valuable = NodePath("../../TutorialDesign/Valuables/animal-horse2")
+valuableLight = NodePath("../../TutorialDesign/Lights/ValuableLight")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/AreaValuable" unique_id=909794469]
+shape = SubResource("BoxShape3D_7dqo1")
+
+[node name="AreaEnd" type="Area3D" parent="Areas" unique_id=1384853225 node_paths=PackedStringArray("_player", "label", "endTimer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 8)
+script = ExtResource("15_evj4i")
+_player = NodePath("../../Player")
+label = NodePath("../../Label3D")
+endTimer = NodePath("../../EndTimer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/AreaEnd" unique_id=1637892939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5142689, 0, 0.33089256)
+shape = SubResource("BoxShape3D_kbcj1")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=772096645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.551987, 0.5896287, 6.2539654)
+modulate = Color(1, 0, 0, 1)
+text = "23:59"
+font_size = 149
+horizontal_alignment = 2
+
+[node name="EndTimer" type="Timer" parent="." unique_id=1739641708]
+wait_time = 3.0
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1202079783]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.406535, 0.56865275, 4.1005516)
+text = "Tim Dams is the goat"
+font_size = 17
+
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/SecurityNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ClosedDoorNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CheckpointNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeSprintNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/CoffeeTiredNote2" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ValuableNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/GoodLuckNote" method="OnLookedAtInteractableChanged"]
+[connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="ELabel" method="ChangeState"]
+[connection signal="EnergyChanged" from="Player/Stats" to="EnergyLabel/EnergyBar" method="ChangeValue"]
+[connection signal="Drink" from="TutorialDesign/Interactibles/Coffee" to="Player/Stats" method="ChangeEnergy"]
+[connection signal="Drink" from="TutorialDesign/Interactibles/Coffee2" to="Player/Stats" method="ChangeEnergy"]
+[connection signal="Drink" from="TutorialDesign/Interactibles/Coffee3" to="Player/Stats" method="ChangeEnergy"]
+[connection signal="LoseEnergy" from="EnergyTimer" to="Player/Stats" method="ChangeEnergy"]
+[connection signal="StartTimer" from="Areas/AreaStartEnergyTimer" to="EnergyTimer" method="StartTimer"]
+[connection signal="body_entered" from="Areas/AreaStartEnergyTimer" to="Areas/AreaStartEnergyTimer" method="playerEntered"]
+[connection signal="RemoveEnergy" from="Areas/AreaRemoveEnergy" to="Player/Stats" method="SetEnergy"]
+[connection signal="StopTimer" from="Areas/AreaRemoveEnergy" to="EnergyTimer" method="StopTimer"]
+[connection signal="body_entered" from="Areas/AreaRemoveEnergy" to="Areas/AreaRemoveEnergy" method="playerEntered"]
+[connection signal="body_entered" from="Areas/AreaValuable" to="Areas/AreaValuable" method="playerEntered"]
+[connection signal="body_entered" from="Areas/AreaEnd" to="Areas/AreaEnd" method="playerEntered"]
+
+[editable path="Player"]
+[editable path="TutorialDesign"]
+[editable path="TutorialDesign/Doors/securityDoor"]
+[editable path="TutorialDesign/Checkpoints/doorCheckpoint"]
+[editable path="TutorialDesign/Checkpoints/doorCheckpoint/door-sliding-double2"]
+[editable path="TutorialDesign/Checkpoints/window_checkpoint"]
+[editable path="TutorialDesign/Checkpoints/window_checkpoint/SlideWindow"]
+[editable path="TutorialDesign/Checkpoints/vent_checkpoint"]
+[editable path="TutorialDesign/Checkpoints/vent_checkpoint/Vent"]
+[editable path="Notes/SecurityNote"]
+[editable path="Notes/ClosedDoorNote"]
+[editable path="Notes/CheckpointNote"]
+[editable path="Notes/CoffeeNote"]
+[editable path="Notes/CoffeeSprintNote"]
+[editable path="Notes/CoffeeTiredNote2"]
+[editable path="Notes/ValuableNote"]
+[editable path="Notes/GoodLuckNote"]
+[editable path="EnergyLabel"]

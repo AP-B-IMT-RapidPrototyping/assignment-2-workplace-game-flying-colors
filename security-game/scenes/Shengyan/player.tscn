@@ -1,16 +1,45 @@
 [gd_scene format=3 uid="uid://cyxeuukm1fkcx"]
 
 [ext_resource type="Script" uid="uid://sh2x3xm7vicu" path="res://scenes/Shengyan/PlayerController.cs" id="1_dinqr"]
+[ext_resource type="Script" uid="uid://c52yf0bujn0ni" path="res://scenes/Shengyan/PlayerInteractor.cs" id="2_706yr"]
+[ext_resource type="Script" uid="uid://pwaee28jorgr" path="res://scenes/Shengyan/PlayerStats.cs" id="3_2u7ev"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uxdda"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1963969163 node_paths=PackedStringArray("_camera")]
+[node name="Player" type="CharacterBody3D" unique_id=1963969163 node_paths=PackedStringArray("_camera", "_stats", "_footstepPlayer")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 script = ExtResource("1_dinqr")
 _camera = NodePath("Camera3D")
+_stats = NodePath("Stats")
+_footstepPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=489573448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_uxdda")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1835365883]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4502822, -0.5550982)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 1.4502822, -0.3875432)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=366307131]
+light_color = Color(0.98039216, 1, 0.69411767, 1)
+light_energy = 0.5
+light_indirect_energy = 0.5
+light_volumetric_fog_energy = 0.4
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 5.0
+distance_fade_shadow = 0.2
+spot_range = 15.0
+spot_attenuation = 0.5
+spot_angle = 11.736078
+
+[node name="Interactor" type="Node3D" parent="." unique_id=941758311 node_paths=PackedStringArray("_camera", "_player")]
+script = ExtResource("2_706yr")
+_camera = NodePath("../Camera3D")
+_player = NodePath("..")
+
+[node name="Stats" type="Node" parent="." unique_id=1229230640]
+script = ExtResource("3_2u7ev")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=436187561]
+volume_db = -40.0
