@@ -123,7 +123,7 @@ public partial class CheckpointInterface : Node
 
 	public void SetRandomWaitTime()
 	{
-		anomalyTimer.WaitTime = GD.RandRange(10, 60);
+		anomalyTimer.WaitTime = GD.RandRange(20, 60);
 	}
 
 	private void addAnomaly()
