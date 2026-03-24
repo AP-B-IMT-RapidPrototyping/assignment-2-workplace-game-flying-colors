@@ -71,6 +71,9 @@ transform = Transform3D(-4.3711385e-08, 0, -9.412456, 0, 0.99999994, 0, 0.999999
 [node name="wall21" parent="TutorialDesign/Walls" parent_id_path=PackedInt32Array(143953795, 1792398085) index="21" unique_id=62165319 instance=ExtResource("3_kbcj1")]
 transform = Transform3D(-0.9999998, 0, 3.9677187e-07, 0, 0.9999999, 0, -8.7422755e-08, 0, -4.5385413, 3.2864184, 0, 5.24848)
 
+[node name="ReportButton" parent="TutorialDesign/Interactibles" parent_id_path=PackedInt32Array(143953795, 883113566) index="0" unique_id=552731684 node_paths=PackedStringArray("playerInteractor")]
+playerInteractor = NodePath("../../../Player/Interactor")
+
 [node name="animal-horse2" parent="TutorialDesign/Valuables" parent_id_path=PackedInt32Array(143953795, 53111684) index="0" unique_id=1738535118 groups=["valuables"]]
 script = ExtResource("3_7dqo1")
 

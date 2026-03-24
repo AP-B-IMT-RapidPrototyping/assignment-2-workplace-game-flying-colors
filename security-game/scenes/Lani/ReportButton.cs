@@ -21,6 +21,7 @@ public partial class ReportButton : Node3D, IInteractible
 	[Export] private Label noResponseLabel;
 	[Export] private Timer labelTimer;
 	[Export] private Timer bufferTimer;
+	[Export] private PlayerInteractor playerInteractor;
 
 	// --- Penalty for mass false reporting ---
 	// After x amount of consecutive false report, 
@@ -59,6 +60,23 @@ public partial class ReportButton : Node3D, IInteractible
 		else
 		{
 			disableTimer.Timeout += Enable;
+		}
+
+		if (playerInteractor == null)
+		{
+			GD.PushWarning("ReportButton: playerInteractor is not assigned. LookedAtInteractableChanged will not be received.");
+		}
+		else
+		{
+			playerInteractor.LookedAtInteractableChanged += OnLookedAtInteractableChanged;
+		}
+	}
+
+	public override void _ExitTree()
+	{
+		if (playerInteractor != null)
+		{
+			playerInteractor.LookedAtInteractableChanged -= OnLookedAtInteractableChanged;
 		}
 	}
 
@@ -185,7 +203,13 @@ public partial class ReportButton : Node3D, IInteractible
 
 	public void OnLookedAtInteractableChanged(Node3D CurrentLookedAtInteractable, bool IsLookingAtInteractable)
 	{
-		if (!IsLookingAtInteractable)
+		if (!reportMenu._isOpen)
+		{
+			return;
+		}
+
+		bool lookingAtThisButton = IsLookingAtInteractable && CurrentLookedAtInteractable == this;
+		if (!lookingAtThisButton)
 		{
 			reportMenu.CloseMenu();
 
