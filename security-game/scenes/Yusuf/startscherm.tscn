@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ddo6xb266rswb" path="res://scenes/Lani/vent_checkpoint.tscn" id="8_sm6w4"]
 [ext_resource type="Script" uid="uid://ct0isjmnmbsuw" path="res://scenes/Lani/TitelCheckpoint.cs" id="9_a244c"]
 [ext_resource type="PackedScene" uid="uid://ca1ixjl1vca6e" path="res://assets/kenney/prototype/GLB format/figurine.glb" id="10_xmriq"]
+[ext_resource type="Script" uid="uid://bcbhi62tolbdn" path="res://scenes/Lani/EndScreen.cs" id="11_v8d7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n3eb5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -186,10 +187,17 @@ _data = {
 &"rotate": SubResource("Animation_xmriq")
 }
 
-[node name="titleScreen" type="Node3D" unique_id=821141609 node_paths=PackedStringArray("alarmAnimation", "TitelAnimation")]
+[sub_resource type="LabelSettings" id="LabelSettings_dfk3x"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0ofo"]
+font_size = 18
+
+[node name="titleScreen" type="Node3D" unique_id=821141609 node_paths=PackedStringArray("alarmAnimation", "TitelAnimation", "endScreen")]
 script = ExtResource("1_dqqon")
 alarmAnimation = NodePath("Light/SpotLight3D4/AnimationPlayer")
 TitelAnimation = NodePath("Light/SpotLight3D/AnimationPlayer")
+endScreen = NodePath("EndScreen")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=827844802]
 environment = SubResource("Environment_206dx")
@@ -282,7 +290,7 @@ offset_top = 207.0
 offset_right = 1060.0
 offset_bottom = 301.0
 theme_override_font_sizes/font_size = 34
-text = "Kies of u eerst een tutorial wilt afleggen of direct spelen "
+text = "Do you want to play the tutorial or the game?"
 
 [node name="Background" type="Node3D" parent="." unique_id=825924450]
 
@@ -380,7 +388,7 @@ shadow_caster_mask = 4294967293
 spot_angle = 45.39
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Light" unique_id=577096995]
-transform = Transform3D(0.9947117, 0.08240055, 0.061307613, 0.059727676, -0.94971013, 0.3073813, 0.083552845, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
+transform = Transform3D(0.99471164, 0.08240055, 0.061307613, 0.059727672, -0.94971013, 0.3073813, 0.083552845, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
 light_color = Color(0.5450788, 0.15080866, 0.14261675, 1)
 light_energy = 5.064
 light_indirect_energy = 3.73
@@ -405,6 +413,90 @@ spot_angle = 45.39
 [node name="figurine2" parent="." unique_id=1671835472 instance=ExtResource("10_xmriq")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 1, 0, 0.5, 0, -2.1855694e-08, -1.4991882, -0.277108, -2.93267)
 
+[node name="EndScreen" type="Control" parent="." unique_id=1733049416 node_paths=PackedStringArray("breakInLabel", "timeLabel", "itemLabel")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_v8d7o")
+breakInLabel = NodePath("VBoxContainer/BreakInLabel")
+timeLabel = NodePath("VBoxContainer/TimeLabel")
+itemLabel = NodePath("VBoxContainer/ItemLabel")
+
+[node name="ColorRect" type="ColorRect" parent="EndScreen" unique_id=613301961]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25275356, 0.25275356, 0.25275356, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen" unique_id=884266082]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShiftLabel" type="Label" parent="EndScreen/VBoxContainer" unique_id=96289737]
+layout_mode = 2
+text = "Shift concluded"
+label_settings = SubResource("LabelSettings_dfk3x")
+
+[node name="StatLabel" type="Label" parent="EndScreen/VBoxContainer" unique_id=584648669]
+layout_mode = 2
+text = "Stats:"
+label_settings = SubResource("LabelSettings_dfk3x")
+
+[node name="EmptyLabel" type="Label" parent="EndScreen/VBoxContainer" unique_id=1657766941]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_y0ofo")
+
+[node name="BreakInLabel" type="Label" parent="EndScreen/VBoxContainer" unique_id=1110948902]
+layout_mode = 2
+text = "Break-ins stopped: "
+label_settings = SubResource("LabelSettings_y0ofo")
+
+[node name="TimeLabel" type="Label" parent="EndScreen/VBoxContainer" unique_id=1134940061]
+layout_mode = 2
+text = "Time survived: "
+label_settings = SubResource("LabelSettings_y0ofo")
+
+[node name="ItemLabel" type="Label" parent="EndScreen/VBoxContainer" unique_id=1571072833]
+layout_mode = 2
+text = "Remaining items: "
+label_settings = SubResource("LabelSettings_y0ofo")
+
+[node name="EmptyLabel2" type="Label" parent="EndScreen/VBoxContainer" unique_id=620399950]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_y0ofo")
+
+[node name="Button" type="Button" parent="EndScreen/VBoxContainer" unique_id=1768460782]
+layout_mode = 2
+text = "close"
+
 [connection signal="input_event" from="menuItems/PLAY/Area3D" to="menuItems" method="StartButton"]
 [connection signal="mouse_entered" from="menuItems/PLAY/Area3D" to="menuItems" method="playHighlight"]
 [connection signal="mouse_exited" from="menuItems/PLAY/Area3D" to="menuItems" method="playUnHighlight"]
@@ -414,6 +506,7 @@ transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 1, 0, 0.5, 0, -2.1855694e-08
 [connection signal="pressed" from="Control/GAME" to="menuItems" method="Game"]
 [connection signal="pressed" from="Control/TUTORIAL" to="menuItems" method="Tutorial"]
 [connection signal="pressed" from="Control/BACK" to="menuItems" method="Back"]
+[connection signal="pressed" from="EndScreen/VBoxContainer/Button" to="EndScreen" method="CloseScreen"]
 
 [editable path="Background/window_checkpoint"]
 [editable path="Background/window_checkpoint/SlideWindow"]

@@ -4,12 +4,15 @@ using System.Linq;
 
 public partial class CheckpointInterface : Node
 {
+	[Signal]
+	public delegate void UpdateStatsEventHandler();
 	private Godot.Collections.Array<Godot.Node> _checkpoints;
 	private Godot.Collections.Array<Godot.Node> _valuables;
 	private Godot.Collections.Array<Godot.Node> _valuableLights;
 	[Export] private Timer updateTimer;
 	[Export] private Timer stealTimer;
 	[Export] private Timer anomalyTimer;
+	[Export] private Timer bufferTimer;
 	[Export] private Label gameOverLabel;
 	private bool stealTimerOn = false;
 	private int stolenItemCounter = 1;
@@ -30,6 +33,8 @@ public partial class CheckpointInterface : Node
 		SetRandomWaitTime();
 		anomalyTimer.Start();
 		anomalyTimer.Timeout += addAnomaly;
+
+		bufferTimer.Timeout += LoadTitleScreen;
 	}
 
 	public void Update()
@@ -81,7 +86,8 @@ public partial class CheckpointInterface : Node
 		}
 		if (stolenItemCounter > _valuables.Count())
 		{
-			gameOverLabel.Visible = true;
+			GameOver();
+			return;
 		}
 		else
 		{
@@ -103,6 +109,12 @@ public partial class CheckpointInterface : Node
 		}
 	}
 
+	private void stopStealTimer()
+	{
+		stealTimer.Stop();
+		return;
+	}
+
 	/* 
 		-------------------------
 		Creating anomalies system
@@ -111,7 +123,7 @@ public partial class CheckpointInterface : Node
 
 	public void SetRandomWaitTime()
 	{
-		anomalyTimer.WaitTime = GD.RandRange(10, 120);
+		anomalyTimer.WaitTime = GD.RandRange(10, 60);
 	}
 
 	private void addAnomaly()
@@ -140,6 +152,35 @@ public partial class CheckpointInterface : Node
 	private void anomalyWasFixed()
 	{
 		anomalyCounter--;
+	}
+
+	private void SetRemaingingItems()
+	{
+		int teller = 0;
+		foreach (Valuable valuable in _valuables)
+		{
+			if (valuable.Visible)
+			{
+				teller++;
+			}
+		}
+		GameStats.remainingItems = teller;
+	}
+
+	private void GameOver()
+	{
+		gameOverLabel.Visible = true;
+		EmitSignal(SignalName.UpdateStats);
+		SetRemaingingItems();
+		GameStats.gameJustPLayed = true;
+		bufferTimer.Start();
+		stopStealTimer();
+	}
+
+	private void LoadTitleScreen()
+	{
+		GD.Print("Loading title screen");
+		GetTree().ChangeSceneToFile("res://Scenes/Yusuf/startscherm.tscn");
 	}
 
 }

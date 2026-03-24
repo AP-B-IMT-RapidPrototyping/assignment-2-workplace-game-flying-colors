@@ -3,6 +3,10 @@ using System;
 
 public partial class LevelTime : Node3D
 {
+	[Signal]
+	public delegate void UpdateStatsEventHandler();
+	[Signal]
+	public delegate void StopTimersEventHandler();
 	[Export] private Timer endTimer;
 	[Export] private Timer bufferTimer;
 	[Export] private Label3D clock;
@@ -35,7 +39,9 @@ public partial class LevelTime : Node3D
 
 	private void EndRound()
 	{
+		EmitSignal(SignalName.StopTimers);
 		clock.Text = "07:00";
+		GameStats.timeSurvived = clock.Text;
 		spotlights.Visible = true;
 		endLabel.Visible = true;
 		bufferTimer.Start();
@@ -43,6 +49,13 @@ public partial class LevelTime : Node3D
 
 	private void LoadTitleScreen()
 	{
+		EmitSignal(SignalName.UpdateStats);
+		GameStats.gameJustPLayed = true;
 		GetTree().ChangeSceneToFile("res://Scenes/Yusuf/startscherm.tscn");
+	}
+
+	private void setTimeSurvived()
+	{
+		GameStats.timeSurvived = clock.Text;
 	}
 }

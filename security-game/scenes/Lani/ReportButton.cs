@@ -36,6 +36,7 @@ public partial class ReportButton : Node3D, IInteractible
 	private int consecutiveFalseCount = 0;
 	private bool firstStrikeReached = false;
 	private bool isEnabled = true;
+	private int fixedCounter = 0;
 
 	public override void _Ready()
 	{
@@ -102,6 +103,7 @@ public partial class ReportButton : Node3D, IInteractible
 					consecutiveFalseCount = 0;
 					currentCheckpoint.FixAnomaly();
 					GD.Print($"Checkpoint ID:{id} is fixed.");
+					fixedCounter++;
 					ShowLabel(anomalyFixedLabel);
 					EmitSignal(SignalName.AnomalyFixed);
 					return;
@@ -188,5 +190,10 @@ public partial class ReportButton : Node3D, IInteractible
 			reportMenu.CloseMenu();
 
 		}
+	}
+
+	private void setFixedCounter()
+	{
+		GameStats.breakInsStopped = fixedCounter;
 	}
 }
