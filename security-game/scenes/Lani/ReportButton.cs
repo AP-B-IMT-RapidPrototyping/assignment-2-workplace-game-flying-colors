@@ -34,6 +34,7 @@ public partial class ReportButton : Node3D, IInteractible
 	// Amount of consecutive false report before disabled.
 	[Export] private int tolerance = 3;
 	[Export] private Timer disableTimer;
+	[Export] private Timer disableTimerLonger;
 	private int consecutiveFalseCount = 0;
 	private bool firstStrikeReached = false;
 	private bool isEnabled = true;
@@ -60,6 +61,14 @@ public partial class ReportButton : Node3D, IInteractible
 		else
 		{
 			disableTimer.Timeout += Enable;
+		}
+		if (disableTimerLonger == null)
+		{
+			GD.PushWarning("ReportButton: disableTimerLonger is not assigned.");
+		}
+		else
+		{
+			disableTimerLonger.Timeout += Enable;
 		}
 
 		if (playerInteractor == null)
@@ -135,7 +144,7 @@ public partial class ReportButton : Node3D, IInteractible
 					}
 					else if (firstStrikeReached)
 					{
-						GD.Print("ReportButton: Second strike, permanently disabled");
+						GD.Print("ReportButton: Second+ strike, disabled with longer timer");
 						ShowLabel(secondStrikeLabel);
 						Disable(false);
 
@@ -170,7 +179,7 @@ public partial class ReportButton : Node3D, IInteractible
 		noResponseLabel.Visible = false;
 
 	}
-	private void Disable(bool withTimer = false)
+	private void Disable(bool firstStrike = false)
 	{
 		isEnabled = false;
 
@@ -178,9 +187,13 @@ public partial class ReportButton : Node3D, IInteractible
 
 		reportMenu.CloseMenu();
 
-		if (withTimer)
+		if (firstStrike)
 		{
 			disableTimer.Start();
+		}
+		else
+		{
+			disableTimerLonger.Start();
 		}
 	}
 
