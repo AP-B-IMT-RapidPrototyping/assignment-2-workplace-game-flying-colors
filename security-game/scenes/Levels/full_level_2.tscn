@@ -157,7 +157,6 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 12.0
 
 [node name="Coffee" parent="Interactibles" unique_id=1239199630 instance=ExtResource("8_yumuv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.282463, 0.18412083, -2.5253546)
-drinkSound = null
 
 [node name="Extra assets" type="Node3D" parent="." unique_id=865003340]
 
@@ -454,4 +453,5 @@ script = ExtResource("19_t0iin")
 [editable path="Checkpoints/window_checkpoint/SlideWindow"]
 [editable path="Checkpoints/window_checkpoint2"]
 [editable path="Checkpoints/window_checkpoint2/SlideWindow"]
+[editable path="Interactibles/Coffee"]
 [editable path="EnergyLabel"]
