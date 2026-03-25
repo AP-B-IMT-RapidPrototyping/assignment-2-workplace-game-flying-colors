@@ -43,7 +43,7 @@ emission_energy_multiplier = 1.48
 
 [sub_resource type="TextMesh" id="TextMesh_2t6du"]
 material = SubResource("StandardMaterial3D_v8d7o")
-text = "quit"
+text = "Quit"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfk3x"]
 resource_local_to_scene = true
@@ -527,7 +527,7 @@ shadow_caster_mask = 4294967293
 spot_angle = 45.39
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Light" unique_id=577096995]
-transform = Transform3D(0.9947115, 0.08240055, 0.061307613, 0.059727665, -0.94971013, 0.3073813, 0.08355283, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
+transform = Transform3D(0.99471146, 0.08240055, 0.061307613, 0.05972766, -0.94971013, 0.3073813, 0.08355283, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
 light_color = Color(0.5450788, 0.15080866, 0.14261675, 1)
 light_energy = 5.064
 light_indirect_energy = 3.73
