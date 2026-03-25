@@ -44,3 +44,4 @@ one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1994522032]
 stream = ExtResource("3_a7x4x")
+volume_db = 22.722
