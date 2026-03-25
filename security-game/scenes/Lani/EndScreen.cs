@@ -10,7 +10,7 @@ public partial class EndScreen : Control
     {
 		breakInLabel.Text = $"Break-ins fixed: {GameStats.breakInsStopped}";
 		timeLabel.Text = $"Time survived: {GameStats.timeSurvived}";
-		itemLabel.Text = $"Remaining items: {GameStats.remainingItems}";
+		itemLabel.Text = $"Remaining items: {GameStats.remainingItems}/15";
     }
 
 	private void CloseScreen()
