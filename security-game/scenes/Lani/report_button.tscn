@@ -10,7 +10,7 @@ size = Vector3(0.3, 0.1, 0.3)
 [sub_resource type="LabelSettings" id="LabelSettings_qtjyi"]
 font_size = 25
 
-[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "anomalyFixedLabel", "anomalyNotFoundLabel", "warningLabel", "firstStrikeLabel", "secondStrikeLabel", "noResponseLabel", "labelTimer", "bufferTimer", "light", "disableTimer") groups=["interactable"]]
+[node name="ReportButton" type="Node3D" unique_id=552731684 node_paths=PackedStringArray("reportMenu", "anomalyFixedLabel", "anomalyNotFoundLabel", "warningLabel", "firstStrikeLabel", "secondStrikeLabel", "noResponseLabel", "labelTimer", "bufferTimer", "light", "disableTimer", "disableTimerLonger") groups=["interactable"]]
 script = ExtResource("1_qtjyi")
 reportMenu = NodePath("ReportMenu")
 anomalyFixedLabel = NodePath("AnomalyFixed")
@@ -23,6 +23,7 @@ labelTimer = NodePath("LabelResetTimer")
 bufferTimer = NodePath("BufferTimer")
 light = NodePath("OmniLight3D")
 disableTimer = NodePath("DisableTimer")
+disableTimerLonger = NodePath("DisableTimerLonger")
 
 [node name="button-floor-round-small2" parent="." unique_id=674540464 instance=ExtResource("1_pgb3t")]
 
@@ -118,7 +119,7 @@ offset_right = 160.0
 offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "That's it I'm quitting, good luck."
+text = "Look, go out there and check the spot, simple right?"
 label_settings = SubResource("LabelSettings_qtjyi")
 
 [node name="NoResponse" type="Label" parent="." unique_id=913418546]
@@ -141,4 +142,8 @@ reportButton = NodePath("..")
 bufferTimer = NodePath("../BufferTimer")
 
 [node name="BufferTimer" type="Timer" parent="." unique_id=4120046]
+one_shot = true
+
+[node name="DisableTimerLonger" type="Timer" parent="." unique_id=415496581]
+wait_time = 7.0
 one_shot = true

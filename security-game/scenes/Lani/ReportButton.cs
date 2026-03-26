@@ -27,7 +27,7 @@ public partial class ReportButton : Node3D, IInteractible
 	// After x amount of consecutive false report, 
 	// all reports will be ignored for y amount of time.
 	// After the reenabling, if it receives another false report 
-	// the button is permanently disabled.
+	// all reports will be ignored again for z amount of time.
 
 	// Light on when enabled, off when disabled.
 	[Export] private OmniLight3D light;
