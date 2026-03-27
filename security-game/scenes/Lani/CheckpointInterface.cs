@@ -19,6 +19,8 @@ public partial class CheckpointInterface : Node
 	private bool doorsPretending = false;
 	private int anomalyCounter = 0;
 	private int maxAnomalies = 3;
+	private bool signAlertActive = false;
+	private bool signAlertInitialized = false;
 
 	public override void _Ready()
 	{
@@ -35,6 +37,7 @@ public partial class CheckpointInterface : Node
 		anomalyTimer.Timeout += addAnomaly;
 
 		bufferTimer.Timeout += LoadTitleScreen;
+		CallDeferred(nameof(BroadcastSignAlertState));
 	}
 
 	public void Update()
@@ -58,6 +61,7 @@ public partial class CheckpointInterface : Node
 			}
 		}
 		updateTimer.Start();
+		BroadcastSignAlertState();
 	}
 
 	/* 
@@ -146,12 +150,27 @@ public partial class CheckpointInterface : Node
 				ranIndex++;
 			}
 			GD.Print("Amount of active anomalies:" + anomalyCounter);
+			BroadcastSignAlertState();
 		}
 	}
 
 	private void anomalyWasFixed()
 	{
 		anomalyCounter--;
+		BroadcastSignAlertState();
+	}
+
+	private void BroadcastSignAlertState()
+	{
+		bool shouldShowAlert = anomalyCounter >= 2;
+		if (signAlertInitialized && shouldShowAlert == signAlertActive)
+		{
+			return;
+		}
+
+		signAlertInitialized = true;
+		signAlertActive = shouldShowAlert;
+		GetTree().CallGroup("sign_managers", "SetAlertState", signAlertActive);
 	}
 
 	private void SetRemaingingItems()

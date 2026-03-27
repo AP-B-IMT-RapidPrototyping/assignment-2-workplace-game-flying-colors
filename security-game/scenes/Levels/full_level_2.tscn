@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://das83dtyhs3pn" path="res://scenes/Lani/e_label.tscn" id="17_we4tw"]
 [ext_resource type="Script" uid="uid://de7e5rg7j1be4" path="res://scenes/Lani/EnergyTimer.cs" id="19_t0iin"]
 [ext_resource type="Script" uid="uid://did5my2cwj0ip" path="res://scenes/Lani/LevelTime.cs" id="20_ycfvk"]
+[ext_resource type="PackedScene" uid="uid://cctajo6rbii1p" path="res://scenes/Shengyan/SignManager.tscn" id="21_48iua"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dkq8y"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -429,6 +430,9 @@ step = 0.01
 wait_time = 5.0
 autostart = true
 script = ExtResource("19_t0iin")
+
+[node name="SignManager" parent="." unique_id=550190189 instance=ExtResource("21_48iua")]
+transform = Transform3D(0.175, 0, 0, 0, -7.649493e-09, -0.175, 0, 0.175, -7.649493e-09, 11.127993, 0.550674, -4.269363)
 
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="ELabel" method="ChangeState"]
 [connection signal="EnergyChanged" from="Player/Stats" to="EnergyLabel/EnergyBar" method="ChangeValue"]

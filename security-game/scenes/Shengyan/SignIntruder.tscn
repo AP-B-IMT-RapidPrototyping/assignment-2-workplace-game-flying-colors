@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://0y4sp7meypgj"]
+
+[ext_resource type="PackedScene" uid="uid://c0ug6gdiib7h5" path="res://assets/kenney/prototype/GLB format/shape-cube-half.glb" id="1_5laxe"]
+[ext_resource type="Material" uid="uid://cwgruwr4r7x5r" path="res://scenes/Shengyan/RedLightMat.tres" id="2_nau21"]
+
+[node name="Intruder" unique_id=1702360813 instance=ExtResource("1_5laxe")]
+
+[node name="shape-cube-half" parent="." index="0" unique_id=1199359700]
+transform = Transform3D(2.2893748, 0, 0, 0, 0.29669964, 0, 0, 0, 0.31241113, 0, 0, 0)
+material_override = ExtResource("2_nau21")
+
+[node name="Label3D" type="Label3D" parent="." index="1" unique_id=123898557]
+transform = Transform3D(1.5184196, 0, 0, 0, -6.5618416e-08, 1.5, 0, -1.5011744, -6.556708e-08, 0, 0.15580428, 0)
+outline_modulate = Color(0, 0, 0, 0)
+shaded = true
+text = "INTRUDER ALERT"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1357510720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38743567, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.5
+shadow_enabled = true
+omni_range = 1.2226872

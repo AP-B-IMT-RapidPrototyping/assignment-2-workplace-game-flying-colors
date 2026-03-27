@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cctajo6rbii1p"]
+
+[ext_resource type="PackedScene" uid="uid://0y4sp7meypgj" path="res://scenes/Shengyan/SignIntruder.tscn" id="1_r8uvy"]
+[ext_resource type="PackedScene" uid="uid://bxv01oh5qto8h" path="res://scenes/Shengyan/SignRedSpy.tscn" id="2_er3ru"]
+[ext_resource type="PackedScene" uid="uid://d3wil80avcb2y" path="res://scenes/Shengyan/SignStolen.tscn" id="3_kw2k8"]
+[ext_resource type="PackedScene" uid="uid://eek642iac42r" path="res://scenes/Shengyan/SignValuables.tscn" id="4_p2t62"]
+[ext_resource type="PackedScene" uid="uid://bg3o36yftbct8" path="res://scenes/Shengyan/SignBeing.tscn" id="5_825f2"]
+[ext_resource type="PackedScene" uid="uid://67r0j4x8pgtj" path="res://scenes/Shengyan/SignCoffee.tscn" id="6_cayt1"]
+[ext_resource type="PackedScene" uid="uid://b661cajfu1nc3" path="res://scenes/Shengyan/SignInBase.tscn" id="7_6lko5"]
+[ext_resource type="PackedScene" uid="uid://crb6fnlten7f" path="res://scenes/Shengyan/SignIsFired.tscn" id="8_2xq6y"]
+[ext_resource type="PackedScene" uid="uid://jrvsj40pyl4a" path="res://scenes/Shengyan/SignSleeping.tscn" id="9_rav8g"]
+[ext_resource type="PackedScene" uid="uid://dt4ho0r81nukr" path="res://scenes/Shengyan/SignExploded.tscn" id="10_8ppk4"]
+[ext_resource type="Script" uid="uid://jq0lnq6x3rsi" path="res://scenes/Shengyan/SignManager.cs" id="11_t26pi"]
+
+[node name="SignManager" type="Node3D" unique_id=550190189]
+script = ExtResource("11_t26pi")
+
+[node name="_TitleIntruder" parent="." unique_id=1702360813 instance=ExtResource("1_r8uvy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="RedSpy" parent="." unique_id=1395529919 instance=ExtResource("2_er3ru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Stolen" parent="." unique_id=1002877672 instance=ExtResource("3_kw2k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="Valuables" parent="." unique_id=1879871266 instance=ExtResource("4_p2t62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+
+[node name="Being" parent="." unique_id=1709464315 instance=ExtResource("5_825f2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Coffee" parent="." unique_id=246047508 instance=ExtResource("6_cayt1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
+
+[node name="InBase" parent="." unique_id=1580789417 instance=ExtResource("7_6lko5")]
+
+[node name="IsFired" parent="." unique_id=1297673980 instance=ExtResource("8_2xq6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Sleeping" parent="." unique_id=514102345 instance=ExtResource("9_rav8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="Exploded" parent="." unique_id=1298858028 instance=ExtResource("10_8ppk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
