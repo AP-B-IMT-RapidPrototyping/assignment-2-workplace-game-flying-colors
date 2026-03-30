@@ -275,9 +275,31 @@ spot_angle = 26.43
 
 [node name="SpotLight3D8" type="SpotLight3D" parent="Lights" unique_id=132297473]
 transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, 1, 0, -1, -5.9604645e-08, 16.990849, 1.753102, 14.362113)
+visible = false
 shadow_enabled = true
 spot_range = 7.679
 spot_angle = 26.43
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="Lights/SpotLight3D8" unique_id=1631111664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+spot_range = 7.679
+spot_angle = 20.0
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="Lights/SpotLight3D8" unique_id=594680818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+spot_range = 7.679
+spot_angle = 20.0
+
+[node name="SpotLight3D11" type="SpotLight3D" parent="Lights/SpotLight3D8" unique_id=1235523557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+spot_range = 7.679
+spot_angle = 20.0
 
 [node name="ValuableLight" type="SpotLight3D" parent="Lights" unique_id=1913469453 groups=["valuableLight"]]
 transform = Transform3D(1, 0, 0, 0, 0.8031607, 0.5957624, 0, -0.5957624, 0.8031607, 21.01986, 1.9305227, 13.008128)
@@ -286,27 +308,6 @@ shadow_enabled = true
 spot_angle = 20.0
 script = ExtResource("18_fo666")
 ID = 5
-
-[node name="SpotLight3D9" type="SpotLight3D" parent="Lights" unique_id=1631111664]
-transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, 1, 0, -1, -5.9604645e-08, 14.990849, 1.753102, 14.362113)
-light_energy = 0.5
-shadow_enabled = true
-spot_range = 7.679
-spot_angle = 20.0
-
-[node name="SpotLight3D10" type="SpotLight3D" parent="Lights" unique_id=594680818]
-transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, 1, 0, -1, -5.9604645e-08, 12.990849, 1.753102, 14.362113)
-light_energy = 0.5
-shadow_enabled = true
-spot_range = 7.679
-spot_angle = 20.0
-
-[node name="SpotLight3D11" type="SpotLight3D" parent="Lights" unique_id=1235523557]
-transform = Transform3D(1, 0, 0, 0, -5.9604645e-08, 1, 0, -1, -5.9604645e-08, 10.990849, 1.753102, 14.362113)
-light_energy = 0.5
-shadow_enabled = true
-spot_range = 7.679
-spot_angle = 20.0
 
 [node name="Extra" type="Node3D" parent="." unique_id=516284688]
 

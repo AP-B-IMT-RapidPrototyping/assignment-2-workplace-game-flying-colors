@@ -25,6 +25,6 @@ public partial class AreaEnd : Area3D
 
 	private void endTutorial()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/Yusuf/startscherm.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Levels/full_level_2.tscn");
 	}
 }

@@ -77,6 +77,12 @@ playerInteractor = NodePath("../../../Player/Interactor")
 [node name="animal-horse2" parent="TutorialDesign/Valuables" parent_id_path=PackedInt32Array(143953795, 53111684) index="0" unique_id=1738535118 groups=["valuables"]]
 script = ExtResource("3_7dqo1")
 
+[node name="SpotLight3D6" parent="TutorialDesign/Lights" parent_id_path=PackedInt32Array(143953795, 2066153006) index="5" unique_id=514305145]
+visible = false
+
+[node name="SpotLight3D7" parent="TutorialDesign/Lights" parent_id_path=PackedInt32Array(143953795, 2066153006) index="6" unique_id=236034223]
+visible = false
+
 [node name="Notes" type="Node3D" parent="." unique_id=2127333406]
 
 [node name="SecurityNote" parent="Notes" unique_id=1100640809 node_paths=PackedStringArray("doorCollision", "doorAnimations") instance=ExtResource("3_m3e6o")]
@@ -102,10 +108,11 @@ to make you familiar with the job.
 
 Good luck!"
 
-[node name="ClosedDoorNote" parent="Notes" unique_id=73472107 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+[node name="ClosedDoorNote" parent="Notes" unique_id=73472107 node_paths=PackedStringArray("collision", "spot") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.866356, 0.5697595, 2.8954825)
 script = ExtResource("5_uqtm7")
 collision = NodePath("../../FlowCollisions/ClosedDoorCollision")
+spot = NodePath("../../TutorialDesign/Lights/SpotLight3D2")
 
 [node name="NoteObject" parent="Notes/ClosedDoorNote" index="0" unique_id=884968079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
@@ -155,10 +162,11 @@ report the right one!
 Go try it out for the checkpoints you
 see here!"
 
-[node name="CoffeeNote" parent="Notes" unique_id=316735367 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+[node name="CoffeeNote" parent="Notes" unique_id=316735367 node_paths=PackedStringArray("collision", "spot") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.893092, 0.5697595, 1.9880285)
 script = ExtResource("5_uqtm7")
 collision = NodePath("../../FlowCollisions/CoffeeCollision")
+spot = NodePath("../../TutorialDesign/Lights/SpotLight3D6")
 
 [node name="NoteObject" parent="Notes/CoffeeNote" index="0" unique_id=884968079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
@@ -182,11 +190,12 @@ free coffee!
 Try refilling your energy with
 this first coffee cup."
 
-[node name="CoffeeSprintNote" parent="Notes" unique_id=1084872523 node_paths=PackedStringArray("noGoBackCollision", "collision") instance=ExtResource("3_m3e6o")]
+[node name="CoffeeSprintNote" parent="Notes" unique_id=1084872523 node_paths=PackedStringArray("noGoBackCollision", "collision", "spot") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.893092, 0.5697595, 6.8168583)
 script = ExtResource("7_xlhf3")
 noGoBackCollision = NodePath("../../FlowCollisions/CoffeeNoGoBackCollision")
 collision = NodePath("../../FlowCollisions/CoffeeSprintCollision")
+spot = NodePath("../../TutorialDesign/Lights/SpotLight3D7")
 
 [node name="NoteObject" parent="Notes/CoffeeSprintNote" index="0" unique_id=884968079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
@@ -207,11 +216,12 @@ you can try holding SHIFT to run.
 Be careful! Sprinting takes more
 energy."
 
-[node name="CoffeeTiredNote2" parent="Notes" unique_id=1034563825 node_paths=PackedStringArray("noGoBackCollision", "collision") instance=ExtResource("3_m3e6o")]
+[node name="CoffeeTiredNote2" parent="Notes" unique_id=1034563825 node_paths=PackedStringArray("noGoBackCollision", "collision", "spot") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.090622, 0.5697595, 15.146072)
 script = ExtResource("7_xlhf3")
 noGoBackCollision = NodePath("../../FlowCollisions/CoffeeNoGoBackCollision2")
 collision = NodePath("../../FlowCollisions/CoffeeTiredCollision")
+spot = NodePath("../../TutorialDesign/Lights/SpotLight3D8")
 
 [node name="NoteObject" parent="Notes/CoffeeTiredNote2" index="0" unique_id=884968079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
@@ -236,10 +246,11 @@ energy.
 So make sure to drink enough
 coffee!!"
 
-[node name="ValuableNote" parent="Notes" unique_id=1715699127 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+[node name="ValuableNote" parent="Notes" unique_id=1715699127 node_paths=PackedStringArray("collision", "spot") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.788769, 0.5697595, 14.349953)
 script = ExtResource("5_uqtm7")
 collision = NodePath("../../FlowCollisions/ValuableCollision")
+spot = NodePath("../../TutorialDesign/Lights/ValuableLight")
 
 [node name="NoteObject" parent="Notes/ValuableNote" index="0" unique_id=884968079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
@@ -266,10 +277,11 @@ your shift ends.
 
 So keep paying attention!"
 
-[node name="GoodLuckNote" parent="Notes" unique_id=200076190 node_paths=PackedStringArray("collision") instance=ExtResource("3_m3e6o")]
+[node name="GoodLuckNote" parent="Notes" unique_id=200076190 node_paths=PackedStringArray("collision", "spot") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 24.788769, 0.5697595, 11.349953)
 script = ExtResource("5_uqtm7")
 collision = NodePath("../../FlowCollisions/GoodLuckCollision")
+spot = NodePath("../../TutorialDesign/Lights/ValuableLight")
 
 [node name="NoteObject" parent="Notes/GoodLuckNote" index="0" unique_id=884968079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010113716, 0, 0)
@@ -290,6 +302,11 @@ Your shift starts Monday at 0:00
 and ends at 7:00.
 
 Good luck!"
+
+[node name="Label3D2" type="Label3D" parent="Notes/GoodLuckNote" unique_id=1202079783]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 21.382233, -0.001106739, 7.2494025)
+text = "Tim Dams is the best"
+font_size = 17
 
 [node name="ELabel" parent="." unique_id=367867780 instance=ExtResource("4_drydf")]
 
@@ -391,11 +408,6 @@ horizontal_alignment = 2
 
 [node name="EndTimer" type="Timer" parent="." unique_id=1739641708]
 wait_time = 3.0
-
-[node name="Label3D2" type="Label3D" parent="." unique_id=1202079783]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.406535, 0.56865275, 4.1005516)
-text = "Tim Dams is the goat"
-font_size = 17
 
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/SecurityNote" method="OnLookedAtInteractableChanged"]
 [connection signal="LookedAtInteractableChanged" from="Player/Interactor" to="Notes/ClosedDoorNote" method="OnLookedAtInteractableChanged"]

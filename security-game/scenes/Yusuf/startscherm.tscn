@@ -45,35 +45,6 @@ emission_energy_multiplier = 1.48
 material = SubResource("StandardMaterial3D_v8d7o")
 text = "Quit"
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfk3x"]
-resource_local_to_scene = true
-emission = Color(0.3470683, 0.3470683, 0.3470683, 1)
-emission_energy_multiplier = 1.48
-
-[sub_resource type="TextMesh" id="TextMesh_v8d7o"]
-material = SubResource("StandardMaterial3D_dfk3x")
-text = "Game"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0ofo"]
-emission = Color(0.34901962, 0.34901962, 0.34901962, 1)
-emission_energy_multiplier = 1.48
-
-[sub_resource type="TextMesh" id="TextMesh_dfk3x"]
-material = SubResource("StandardMaterial3D_y0ofo")
-text = "Tutorial"
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y0ofo"]
-size = Vector3(0.5909443, 0.19104004, 0.20458984)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdnw5"]
-resource_local_to_scene = true
-emission = Color(0.3470683, 0.3470683, 0.3470683, 1)
-emission_energy_multiplier = 1.48
-
-[sub_resource type="TextMesh" id="TextMesh_bdnw5"]
-material = SubResource("StandardMaterial3D_bdnw5")
-text = "Back"
-
 [sub_resource type="Animation" id="Animation_f6mji"]
 resource_name = "KIESSCHERM"
 tracks/0/type = "value"
@@ -139,18 +110,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("OptionItems:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_y0ofo"]
 resource_name = "chooseScreen"
@@ -166,18 +125,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("OptionItems:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.100000024),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kgqil"]
@@ -294,9 +241,9 @@ script = ExtResource("1_n3eb5")
 _animationPlayer = NodePath("AnimationPlayer")
 playMesh = NodePath("StartItems/PLAY")
 quitMesh = NodePath("StartItems/QUIT")
-gameMesh = NodePath("OptionItems/Game")
-tutorialMesh = NodePath("OptionItems/Tutorial")
-backMesh = NodePath("OptionItems/Back")
+gameMesh = NodePath("")
+tutorialMesh = NodePath("")
+backMesh = NodePath("")
 
 [node name="StartItems" type="Node3D" parent="menuItems" unique_id=1931773287]
 
@@ -320,42 +267,6 @@ mesh = SubResource("TextMesh_2t6du")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="menuItems/StartItems/QUIT/Area3D" unique_id=4623635]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021339417, 0.007507324, -0.0148925185)
-shape = SubResource("BoxShape3D_206dx")
-
-[node name="OptionItems" type="Node3D" parent="menuItems" unique_id=165770006]
-visible = false
-
-[node name="Game" type="MeshInstance3D" parent="menuItems/OptionItems" unique_id=1862788210]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7465129, 0.08605629, 0.45322418, -0.35853267)
-layers = 2
-mesh = SubResource("TextMesh_v8d7o")
-
-[node name="Area3D" type="Area3D" parent="menuItems/OptionItems/Game" unique_id=1932216154]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="menuItems/OptionItems/Game/Area3D" unique_id=2125592250]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012599945, 0.007507324, -0.014892548)
-shape = SubResource("BoxShape3D_206dx")
-
-[node name="Tutorial" type="MeshInstance3D" parent="menuItems/OptionItems" unique_id=6054853]
-transform = Transform3D(1.0483774, 0, 0, 0, 1, 0, 0, 0, 0.937771, 0.070495605, 0.114637166, -0.3433379)
-layers = 2
-mesh = SubResource("TextMesh_dfk3x")
-
-[node name="Area3D" type="Area3D" parent="menuItems/OptionItems/Tutorial" unique_id=418069893]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="menuItems/OptionItems/Tutorial/Area3D" unique_id=1037939318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999926, 0.005776398, 0.007507324, -0.0148925185)
-shape = SubResource("BoxShape3D_y0ofo")
-
-[node name="Back" type="MeshInstance3D" parent="menuItems/OptionItems" unique_id=1788676305]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7465129, 0.08812153, -0.19742545, -0.35853267)
-layers = 2
-mesh = SubResource("TextMesh_bdnw5")
-
-[node name="Area3D" type="Area3D" parent="menuItems/OptionItems/Back" unique_id=1456705162]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="menuItems/OptionItems/Back/Area3D" unique_id=88732460]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012599945, 0.007507324, -0.014892548)
 shape = SubResource("BoxShape3D_206dx")
 
 [node name="Camera3D" type="Camera3D" parent="menuItems" unique_id=5346211]
@@ -527,7 +438,7 @@ shadow_caster_mask = 4294967293
 spot_angle = 45.39
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Light" unique_id=577096995]
-transform = Transform3D(0.99471146, 0.08240055, 0.061307613, 0.05972766, -0.94971013, 0.3073813, 0.08355283, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
+transform = Transform3D(0.9947114, 0.08240055, 0.061307613, 0.059727658, -0.94971013, 0.3073813, 0.08355282, -0.302094, -0.94960946, 0.15213478, 0.63049644, -4.639397)
 light_color = Color(0.5450788, 0.15080866, 0.14261675, 1)
 light_energy = 5.064
 light_indirect_energy = 3.73
@@ -643,15 +554,6 @@ text = "close"
 [connection signal="input_event" from="menuItems/StartItems/QUIT/Area3D" to="menuItems" method="QuitButton"]
 [connection signal="mouse_entered" from="menuItems/StartItems/QUIT/Area3D" to="menuItems" method="quitHighlight"]
 [connection signal="mouse_exited" from="menuItems/StartItems/QUIT/Area3D" to="menuItems" method="quitUnHighlight"]
-[connection signal="input_event" from="menuItems/OptionItems/Game/Area3D" to="menuItems" method="GameButton"]
-[connection signal="mouse_entered" from="menuItems/OptionItems/Game/Area3D" to="menuItems" method="GameHighlight"]
-[connection signal="mouse_exited" from="menuItems/OptionItems/Game/Area3D" to="menuItems" method="GameUnHighlight"]
-[connection signal="input_event" from="menuItems/OptionItems/Tutorial/Area3D" to="menuItems" method="TutorialButton"]
-[connection signal="mouse_entered" from="menuItems/OptionItems/Tutorial/Area3D" to="menuItems" method="TutorialHighlight"]
-[connection signal="mouse_exited" from="menuItems/OptionItems/Tutorial/Area3D" to="menuItems" method="TutorialUnHighlight"]
-[connection signal="input_event" from="menuItems/OptionItems/Back/Area3D" to="menuItems" method="BackButton"]
-[connection signal="mouse_entered" from="menuItems/OptionItems/Back/Area3D" to="menuItems" method="BackHighlight"]
-[connection signal="mouse_exited" from="menuItems/OptionItems/Back/Area3D" to="menuItems" method="BackUnHighlight"]
 [connection signal="pressed" from="Control/VBoxContainer/GAME" to="menuItems" method="Game"]
 [connection signal="pressed" from="Control/VBoxContainer/TUTORIAL" to="menuItems" method="Tutorial"]
 [connection signal="pressed" from="Control/VBoxContainer/BACK" to="menuItems" method="Back"]

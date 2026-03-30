@@ -4,6 +4,7 @@ using System;
 public partial class CollisionNote : Note
 {
 	[Export] private CollisionShape3D collision;
+	[Export] private SpotLight3D spot;
 
 	private bool open = false;
 
@@ -14,6 +15,7 @@ public partial class CollisionNote : Note
 		{
 			collision.Disabled = true;
 			open = true;
+			spot.Visible = true;
 		}
 	}
 }
