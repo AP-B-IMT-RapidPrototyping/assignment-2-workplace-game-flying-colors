@@ -10,6 +10,9 @@ public partial class Checkpoint : Node3D
 	[Export] public int ID = 1;
 	[Export] private AnimationPlayer animations;
 	[Export] private AudioStreamPlayer3D audioPlayer;
+	[Export(PropertyHint.Range, "100,20000,50")] private float soundMaxDistance = 5000f;
+	[Export(PropertyHint.Range, "0.5,100,0.5")] private float soundUnitSize = 30f;
+	[Export(PropertyHint.Range, "-12,12,0.1")] private float soundMaxDb = 0f;
 
 	[Export] private string openAnimation;
 	[Export] private string closeAnimation;
@@ -23,6 +26,13 @@ public partial class Checkpoint : Node3D
 	{
 		if (audioPlayer == null)
 			audioPlayer = GetNodeOrNull<AudioStreamPlayer3D>("AudioStreamPlayer3D");
+
+		if (audioPlayer != null)
+		{
+			audioPlayer.MaxDistance = soundMaxDistance;
+			audioPlayer.UnitSize = soundUnitSize;
+			audioPlayer.MaxDb = soundMaxDb;
+		}
 
 		animations.Play(closeAnimation);
 		//tempTimer.Timeout += fixAnomaly;
