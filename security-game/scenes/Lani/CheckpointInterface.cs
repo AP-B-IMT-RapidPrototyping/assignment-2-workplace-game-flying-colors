@@ -61,7 +61,6 @@ public partial class CheckpointInterface : Node
 			}
 		}
 		updateTimer.Start();
-		BroadcastSignAlertState();
 	}
 
 	/* 
@@ -99,6 +98,7 @@ public partial class CheckpointInterface : Node
 		}
 		GD.Print("Item stolen");
 		stealTimer.Start();
+		BroadcastSignAlertState(true);
 	}
 
 	private void ResetItems()
@@ -150,27 +150,22 @@ public partial class CheckpointInterface : Node
 				ranIndex++;
 			}
 			GD.Print("Amount of active anomalies:" + anomalyCounter);
-			BroadcastSignAlertState();
+			//BroadcastSignAlertState();
 		}
 	}
 
 	private void anomalyWasFixed()
 	{
 		anomalyCounter--;
-		BroadcastSignAlertState();
+		if (anomalyCounter < 2)
+		{
+			BroadcastSignAlertState(false);
+		}
 	}
 
-	private void BroadcastSignAlertState()
+	private void BroadcastSignAlertState(bool state)
 	{
-		bool shouldShowAlert = anomalyCounter >= 2;
-		if (signAlertInitialized && shouldShowAlert == signAlertActive)
-		{
-			return;
-		}
-
-		signAlertInitialized = true;
-		signAlertActive = shouldShowAlert;
-		GetTree().CallGroup("sign_managers", "SetAlertState", signAlertActive);
+		GetTree().CallGroup("sign_managers", "SetAlertState", state);
 	}
 
 	private void SetRemaingingItems()
