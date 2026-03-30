@@ -134,13 +134,14 @@ closed!
 On the left of this note you can see 
 an example of a closed door."
 
-[node name="CheckpointNote" parent="Notes" unique_id=833927950 node_paths=PackedStringArray("doorCheckpoint", "windowCheckpoint", "ventCheckpoint", "collision") instance=ExtResource("3_m3e6o")]
+[node name="CheckpointNote" parent="Notes" unique_id=833927950 node_paths=PackedStringArray("doorCheckpoint", "windowCheckpoint", "ventCheckpoint", "collision", "spot") instance=ExtResource("3_m3e6o")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.3502526, 0.607883, 2.8928614)
 script = ExtResource("6_72fly")
 doorCheckpoint = NodePath("../../TutorialDesign/Checkpoints/doorCheckpoint/Checkpoint")
 windowCheckpoint = NodePath("../../TutorialDesign/Checkpoints/window_checkpoint/Checkpoint")
 ventCheckpoint = NodePath("../../TutorialDesign/Checkpoints/vent_checkpoint/Checkpoint")
 collision = NodePath("../../FlowCollisions/CheckpointCollision")
+spot = NodePath("../../TutorialDesign/Lights/SpotLight3D")
 
 [node name="NoteObject" parent="Notes/CheckpointNote" index="0" unique_id=884968079]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009706497, 0, 0)
