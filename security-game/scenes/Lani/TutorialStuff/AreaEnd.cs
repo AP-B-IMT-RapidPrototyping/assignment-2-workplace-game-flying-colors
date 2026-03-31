@@ -7,12 +7,12 @@ public partial class AreaEnd : Area3D
 	[Export] private Label3D label;
 	[Export] private Timer endTimer;
 
-    public override void _Ready()
-    {
-        endTimer.Timeout += endTutorial;
-    }
+	public override void _Ready()
+	{
+		endTimer.Timeout += endTutorial;
+	}
 
-	
+
 	private void playerEntered(Node3D node)
 	{
 		if (node == _player)
@@ -25,6 +25,6 @@ public partial class AreaEnd : Area3D
 
 	private void endTutorial()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/Levels/full_level_2.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/Levels/full_level_2.tscn");
 	}
 }

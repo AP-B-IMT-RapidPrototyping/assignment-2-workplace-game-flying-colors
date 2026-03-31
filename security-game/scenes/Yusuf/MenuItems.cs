@@ -1,4 +1,4 @@
- 
+
 using Godot;
 using System;
 
@@ -8,7 +8,7 @@ public partial class MenuItems : Node3D
 
 	[Export] private MeshInstance3D playMesh;
 	[Export] private MeshInstance3D quitMesh;
-	
+
 
 	private StandardMaterial3D mat;
 
@@ -69,7 +69,7 @@ public partial class MenuItems : Node3D
 
 	private void Game()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/Levels/tutorial.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/Levels/tutorial.tscn");
 	}
 
 }

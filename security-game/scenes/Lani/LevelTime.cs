@@ -25,16 +25,16 @@ public partial class LevelTime : Node3D
 		endLabel.Visible = false;
 	}
 
-    public override void _Process(double delta)
-    {
+	public override void _Process(double delta)
+	{
 		totalSeconds = 420 - endTimer.TimeLeft;
-        totalSeconds = Math.Clamp(totalSeconds, 0, 420);
+		totalSeconds = Math.Clamp(totalSeconds, 0, 420);
 
-    	minutes = Convert.ToInt32(Math.Floor(totalSeconds / 60));
-    	seconds = Convert.ToInt32(Math.Floor(totalSeconds % 60));
+		minutes = Convert.ToInt32(Math.Floor(totalSeconds / 60));
+		seconds = Convert.ToInt32(Math.Floor(totalSeconds % 60));
 
-    	clock.Text =  $"{minutes:D2}:{seconds:D2}";
-    }
+		clock.Text = $"{minutes:D2}:{seconds:D2}";
+	}
 
 
 	private void EndRound()
@@ -51,7 +51,7 @@ public partial class LevelTime : Node3D
 	{
 		EmitSignal(SignalName.UpdateStats);
 		GameStats.gameJustPLayed = true;
-		GetTree().ChangeSceneToFile("res://Scenes/Yusuf/startscherm.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/Yusuf/startscherm.tscn");
 	}
 
 	private void setTimeSurvived()

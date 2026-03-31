@@ -153,8 +153,9 @@ label_settings = SubResource("LabelSettings_a6syh")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=39077267]
 
-[node name="ReportButton" parent="Interactibles" unique_id=552731684 instance=ExtResource("7_twjjy")]
+[node name="ReportButton" parent="Interactibles" unique_id=552731684 node_paths=PackedStringArray("playerInteractor") instance=ExtResource("7_twjjy")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 12.003264, 0.5573231, -2.5651908)
+playerInteractor = NodePath("../../Player/Interactor")
 
 [node name="Coffee" parent="Interactibles" unique_id=1239199630 instance=ExtResource("8_yumuv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.282463, 0.18412083, -2.5253546)

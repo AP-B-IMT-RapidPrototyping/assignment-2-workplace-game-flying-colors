@@ -194,7 +194,7 @@ public partial class CheckpointInterface : Node
 	private void LoadTitleScreen()
 	{
 		GD.Print("Loading title screen");
-		GetTree().ChangeSceneToFile("res://Scenes/Yusuf/startscherm.tscn");
+		GetTree().ChangeSceneToFile("res://scenes/Yusuf/startscherm.tscn");
 	}
 
 }
