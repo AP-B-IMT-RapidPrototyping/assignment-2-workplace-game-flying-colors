@@ -19,8 +19,7 @@ public partial class PlayerController : CharacterBody3D
 	private float _footstepSprintCooldown = 0.267f; // 0.4 / 1.5 for 1.5x faster
 	private float _footstepTimer = 0f;
 
-	// Jump disabled
-	//public const float JumpVelocity = 4.5f;
+	// TODO: Implement jump and double-jump.
 
 	public PlayerStats Stats => _stats;
 	public float Energy => _stats?.Energy ?? 0f;
@@ -42,6 +41,11 @@ public partial class PlayerController : CharacterBody3D
 			{
 				GD.PushWarning("PlayerController: Stats is not assigned.");
 			}
+		}
+		// Note: missing footstep audio will only log a warning; no fallback implemented here.
+		if (_footstepPlayer == null)
+		{
+			GD.PushWarning("PlayerController: Footstep audio player not assigned. Footstep audio will be silent.");
 		}
 	}
 
@@ -157,25 +161,36 @@ public partial class PlayerController : CharacterBody3D
 		}
 	}
 
+
 	private void PlayRandomFootstep()
 	{
 		if (_footstepPlayer == null)
 		{
+			// Intentionally only warn: no fallback audio implementation.
+			GD.PushWarning("PlayerController: Cannot play footstep - audio player missing.");
 			return;
 		}
 
-		int randomIndex = (int)(GD.Randi() % 10); // Random number 0-9
-		string footstepPath = $"res://scenes/Shengyan/footstep{randomIndex:00}.ogg";
+		try
+		{
+			int randomIndex = (int)(GD.Randi() % 10); // Random number 0-9
+			string footstepPath = $"res://scenes/Shengyan/footstep{randomIndex:00}.ogg";
 
-		var audioStream = GD.Load<AudioStream>(footstepPath);
-		if (audioStream != null)
-		{
-			_footstepPlayer.Stream = audioStream;
-			_footstepPlayer.Play();
+			var audioStream = GD.Load<AudioStream>(footstepPath);
+			if (audioStream != null)
+			{
+				_footstepPlayer.Stream = audioStream;
+				_footstepPlayer.Play();
+			}
+			else
+			{
+				GD.PushWarning($"PlayerController: Failed to load footstep sound at {footstepPath}");
+			}
 		}
-		else
+		catch (Exception ex)
 		{
-			GD.PushWarning($"PlayerController: Failed to load footstep sound at {footstepPath}");
+			// Broad catch for safety during audio load/play operations.
+			GD.PushWarning($"PlayerController: Exception while playing footstep: {ex.Message}");
 		}
 	}
 

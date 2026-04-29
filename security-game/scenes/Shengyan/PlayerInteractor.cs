@@ -119,6 +119,10 @@ public partial class PlayerInteractor : Node3D
 		}
 	}
 
+	/// <summary>
+	/// Attempts a physics raycast from the centre of the camera viewport.
+	/// TODO: review and align error handling style with other systems.
+	/// </summary>
 	private bool TryRaycastFromCamera(out Node3D hitNode, out Vector3 hitPosition)
 	{
 		hitNode = null;
@@ -126,10 +130,18 @@ public partial class PlayerInteractor : Node3D
 
 		if (_camera == null)
 		{
+			GD.PushWarning("PlayerInteractor: Camera missing - raycast aborted.");
 			return false;
 		}
 
-		Vector2 viewportCenter = GetViewport().GetVisibleRect().Size * 0.5f;
+		var viewport = GetViewport();
+		if (viewport == null)
+		{
+			GD.PushWarning("PlayerInteractor: Unable to get Viewport for raycast.");
+			return false;
+		}
+
+		Vector2 viewportCenter = viewport.GetVisibleRect().Size * 0.5f;
 		Vector3 rayOrigin = _camera.ProjectRayOrigin(viewportCenter);
 		Vector3 rayDirection = _camera.ProjectRayNormal(viewportCenter);
 
@@ -141,15 +153,23 @@ public partial class PlayerInteractor : Node3D
 
 		if (_player != null)
 		{
+			// Exclude the player from the raycast by Rid.
 			query.Exclude = new Godot.Collections.Array<Rid> { _player.GetRid() };
 		}
+		var world = GetWorld3D();
+		if (world == null)
+		{
+			GD.PushWarning("PlayerInteractor: World3D unavailable for raycast.");
+			return false;
+		}
 
-		Godot.Collections.Dictionary result = GetWorld3D().DirectSpaceState.IntersectRay(query);
-		if (result.Count == 0)
+		Godot.Collections.Dictionary result = world.DirectSpaceState.IntersectRay(query);
+		if (result == null || result.Count == 0)
 		{
 			return false;
 		}
 
+		// Extract hit information from the result.
 		hitPosition = ((Variant)result["position"]).AsVector3();
 		GodotObject colliderObject = ((Variant)result["collider"]).AsGodotObject();
 		if (colliderObject is Node3D node)
